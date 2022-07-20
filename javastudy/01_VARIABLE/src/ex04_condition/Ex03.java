@@ -10,7 +10,7 @@ public class Ex03 {
 		// 조건 ? 만족하는 경우 : 만족하지 않는 경우
 
 		int score = 100;
-		String result = (score > 60) ? "합격" : "불합격";
+		String result = (score >= 60) ? "합격" : "불합격";
 		System.out.println(result);
 		
 		// 연습.
