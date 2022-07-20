@@ -1,0 +1,25 @@
+package ex02_casting;
+
+public class ex03 {
+
+	public static void main(String[] args) {
+		
+		// 검색창에 100이라는 것을 검색을 하면 100 이아닌 "100"으로 검색이 된다.
+		// 그것을 DB로 
+		String strScore = "100"; 
+		String strMoney = "10000000000";
+		String strGrade = "4.5";
+		
+		//parsing = 분석하다.
+		int score = Integer.parseInt(strScore);
+		long money = Long.parseLong(strMoney);
+		double grade = Double.parseDouble(strGrade);
+		
+		System.out.println(score);
+		System.out.println(money);
+		System.out.println(grade);
+
+		// ctrl + art + 방향키 = 한꺼번에 똑같은 코드 방향키에 따라 복사
+	}
+
+}
