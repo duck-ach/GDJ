@@ -17,8 +17,8 @@ public class Ex02 {
 		System.out.println(b); //2
 		
 		// 후위 연산(postfix)
-		// a++
-		// 변수 a의 값을 사용하고나서 1 증가시킨다.
+		// x++
+		// 변수 x의 값을 사용하고나서 1 증가시킨다.
 		int x = 1;
 		int y = x++;
 		System.out.println(x); //2
