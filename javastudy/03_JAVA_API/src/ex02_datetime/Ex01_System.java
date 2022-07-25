@@ -10,7 +10,7 @@ public class Ex01_System {
 		// 1970-01-01 0:00부터 1/1000초마다 증가하는 long타입의 정수값 (1초에 1000개가 늘음)
 		long timestamp = System.currentTimeMillis(); // currentTime = 현재시간 Millis 1000분의 1초
 		System.out.println(timestamp);
-		// 개발자들이 업로드 제목 정할 때
+		// 개발자들이 업로드 제목 정할 때, 파일이름 정할 때 사용 (시간은 계속 늘어나므로 중복X)
 		// 경과시간 계산할 때
 		
 		
