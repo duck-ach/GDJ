@@ -1,5 +1,7 @@
 package ex01_one_dim;
 
+import java.util.Arrays;
+
 public class Ex03_array {
 	
 	public static void main(String[] args) {
@@ -32,7 +34,7 @@ public class Ex03_array {
 		// 2. 늘어난 길이의 새로운 배열을 만들고, 
 		// 	  기존 배열의 값을 모두 새로운 배열로 옮기고,
 		//    기존배열의 참조값을 새로운 배열의 참조값으로 수정한다.
-		
+				
 /*
 		
 		int[] arr2 = { 10000, 20000, 30000 };
@@ -50,12 +52,35 @@ public class Ex03_array {
 				|-------|					|-------|
 				
 		arr[]의 주소값만 0x456으로 바꿔주면 된다.		
+		0x123의 값은 '메모리누수' 상태가 된다. (내가 쓸게 하고 선언해 놓은거라서 JAVA가 가지고 있게되는데 아무도 못쓰게 된다.)
+		JAVA가 알아서 해결하는데, 개발자가 할 수 있는것은 독촉뿐이다.
+		독촉 코드 : System.gc();
 		
 		* arr = arr2	
 				
 		*/
 		
 		
+		// 길이가 5인 배열을 사용하다가
+		// 길이가 1000인 배열로 바꾸기
+		
+		int[] arr = {1,2,3,4,5};
+		
+		// 늘어난 길이의 새로운 배열을 만들고,
+		int[] temp = new int[1000];
+		
+		// 기존 배열의 값을 모두 새로운 배열로 옮기고,
+		System.arraycopy(arr, 0, temp, 0, arr.length); 
+		// System.arraycopy(원본배열, index(어디부터), 카피할배열, index(어디부터), 어디까지);
+		
+		// 기존배열의 참조값을 새로운 배열의 참조값으로 수정한다.
+		arr = temp;
+		
+		// 이제 arr 배열의 길이는 1000이다.
+		System.out.println(arr.length);
+		System.out.println(Arrays.toString(arr));
+		
+		System.out.println();
 		
 	}
 

@@ -37,6 +37,8 @@ public class Ex02_array {
 		System.out.println("최소 : " + min);
 		
 		
+		// 회원가입할때 동의란에 한꺼번에 체크하는거 구현할 때 배열로 구현이 가능하다.
+		
 
 	}
 

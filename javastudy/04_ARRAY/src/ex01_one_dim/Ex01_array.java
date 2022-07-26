@@ -29,9 +29,9 @@ public class Ex01_array {
 		// 배열 요소
 		// 1. 배열로 관리되는 각각의 변수를 뜻한다.
 		// 2. 모든 배열 요소의 호출
-		//		arr[0]
-		// 		arr[1]
-		// 		arr[2]
+//				arr[0]
+//		 		arr[1]
+//		 		arr[2]
 		// 3. 배열 요소는 자동으로 초기화된다. (어떤 값을 가진다.)
 		//		예를들어 일반 변수타입은
 		//		int a; // garbage(사용할 수 없는 쓰레기 값을 가진다.)
@@ -49,6 +49,7 @@ public class Ex01_array {
 		
 		// 배열의 for문 안에는 변수이름을 되도록이면 i를 입력. / i를 못쓰는 상황이면 j, k 사용.
 		int[] arr = new int[3];
+		
 		for(int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]); // 0, 0, 0  / 자동으로 초기화가 돼서 값을 설정하지 않아도 0이 할당되어 있다.
 		}
