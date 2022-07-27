@@ -5,8 +5,5 @@ public class School {
 	String name;
 	Student[] students = new Student[2];
 	
-	
-	
-	
-	
+
 }

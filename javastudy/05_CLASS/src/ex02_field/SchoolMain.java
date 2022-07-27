@@ -25,7 +25,6 @@ public class SchoolMain {
 			System.out.println(school.students[i].name);
 		}
 		
-		
 		// 객체는 배열이 아니니까 변수를 하나씩 처리할 수 밖에 없음
 		// NullPointerException 우리의 주적. 아무것도없는데 무언가를 호출하려고 할 때.
 		
@@ -61,7 +60,7 @@ public class SchoolMain {
 //				|  ...  |
 //				|-------|
 		
-		
+	
 	}
 
 }
