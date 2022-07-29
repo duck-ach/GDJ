@@ -37,9 +37,6 @@ public class Gun {
 		}
 		bullet--;
 	}
-	
 
-	 
-	
 	
 }
