@@ -95,8 +95,8 @@ public class Pratice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("몇 개의 랜덤을 생성할까요? >>> ");
 		int T = sc.nextInt();
-		int[] save = new int[T];
-		int random = 0;
+		boolean a = true;
+
 		
 		if(T > 100 || T < 0) {
 			System.out.println("다음에는 1~100사이로 입력하세요!");
@@ -104,9 +104,13 @@ public class Pratice {
 		} else {
 				for(int i = 0; i < T; i++) {
 					set.add((int) (Math.random() * 100) + 1);
+					
 		}
 			Integer[] arr = set.toArray(new Integer[T]);
-			// 배열에 숫자담았으니까 이제 유효성검사해보고, 
+			if(set.size() != T) {
+				
+			}
+			
 			
 			System.out.println(Arrays.toString(arr));
 				
