@@ -96,20 +96,17 @@ public class Pratice {
 		System.out.print("몇 개의 랜덤을 생성할까요? >>> ");
 		int T = sc.nextInt();
 		boolean a = true;
-
+		
 		
 		if(T > 100 || T < 0) {
 			System.out.println("다음에는 1~100사이로 입력하세요!");
 			
 		} else {
-				for(int i = 0; i < T; i++) {
+				while(a) {
 					set.add((int) (Math.random() * 100) + 1);
-					
-		}
+				}
 			Integer[] arr = set.toArray(new Integer[T]);
-			if(set.size() != T) {
 				
-			}
 			
 			
 			System.out.println(Arrays.toString(arr));
