@@ -235,7 +235,7 @@ public class Pratice {
 		
 		System.out.println("종료시간 : " + result2 + "초");
 		
-		if(Math.abs(result1 - result2) < Math.abs(result2 - result1)) {
+		if(Math.abs(result1 - 10) < Math.abs(result2 - 10)) {
 			System.out.println(user1 + "님이" + Math.abs(result1-result2) + "차이로 승리하셨습니다!!");
 		} else {
 			System.out.println(user2 + "님이" + Math.abs(result2-result1) + "차이로 승리하셨습니다!!");
@@ -255,10 +255,10 @@ public class Pratice {
 //		q1();
 //		q2();
 //		q3();
-		q4();
+//		q4();
 //		q5();
 //		q6();
-//		q7();
+		q7();
 	}
 	
 }
