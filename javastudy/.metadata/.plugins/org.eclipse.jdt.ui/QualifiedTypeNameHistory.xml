@@ -47,5 +47,7 @@
     <fullyQualifiedTypeName name="quiz01_coffee.Americano"/>
     <fullyQualifiedTypeName name="quiz02_coffee.Espresso"/>
     <fullyQualifiedTypeName name="quiz02_coffee.Americano"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
 </qualifiedTypeNameHistroy>
