@@ -20,12 +20,15 @@ public class Library {
 		}
 		System.out.println("===책등록===");
 		System.out.print("제목 입력 >>> ");
-		String title = sc.next();
+		String title = sc.nextLine();
 		System.out.print("저자 >>> ");
-		String author = sc.next();
+		String author = sc.nextLine();
 		Book book = new Book(idx + 1, title, author); //AllArgsConstructor
 		books[idx++] = book;
-		
+		System.out.println("책 등록이 완료되었습니다.");
+		System.out.println("책 번호 : " + idx);
+		System.out.println("책 제목 : " + title);
+		System.out.println("저자 : " + author);
 	}
 	
 	private void removeBook() {
@@ -34,18 +37,18 @@ public class Library {
 			return;
 		}
 		System.out.println("===책삭제===");
-		System.out.print("삭제할 책의 번호(1~" + idx + ") >>> ");
-		int bookNo = sc.nextInt()-1; // 책의번호는 1~100 인덱스는 0~99라서
-		if(bookNo < 0 || bookNo >= idx) {
-			System.out.println("책 번호가 " + (bookNo + 1) + "인 책은 없습니다.");
-			return;
+		System.out.print("삭제할 책의 번호 >>> ");
+		int bookNo = sc.nextInt(); // 책의번호는 1~100 인덱스는 0~99라서
+		for(int i = 0; i < idx; i++) { // 삭제할 책의 위치 : i 
+			if(books[i].getBookNo() == bookNo) {
+				System.arraycopy(books, i + 1 , books, i, idx - i - 1);
+				books[--idx] = null; // 만약 인덱스가 10이라면 먼저 줄어야하므로
+				//
+				System.out.println("책 번호가 " + bookNo + "인 책을 삭제했습니다.");				
+				return;
+			} // 
 		}
-		System.arraycopy(books, bookNo+1, books, bookNo, idx - bookNo - 1);
-//		idx--;
-		books[idx] = null; // 만약 인덱스가 10이라면 먼저 줄어야하므로
-		//
-		System.out.println("책 번호가 " + (bookNo + 1) + "인 책을 삭제했습니다.");
-		
+		System.out.println("책 번호가 " + bookNo + "인 책이 없습니다.");
 	}
 	
 	private void findBook() {
@@ -55,7 +58,7 @@ public class Library {
 		}
 		System.out.println("===책조회===");
 		System.out.print("조회할 책제목 입력 >>> ");
-		String title = sc.next();
+		String title = sc.nextLine();
 		for(int i = 0; i < idx; i++) {
 			if(title.equals(books[i].getTitle())) {
 				System.out.println(books[i]);

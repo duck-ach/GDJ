@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.sun.tools.javac.parser.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="ex02_datetime.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
@@ -46,17 +43,21 @@
     <fullyQualifiedTypeName name="quiz02_coffee.Espresso"/>
     <fullyQualifiedTypeName name="quiz02_coffee.Americano"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="quiz06_game.Marine"/>
     <fullyQualifiedTypeName name="quiz06_game.GameUnit"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
     <fullyQualifiedTypeName name="lombok.Setter.AnyAnnotation"/>
     <fullyQualifiedTypeName name="library.Book"/>
-    <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="ex14_interface.Circle"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="ex02_constructor.User"/>
+    <fullyQualifiedTypeName name="ex04_builder.User.Builder"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
 </qualifiedTypeNameHistroy>

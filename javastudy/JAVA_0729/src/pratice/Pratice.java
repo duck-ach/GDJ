@@ -107,14 +107,8 @@ public class Pratice {
 				}
 			Integer[] arr = set.toArray(new Integer[T]);
 				
-			
-			
 			System.out.println(Arrays.toString(arr));
 				
-				
-				
-					
-					
 			}
 	}
 		
