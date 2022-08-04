@@ -97,19 +97,19 @@ public class Pratice {
 		int T = sc.nextInt();
 		boolean a = true;
 		
-		
 		if(T > 100 || T < 0) {
 			System.out.println("다음에는 1~100사이로 입력하세요!");
-			
 		} else {
-				while(a) {
-					set.add((int) (Math.random() * 100) + 1);
+			while(a) {
+				set.add((int) (Math.random() * 100) + 1);
+				if(set.size() == T) {
+					a = false;
 				}
-			Integer[] arr = set.toArray(new Integer[T]);
-				
-			System.out.println(Arrays.toString(arr));
 				
 			}
+			System.out.println(set);
+		}
+		
 	}
 		
 		
@@ -249,10 +249,10 @@ public class Pratice {
 //		q1();
 //		q2();
 //		q3();
-//		q4();
+		q4();
 //		q5();
 //		q6();
-		q7();
+//		q7();
 	}
 	
 }
