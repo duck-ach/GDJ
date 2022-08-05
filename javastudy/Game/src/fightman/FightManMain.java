@@ -13,6 +13,13 @@ public class FightManMain {
 		User user1 = new User();
 		User user2 = new User();
 		
+		String user1GName = user1.getName();
+		String user2GName = user2.getName();
+		int user1GPow = user1.getPower();
+		int user2GPow = user2.getPower();
+		int user1GHP = user1.getHp();
+		int user2GHP = user2.getHp();
+		
 		
 		// 게임방법 안내
 		System.out.println("FIGHT MAN _ @Made Heera");
@@ -29,21 +36,22 @@ public class FightManMain {
 		// 닉네임 정하기
 		System.out.print("역사의 첫번째 페이지를 장식할 찌질이여... 당신의 이름은 무엇인가... >>> ");
 		user1.setName(sc.nextLine());
-		System.out.println(user1.getName() + "찌질이! FightMan에 온걸 환영한다네!!");
+		System.out.println(user1GName + "찌질이! FightMan에 온걸 환영한다네!!");
 		System.out.println();
 		System.out.print("두번째 찌질이는 누구인고,,,? >>> ");
 		user2.setName(sc.nextLine());
-		System.out.println(user2.getName() + "찌질이도 FightMan에 온걸 환영한다네!!");
+		System.out.println(user2GName + "찌질이도 FightMan에 온걸 환영한다네!!");
 		
 		// 순서 정하기
 		System.out.println();
 		System.out.println("선빵을 치는자.  싸움을 지배한다! \n  준비가되면 <Enter>를 누르시게.");
 		sc.nextLine();
+		
 		// 순서 알림
 		if(turn == true) {
-			System.out.println("■ " + user1.getName() + "찌질이, 먼저쳐라!!! ■");
+			System.out.println("■ " + user1GName + "찌질이, 먼저쳐라!!! ■");
 		} else {
-			System.out.println("■ " + user2.getName() + "찌질이, 먼저쳐라!!! ■");
+			System.out.println("■ " + user2GName + "찌질이, 먼저쳐라!!! ■");
 		}
 		
 		System.out.println("데미지는 1~100 중 랜덤이라네. 준비가되면 <Enter>를 누르시게.");
@@ -51,7 +59,7 @@ public class FightManMain {
 		sc.nextLine();
 		
 		// 공격하기
-		while(user1.getHp() > 0 || user2.getHp() > 0) {
+		while(user1GHP > 0 || user2GHP > 0) {
 			
 			user1.setPower((int) (Math.random() * 100) + 1);
 			user2.setPower((int) (Math.random() * 100) + 1);
@@ -62,25 +70,25 @@ public class FightManMain {
 			
 			if(turn == true) {
 				// 때리기
-				user2.setHp(user2.getHp() - user1.getPower());
-				System.out.println(user1.getName() + "찌질이가 " + user2.getName() + "찌질이를 " + user1.getPower() + "데미지로 공격했다!!");
-				System.out.println("■ " + user2.getName() + "찌질이 남은 HP : " + user2.getHp() + " ■");
+				user2.setHp(user2GHP - user1GPow);
+				System.out.println(user1GName + "찌질이가 " + user2GName + "찌질이를 " + user1GPow + "데미지로 공격했다!!");
+				System.out.println("■ " + user2GName + "찌질이 남은 HP : " + user2GHP + " ■");
 				
 				
 				
 				
 				// 사망
-				if(user2.getHp() <= 0) {
+				if(user2GHP <= 0) {
 					System.out.println("■■■■■■■■전투종료■■■■■■■■");
-					System.out.println(user2.getName() + "찌질이가 사망했다!! ■" + user1.getName() + "■ 찌질이 승리!!!!!");
+					System.out.println(user2GName + "찌질이가 사망했다!! ■" + user1GName + "■ 찌질이 승리!!!!!");
 					return;
 				}
 				
 				// 회복
 					if(recoverRan == true) {
-						user2.setHp(user2.getHp() +  recover);
-						System.out.println("내가.. 맞았던가...? ■ " + user2.getName() + " ■ 찌질이가 운이 아주 좋게 HP를 " + recover + "만큼 회복했다!!");
-						System.out.println("■ " + user2.getName() + "찌질이의 남은 HP : " + user2.getHp() + " ■");
+						user2.setHp(user2GHP +  recover);
+						System.out.println("내가.. 맞았던가...? ■ " + user2GName + " ■ 찌질이가 운이 아주 좋게 HP를 " + recover + "만큼 회복했다!!");
+						System.out.println("■ " + user2GName + "찌질이의 남은 HP : " + user2GHP + " ■");
 				}
 				sc.nextLine();
 				turn = false;
@@ -90,20 +98,20 @@ public class FightManMain {
 				
 				
 				// 때리기
-				user1.setHp(user1.getHp() - user2.getPower());
-				System.out.println(user2.getName() + "찌질이가 " + user1.getName() + "찌질이를 " + user2.getPower() + "데미지로 공격했다!!");
-				System.out.println("■ " + user1.getName() + "찌질이 남은 HP : " + user1.getHp() + " ■");
+				user1.setHp(user1GHP - user2GPow);
+				System.out.println(user2GName + "찌질이가 " + user1GName + "찌질이를 " + user2GPow + "데미지로 공격했다!!");
+				System.out.println("■ " + user1GName + "찌질이 남은 HP : " + user1GHP + " ■");
 				// 사망
-				if(user1.getHp() <= 0) {
+				if(user1GHP <= 0) {
 					System.out.println("■■■■■■■■전투종료■■■■■■■■");
-					System.out.println(user1.getName() + "찌질이가 사망했다!! " + user2.getName() + "찌질이 승리!!!!!");
+					System.out.println(user1GName + "찌질이가 사망했다!! " + user2GName + "찌질이 승리!!!!!");
 					return;
 				}
 				// 회복
 				if(recoverRan == true) {
-					user1.setHp(user1.getHp() +  recover);
-					System.out.println("내가.. 맞았던가...? ■ " + user1.getName() + " ■ 찌질이가 운이 아주 좋게 HP를 " + recover + "만큼 회복했다!!");
-					System.out.println("■ " + user1.getName() + "찌질이 남은 HP : " + user1.getHp() + " ■");
+					user1.setHp(user1GHP +  recover);
+					System.out.println("내가.. 맞았던가...? ■ " + user1GName + " ■ 찌질이가 운이 아주 좋게 HP를 " + recover + "만큼 회복했다!!");
+					System.out.println("■ " + user1GName + "찌질이 남은 HP : " + user1GHP + " ■");
 				}
 				sc.nextLine();
 				turn = true;

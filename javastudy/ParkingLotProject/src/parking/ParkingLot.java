@@ -20,11 +20,10 @@ public class ParkingLot {
 		sc = new Scanner(System.in);
 	}
 	
-	public void addCar() {
+	public void addCar() throws RuntimeException {
 		// 주차장에 차량이 가득 찼을때
 		if(idx == cars.length) {
-			System.out.println("더 이상 차량 등록이 불가능합니다.");
-			return;
+			throw new RuntimeException("더 이상 차량 등록이 불가능합니다.");
 		}
 		// 기본 add 알림&입력
 		System.out.println("현재 등록된 차량 " + idx +"대");
@@ -42,22 +41,18 @@ public class ParkingLot {
 //		for(int i = 0; i < idx; i++) {
 //			if(carNo.equals(cars[i].getCarNo())) {
 //				System.out.println("이미 등록된 차량입니다.");
-//				System.out.println();
 //				return;
 //			}
 //		}
 		
 		cars[idx++] = car;
-		System.out.println("차량이 등록되었습니다.");
-		System.out.println("차량번호 : " + carNo);
-		System.out.println("차량모델 : " + carName);
+		System.out.println("차량번호 " + carName + " 차량이 등록되었습니다.");
 	}
 	
-	public void deleteCar() {
+	public void deleteCar() throws RuntimeException {
 		// 주차장이 비어있는 경우
 		if(idx == 0) {
-			System.out.println("등록된 차량이 없습니다.");
-			return;
+			throw new RuntimeException("등록된 차량이 없습니다.");
 		}
 		// 차량출차
 		System.out.print("제거할 차량번호 >>> ");
@@ -75,11 +70,10 @@ public class ParkingLot {
 		
 	}
 	
-	public void printAllCars() {
+	public void printAllCars() throws RuntimeException {
 		// 주차장이 비어있는 경우
 		if(idx == 0) {
-			System.out.println("등록된 차량이 없습니다.");
-			return;
+			throw new RuntimeException("등록된 차량이 없습니다.");
 		}
 		System.out.println(this.name + " 차량 목록");
 		for(int i = 0; i < idx; i++) {
@@ -87,10 +81,11 @@ public class ParkingLot {
 		}
 	}
 	
-	public void manage() {
+	public void manage()  {
 		
-		try {
-				while(true) {
+		while(true) {
+			try {
+				
 				// default notice
 				System.out.print("1.추가 2.삭제 3.전체 0.종료 >>> ");
 				
@@ -105,18 +100,21 @@ public class ParkingLot {
 						return;
 				default: System.out.println("존재하지 않는 메뉴입니다.");
 				}
-				}
+			} catch (InputMismatchException e) {
+				System.out.println("메뉴에 알맞은 번호를 입력해 주세요.");
+				sc.next();
+				manage();
+			}
+			catch (RuntimeException e) {
+					System.out.println(e.getMessage());
+			}
+			catch (Exception e) {
+				System.out.println("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
+				sc.next();
+				manage();
+			}
 		}
-		catch (InputMismatchException e) {
-			System.out.println("메뉴에 알맞은 번호를 입력해 주세요.");
-			sc.next();
-			manage();
-		}
-		catch (Exception e) {
-			System.out.println("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
-			sc.next();
-			manage();
-		}
+
 	}
 	
 }

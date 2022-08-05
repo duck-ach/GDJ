@@ -43,7 +43,6 @@
     <fullyQualifiedTypeName name="ex14_interface.Circle"/>
     <fullyQualifiedTypeName name="ex02_constructor.User"/>
     <fullyQualifiedTypeName name="ex04_builder.User.Builder"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.Builder"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
@@ -58,6 +57,7 @@
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="parking.Car"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
 </qualifiedTypeNameHistroy>
