@@ -35,7 +35,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [empNo=" + empNo + ", name=" + name;
+		return " [empNo=" + empNo + ", name=" + name;
 	}
 	
 	

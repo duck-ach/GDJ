@@ -24,6 +24,7 @@ public class Temporary extends Employee {
 	public void setWorkTimes(int workTimes) {
 		this.workTimes = workTimes;
 	}
+	
 
 	@Override
 	public String toString() {
