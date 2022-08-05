@@ -8,7 +8,7 @@ public class BankMain {
 		Bank mom = new Bank("2222", 100_000);
 		
 		try {
-			mom.transfer(me, 1_00_000);
+			mom.transfer(me, 1_000);
 		} catch(BankException e) {
 			System.out.println(e.getMessage() + "," + e.getErrorCode());
 		}
