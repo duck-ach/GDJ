@@ -1,4 +1,4 @@
-package list_library;
+package quiz01_library_list;
 
 public class Main {
 

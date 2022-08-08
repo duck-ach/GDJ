@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="ex09_this.Student"/>
-    <fullyQualifiedTypeName name="ex10_this.Rectangle"/>
-    <fullyQualifiedTypeName name="ex11_static.MyMath"/>
-    <fullyQualifiedTypeName name="ex11_static.MyMathMain"/>
-    <fullyQualifiedTypeName name="ex03_has_a.Gun"/>
-    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="pratice8.Watch"/>
     <fullyQualifiedTypeName name="bank.Bank"/>
-    <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="ex06_constructor.Person"/>
     <fullyQualifiedTypeName name="ex06_constructor.Student"/>
     <fullyQualifiedTypeName name="ex06_constructor.Alba"/>
@@ -25,7 +18,6 @@
     <fullyQualifiedTypeName name="quiz02_coffee.Espresso"/>
     <fullyQualifiedTypeName name="quiz02_coffee.Americano"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="quiz06_game.Marine"/>
     <fullyQualifiedTypeName name="quiz06_game.GameUnit"/>
     <fullyQualifiedTypeName name="lombok.Setter.AnyAnnotation"/>
@@ -52,12 +44,20 @@
     <fullyQualifiedTypeName name="javax.management.RuntimeErrorException"/>
     <fullyQualifiedTypeName name="quiz04_employee.Employee"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
-    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="quiz04_employee.Regular"/>
     <fullyQualifiedTypeName name="quiz04_employee.Temporary"/>
     <fullyQualifiedTypeName name="quiz04_employee.EmployeeException"/>
     <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 </qualifiedTypeNameHistroy>

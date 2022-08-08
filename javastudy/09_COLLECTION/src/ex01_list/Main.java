@@ -117,11 +117,19 @@ public class Main {
 		}
 	}
 	
+	public static void m4() {
+		 List<String> list = new ArrayList<String> (Arrays.asList("일", "월", "화", "수"));
+		 list.remove(0); // [월, 화, 수]
+		 list.remove("화"); // [월, 수]
+		 System.out.println(list);
+	}
+	
 	public static void main(String[] args) {
 		
-		m1();
+//		m1();
 		m2();
-		m3();
+//		m3();
+//		m4();
 	}
 
 }

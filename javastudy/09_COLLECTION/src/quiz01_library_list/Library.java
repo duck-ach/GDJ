@@ -1,4 +1,4 @@
-package list_library;
+package quiz01_library_list;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

@@ -1,4 +1,4 @@
-package list_library;
+package quiz01_library_list;
 
 public class Book {
 	private int bookNo; 	// 1~100 자동부여
