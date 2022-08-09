@@ -48,7 +48,7 @@ public class Main {
 		// 정렬변경 : decendingMap() 메소드 호출
 		// 오름차순 정렬 ↔ 내림차순 정렬
 		// TreeMap타입으로 써야 TreeMap에서 사용할 수 있는 메소드들을 호출할 수 있다.
-		
+		System.out.println(map);
 		
 		NavigableMap<Integer, String> map2 = map.descendingMap();
 		
@@ -68,7 +68,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		m1();
+//		m1();
 		m2();
 		
 		
