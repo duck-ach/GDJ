@@ -21,13 +21,13 @@ public class Main {
 		
 		System.out.println();
 		
-		for(int i = 0, size = list.size(); i < size; i++) {
-			System.out.print(list.get(i));
-			if(i < size - 1) { // size - 1 : 마지막 요소의 인덱스
-				System.out.print(" -> ");
-			}
-		}
-		System.out.println();
+//		for(int i = 0, size = list.size(); i < size; i++) {
+//			System.out.print(list.get(i));
+//			if(i < size - 1) { // size - 1 : 마지막 요소의 인덱스
+//				System.out.print(" -> ");
+//			}
+//		}
+//		System.out.println();
 		
 	}
 	
