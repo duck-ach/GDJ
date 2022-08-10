@@ -85,6 +85,14 @@ public class Main {
 		
 	}
 	
+	public static void m5() {
+		
+		// 플랫폼마다 다른 경로 구분자 지원
+	     File file = new File("C:" + File.separator + "storage" + File.separator + "my.txt");
+	     System.out.println(file.getName());
+		
+	}
+	
 	public static void q1() {
 //		File file = new File("C:\\GDJ");		
 //		File[] list = file.listFiles();
@@ -127,7 +135,7 @@ public class Main {
 					directory = "     ";
 					size = new DecimalFormat("#,##0").format(file.length()) + "";
 					fileCnt++;
-					totalSize += Long.parseLong(size);
+					totalSize += Long.parseLong(size.replace(",", ""));
 				}
 				String name = file.getName();
 				
@@ -141,6 +149,24 @@ public class Main {
 		
 	}
 	
+	public static void q2() {
+		// c:\\ storage 디렉터리 삭제하기
+		//내용물이있으면 삭제가 되지 않음. 그래서 파일부터 지워준다.
+		
+		String sep = File.separator;
+		
+		File file = new File("C:" + sep + "storage", "my.txt");
+		if(file.exists()) {
+			file.delete();
+		}
+		
+		File dir = new File("C:" + sep + "storage");
+	
+		if(dir.exists()) {
+			dir.delete();
+		} 
+		
+	}
 	
 	public static void main(String[] args) {
 		
@@ -148,7 +174,9 @@ public class Main {
 //		m2();
 //		m3();
 //		m4();
+//		m5();
 		q1();
+		q2();
 	}
 
 }
