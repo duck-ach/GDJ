@@ -12,7 +12,7 @@ public class SeatGroup {
 		this.seatType = seatType;
 		seats = new Seat[cnt];
 		for(int i = 0; i < cnt; i++) {
-			seats[i] = new Seat();
+			seats[i] = new Seat(); //빈좌석을 미리 만들어놓는다. 
 		}
 		sc = new Scanner(System.in);
 	}
