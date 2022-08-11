@@ -109,7 +109,7 @@ public class JSONWriter {
 		
 		List<List<String>> list = Arrays.asList(product1, product2, product3);
 		
-		JSONArray arr = new JSONArray(list);
+		JSONArray arr = new JSONArray();
 		for(List<String> line : list) {
 			JSONObject obj = new JSONObject();
 			obj.put("number", line.get(0));
@@ -120,7 +120,7 @@ public class JSONWriter {
 
 		}
 		
-		File file = new File("C:\\storage", "product");
+		File file = new File("C:\\storage", "product.json");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		try {
