@@ -1,5 +1,12 @@
 package ex02_writer;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -63,11 +70,91 @@ public class JSONWriter {
 		System.out.println(height);
 		
 	}
+	
+	public static void m4() {
+		
+		String str = "[{\"name\":\"제임스\",\"age\":30},{\"name\":\"에밀리\",\"age\":40}]\r\n";
+		
+		JSONArray arr = new JSONArray(str); 
+		System.out.println(arr.toString());
+		
+		// 값(Value)들을 추출하는 연습
+		
+		// 일반 for문
+		for(int i = 0, length = arr.length(); i < length; i++) {
+			JSONObject obj = arr.getJSONObject(i);
+			String name = obj.getString("name");
+			int age = obj.getInt("age");
+			System.out.println(name + ", " + age);
+		}
+		
+		System.out.println();
+		
+		// 향상 for문 // 데이터를 가져오는 get메소드로 ehdwkr. get()는 Object 반환
+		for(Object o : arr) { // object객체로 캐스팅을 해와야 함.
+			JSONObject obj = (JSONObject) o;
+			String name = obj.getString("name");
+			int age = obj.getInt("age");
+			System.out.println(name + ", " + age);
+		}
+		
+		
+		
+	}
+	public static void m5() {
+
+		List<String> product1 = Arrays.asList("100", "새우깡", "1500");
+		List<String> product2 = Arrays.asList("101", "양파링", "2000");
+		List<String> product3 = Arrays.asList("102", "홈런볼", "3000");
+		
+		List<List<String>> list = Arrays.asList(product1, product2, product3);
+		
+		JSONArray arr = new JSONArray(list);
+		for(List<String> line : list) {
+			JSONObject obj = new JSONObject();
+			obj.put("number", line.get(0));
+			obj.put("name", line.get(1));
+			obj.put("price", line.get(2));
+			// list의 요소들을 배열에 삽입
+			arr.put(obj);
+
+		}
+		
+		File file = new File("C:\\storage", "product");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			// list를 json String으로 만들어서
+			// c:\\storage\\product.json 파일에 wirte();
+			
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write(arr.toString());
+			
+		} catch (IOException e){
+			e.printStackTrace();
+		} finally {
+			try {
+				if(bw != null) {
+					bw.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		
 //		m1();
 //		m2();
-		m3();
+//		m3();
+//		m4();
+		m5();
 	}
 
 }
