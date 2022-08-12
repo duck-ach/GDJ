@@ -36,8 +36,6 @@ public class Main {
 			// 읽은 내용은 byte 배열 b에저장
 			// 읽은 바이트 수를 반환
 			// 읽은 내용이 없으면 -1 반환
-			
-			
 
 			while((readByte = fis.read(b)) != -1) { // readByte로 b(5개씩 읽기)를 해서 저장.
 				sb.append(new String(b, 0, readByte)); // String객체를 생성하면서 offset과 length지정 String으로는 할 수있음.
@@ -79,12 +77,9 @@ public class Main {
 			char[] cbuf = new char[5]; // 5글자씩 읽기 위해서
 			int readCnt = 0;
 			
-			long begin = System.nanoTime();
 			while((readCnt = isr.read(cbuf)) != -1) {
 				sb.append(cbuf, 0, readCnt);
 			}
-			long end = System.nanoTime();
-			System.out.println(sb.toString() + "걸린시간 : " + (end - begin)); // 
 			
 			
 		} catch (IOException e) {
@@ -183,8 +178,8 @@ public class Main {
 	public static void main(String[] args) {
 //		m1();
 //		m2();
-//		m3();
-		m4();
+		m3();
+//		m4();
 //		simsimhaeser();
 	}
 
