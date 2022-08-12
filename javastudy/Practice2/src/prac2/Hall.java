@@ -30,7 +30,7 @@ public class Hall {
 		for(int i = 0; i < seatTypes.length; i++) {
 			if(seatType.equals(seatTypes[i])) {
 				seatGroups[i].reserve(); 
-				break;
+				return;
 			}
 			System.out.println(seatType + "타입은 없는 타입입니다.");
 		}
@@ -43,7 +43,7 @@ public class Hall {
 		for(int i = 0; i < seatTypes.length; i++) {
 			if(seatType.equals(seatTypes[i])) {
 				seatGroups[i].cancel(); 
-				break;
+				return;
 			}
 		}
 	}

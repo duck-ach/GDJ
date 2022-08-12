@@ -33,14 +33,13 @@ public class Main {
 			while((c = fr.read()) != -1) {
 				fw.write(c);
 			}
+			b = System.currentTimeMillis();
+			System.out.println("복사시간 : " + (b - a) * 0.001 + "초");
 			
 		} catch (IOException e ) {
 			e.printStackTrace();
 		
-		} finally {
-			b = System.currentTimeMillis();
-			System.out.println("복사시간 : " + (b - a) * 0.001 + "초");
-		}
+		} 
 		
 		
 		
@@ -63,6 +62,7 @@ public class Main {
 			
 			char[] cbuf = new char[100];
 			int readCnt = 0;
+			
 			long begin = System.currentTimeMillis();
 			while((readCnt = br.read(cbuf)) != -1) {
 				bw.write(cbuf, 0, readCnt);

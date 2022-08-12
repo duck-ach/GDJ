@@ -14,7 +14,6 @@ public class ParkingLot {
 	
 	// constructor
 	public ParkingLot(String name) {
-		super();
 		this.name = name;
 		cars = new Car[10];
 		sc = new Scanner(System.in);
