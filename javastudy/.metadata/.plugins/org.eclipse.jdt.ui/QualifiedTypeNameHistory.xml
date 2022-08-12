@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
-    <fullyQualifiedTypeName name="lombok.ToString"/>
-    <fullyQualifiedTypeName name="parking.Car"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="ex06_exception.MyException"/>
     <fullyQualifiedTypeName name="quiz03_bank.BankException"/>
     <fullyQualifiedTypeName name="quiz04_employee.Employee"/>
@@ -21,7 +15,6 @@
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="prac3.BreadAndChange"/>
@@ -38,26 +31,33 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
     <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
-    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
-    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Document"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
     <fullyQualifiedTypeName name="javax.xml.transform.Transformer"/>
     <fullyQualifiedTypeName name="javax.xml.transform.stream.StreamResult"/>
     <fullyQualifiedTypeName name="javax.xml.transform.Source"/>
     <fullyQualifiedTypeName name="javax.xml.transform.dom.DOMSource"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="javax.xml.transform.TransformerFactory"/>
     <fullyQualifiedTypeName name="ex02_writer.XMLWriter"/>
     <fullyQualifiedTypeName name="jdk.vm.ci.code.TargetDescription"/>
     <fullyQualifiedTypeName name="org.json.JSONPropertyName"/>
-    <fullyQualifiedTypeName name="org.json.JSONArray"/>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
-    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
-    <fullyQualifiedTypeName name="org.json.JSONObject"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Document"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.classfile.Node"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="org.json.JSONArray"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.json.JSONObject"/>
+    <fullyQualifiedTypeName name="ex03_reader.Product"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>
