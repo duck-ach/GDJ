@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 // ctrl + shift + o
 
@@ -148,7 +149,42 @@ public class Main {
 		
 	}
 
-	
+	public static void m6() {
+		
+		// PrintWriter 클래스는 write() 메소드 이외에
+		// print(), println() 메소드를 지원한다.
+		// println() 때문에 PrintWriter를 많이 사용한다. (줄바꿈을 위해)
+		
+		File file = new File("C:\\storage", "m6.txt");
+		
+		PrintWriter out = null;
+		
+		try {
+			
+			out = new PrintWriter(file);
+			
+			// write()메소드는 줄 바꿈을 "\n"으로 처리한다.
+			out.write("안녕하세요.\n");
+			
+			// println() 메소드는 자동으로 줄 바꿈이 삽입된다.
+			out.println("반갑습니다.");
+			out.println("처음뵙겠습니다.");
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(out != null) out.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		
+	}
 	
 	public static void main(String[] args) {
 		
@@ -156,7 +192,8 @@ public class Main {
 //		m2();
 //		m3();
 //		m4();
-		m5();
+//		m5();
+		m6();
 	}
 
 }

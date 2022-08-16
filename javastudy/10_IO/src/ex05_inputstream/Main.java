@@ -144,6 +144,7 @@ public class Main {
 	public static void m4() {
 		
 		// 객체를 그대로 입력 받는 ObjectInputStream
+		
 		File file = new File("C:\\storage", "b4.dat");
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
@@ -176,9 +177,9 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-//		m1();
-//		m2();
-		m3();
+		m1();
+		m2();
+//		m3();
 //		m4();
 //		simsimhaeser();
 	}

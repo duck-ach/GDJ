@@ -5,9 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
@@ -18,12 +22,12 @@ public class Main {
 				// 자원의 경로를 표기할 때 형식을 갖춰서 표기
 				// 3. 웹 주소를 의미
 				// 4. 구성
-				// 프로토콜(통신규약) ://호스트/ 서버경로 ? 파라미터(서버경로로 보내주고싶은 데이터들) = 값&파라미터 = 값 
+				// 프로토콜(통신규약)://호스트:포트번호/서버경로?파라미터(서버경로로 보내주고싶은 데이터들)=값&파라미터 = 값 
 				// https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%A0%EC%94%A8
 				// 1) https : secure http, 하이퍼텍스트 전송 프로토콜(통신규약)
 				// 2) 호스트 : 서버주소
 				// 3) 서버경로 : URL Mapping
-				// 4) 파라미터 : 서버로 전송하는 데이터
+				// 4) 파라미터 : 서버로 전송하는 데이터(검색어)
 				
 				// URL 처리를 위한 URL 클래스
 		
@@ -33,7 +37,7 @@ public class Main {
 			String apiURL = " https://search.naver.com/search.naver?query=날씨";
 			URL url = new URL(apiURL);
 			
-			// URL 확인
+			// URL 확인  // if(con.getResponseCode() == 200) {}; // 조건을 걸어도 된다.
 			System.out.println("프로토콜 : " + url.getProtocol());
 			System.out.println("호스트 : " + url.getHost());
 			System.out.println("파라미터 : " + url.getQuery());
@@ -93,6 +97,8 @@ public class Main {
 	public static void m3() {
 		
 		// HttpURLConnection과 스트림
+		// connection이라는 것은 스트림을 만들기 위한 도구.
+		// 
 		try {
 			
 			String apiURL = "https://www.naver.com";
@@ -132,11 +138,45 @@ public class Main {
 		}
 	}
 	
+	// server -> client = in Stream(바이트 기반 스트림)
+	// client -> server = out Stream(바이트 기반 스트림)
+	
+	
+	public static void m4() {
+		
+		// 인코딩 : UTF-8 방식으로 암호화
+		// 디코딩 : UTF-8 방식으로 복호화
+		// 원본데이터 -> 인코딩 -> 전송 -> 디코딩 -> 원본데이터
+		
+		try {
+			
+			// 원본데이터
+			String str1 = "한글 english !@#$+";
+			
+			// 인코딩
+			String encode = URLEncoder.encode(str1, "UTF-8");
+			System.out.println(encode); // %ED%95%9C%EA%B8%80+english+%21%40%23%24%2B
+			// 영어와 숫자는 그대로 출력되고, 한글은 암호화되고, 공백은 + 기호로 바뀌었다.
+			
+			// 디코딩
+			String decode = URLDecoder.decode(encode, StandardCharsets.UTF_8);
+			System.out.println(decode);
+			
+			
+			
+		} catch (UnsupportedEncodingException e) { // 오타났을때 쓰는 예외처리
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
 //		m1();
 //		m2();
-		m3();
+//		m3();
+		m4();
 	}
 
 }
