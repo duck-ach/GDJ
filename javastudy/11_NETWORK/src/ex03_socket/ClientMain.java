@@ -5,7 +5,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 public class ClientMain {
-
+		// 상담사와의 실시간 채팅 등 구현할때 쓰인다. 
+	
 	public static void main(String[] args) {
 		
 		Socket clientSocket = null;

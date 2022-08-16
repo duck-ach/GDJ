@@ -1,0 +1,8 @@
+[Socket]
+
+ServerMain 실행
+ClientMain 실행 X 3
+
+Server가 Client에게 Welcome 메세지를 보낸다.
+
+Client가 Scanner를 이용해 입력 받은 메세지를 Server로 보냅니다.

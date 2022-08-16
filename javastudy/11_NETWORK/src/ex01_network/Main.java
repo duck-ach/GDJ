@@ -156,7 +156,7 @@ public class Main {
 			// 인코딩
 			String encode = URLEncoder.encode(str1, "UTF-8");
 			System.out.println(encode); // %ED%95%9C%EA%B8%80+english+%21%40%23%24%2B
-			// 영어와 숫자는 그대로 출력되고, 한글은 암호화되고, 공백은 + 기호로 바뀌었다.
+			// 영어와 숫자는 그대로 출력되고, 한글과 특수기호는 암호화되고, 공백은 + 기호로 바뀌었다.
 			
 			// 디코딩
 			String decode = URLDecoder.decode(encode, StandardCharsets.UTF_8);
