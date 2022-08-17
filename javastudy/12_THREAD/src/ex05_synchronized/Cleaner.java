@@ -36,7 +36,7 @@ public class Cleaner {
 		try {
 			System.out.println("방 청소");
 			notify(); 	// "나 방 청소 끝났다" 고 알림
-			wait();		// 잠깐 쉼
+			wait();		// 잠깐 쉼 // 우리가 시킬수가 없다. 최대한 우선순위를 높여줄 수는 있지만.
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
