@@ -1,0 +1,12 @@
+Thread								Runnable
+run()
+start()
+
+class Soldier extends Thread {
+	@Override
+	public void run() {}
+}
+
+Soldier s = new Soldier();
+Thread thread = new Thread(s);
+thread.start();
