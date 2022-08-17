@@ -1,6 +1,9 @@
 package ex02_api;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -8,6 +11,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
 
 
 public class Main {
@@ -48,22 +56,42 @@ public class Main {
 		try {
 			// 원래는 스트링 += 대신 StringBuilder를 쓰는게 맞다.
 			String serviceKey = "S/M+l5y2TRDSRrmRIEX8Xjcg7bl4rnZAL/iIEPmLOt9tBrpkFTdhk3DvFsLT3fZl/4JqEP82TVdHhAVnY5Q+uQ==";
-			apiURL += "?pageNo="+ URLEncoder.encode("0", "UTF-8");
+			apiURL += "?serviceKey=" + URLEncoder.encode(serviceKey ,"UTF-8");
+			apiURL += "&pageNo="+ URLEncoder.encode("0", "UTF-8");
 			apiURL += "&numOfRows="+ URLEncoder.encode("100", "UTF-8");
 			apiURL += "&type="+ URLEncoder.encode("xml", "UTF-8");
 			apiURL += "&CTPRVN_NM=" + URLEncoder.encode("인천광역시", "UTF-8");
 			apiURL += "&SIGNGU_NM=" + URLEncoder.encode("계양구", "UTF-8");
-			apiURL += "&WEIGHTED_ENVLP_TY=" + URLEncoder.encode("규격봉투", "UTF-8");
+			apiURL += "&WEIGHTED_ENVLP_TYPE=" + URLEncoder.encode("규격봉투", "UTF-8");
 			apiURL += "&WEIGHTED_ENVLP_MTHD=" + URLEncoder.encode("소각용", "UTF-8");
 			apiURL += "&WEIGHTED_ENVLP_PRPOS=" + URLEncoder.encode("생활쓰레기", "UTF-8");
 			apiURL += "&WEIGHTED_ENVLP_TRGET=" + URLEncoder.encode("기타", "UTF-8");
-			apiURL += "&serviceKey=" + URLEncoder.encode(serviceKey ,"UTF-8");
+//			apiURL += "&PRICE_1=0";
+//	        apiURL += "&PRICE_1_HALF=0";
+//	        apiURL += "&PRICE_2=0";
+//	        apiURL += "&PRICE_2_HALF=0";
+//	        apiURL += "&PRICE_3=0";
+//	        apiURL += "&PRICE_5=160";
+//	        apiURL += "&PRICE_10=310";
+//	        apiURL += "&PRICE_20=0";
+//	        apiURL += "&PRICE_30=0";
+//	        apiURL += "&PRICE_50=0";
+//	        apiURL += "&PRICE_60=0";
+//	        apiURL += "&PRICE_75=0";
+//	        apiURL += "&PRICE_100=3060";
+//	        apiURL += "&PRICE_120=0";
+//	        apiURL += "&PRICE_125=0";
+//	        apiURL += "&CHRG_DEPT_NM=" + URLEncoder.encode("청결지도팀","UTF-8");
+//	        apiURL += "&PHONE_NUMBER=" + URLEncoder.encode("032-450-5464", "UTF-8");
+//	        apiURL += "&REFERENCE_DATE=" + URLEncoder.encode("2020-02-01", "UTF-8");
+//	        apiURL += "&instt_code=B551295";
+			
 			
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("인코딩 실패");
 		}
 		
-
+		
 		// API 주소 접속
 		URL url = null;
 		HttpURLConnection con = null;
@@ -110,8 +138,28 @@ public class Main {
 			System.out.println("API 응답 실패");
 		}
 		
+		// API로부터 전달받은 xml 데이터
 		String response = sb.toString();
-		System.out.println(response);
+
+		// File 생성
+		File file = new File("C:\\storage", "api1.xml");
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+			bw.write(response);
+			bw.close();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		// xml 분석
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		// 접속종료
 		con.disconnect();
