@@ -209,7 +209,7 @@ public class WeatherMain {
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
 			
-			Element root = doc.getDocumentElement(); // 최상위요소
+			Element root = doc.getDocumentElement(); // 최상위요소  
 			
 			StringBuilder sb = new StringBuilder();
 			
