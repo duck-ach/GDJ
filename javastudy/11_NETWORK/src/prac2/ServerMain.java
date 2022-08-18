@@ -18,16 +18,18 @@ public class ServerMain {
 	// 생성된 Server 목록
 	public static List<Server> servers = new ArrayList<>();
 	
-	// 모든 Server에 메시지 전송
-	public static void sendMessage(String message) throws IOException { // 2
-		for(Server server : servers) {
-			server.sendMessage(message);
-		}
-	}
+//	// 모든 Server에 메시지 전송
+//	public static void sendMessage(String message) throws IOException { // 2
+//		for(Server server : servers) {
+//			server.sendMessage(message);
+//		}
+//	}
+	
 	public static void main(String[] args) {
 		
 		ServerSocket server = null;
 		Socket client = null;
+		
 		try {
 			
 			// serverSocket 생성
@@ -40,15 +42,17 @@ public class ServerMain {
 			
 			while(true) {
 				
-				// 클라이언트가 서버를 받아들인다. 서버와 연결
+				// 서버 중지 조건은 없는 상태
+				
 				client = server.accept();
+				// 접속한 클라이언트의 ip주소 출력
+				System.out.println("클라이언트 접속 (" + client.getInetAddress() + ")");
 				
 				// 클라이언트를 담당할 서버생성
 				Server s = new Server(client);
+				s.start();
 				
 				servers.add(s);
-				
-				s.start();
 				
 				System.out.println("현재 접속 중인 클라이언트 : " + servers.size() + "명");
 				
