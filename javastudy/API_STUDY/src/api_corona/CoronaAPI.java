@@ -30,7 +30,8 @@ public class CoronaAPI {
 		StringBuilder sbApiURL = null;
 		try {
 			sbApiURL = new StringBuilder("http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson");
-			String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
+//			String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
+			String serviceKey = "S/M+l5y2TRDSRrmRIEX8Xjcg7bl4rnZAL/iIEPmLOt9tBrpkFTdhk3DvFsLT3fZl/4JqEP82TVdHhAVnY5Q+uQ==";
 			sbApiURL.append("?ServiceKey=").append(URLEncoder.encode(serviceKey, "UTF-8")); // 인증키
 //			sbApiURL.append("&pageNo=1"); // 페이지 번호
 //			sbApiURL.append("&numOfRows=10"); // 한 페이지 결과 수

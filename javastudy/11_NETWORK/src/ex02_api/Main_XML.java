@@ -21,7 +21,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 
-public class Main {
+public class Main_XML {
 
 	// S%2FM%2Bl5y2TRDSRrmRIEX8Xjcg7bl4rnZAL%2FiIEPmLOt9tBrpkFTdhk3DvFsLT3fZl%2F4JqEP82TVdHhAVnY5Q%2BuQ%3D%3D
 	// URLEncoder.encode("S/M+l5y2TRDSRrmRIEX8Xjcg7bl4rnZAL/iIEPmLOt9tBrpkFTdhk3DvFsLT3fZl/4JqEP82TVdHhAVnY5Q+uQ==,"UTF-8");
