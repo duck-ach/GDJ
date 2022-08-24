@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="703C765C-0829-6C88-FC9D-7032F965F51C" name="PRODUCT">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-24 06:09:06 UTC</createdTime>
+<ownerDesignName>RELATION</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROD_NO" id="00447732-7A6C-9ECA-55C7-F2947BBCA29D">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-24 06:20:15 UTC</createdTime>
+<ownerDesignName>RELATION</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROD_NAME" id="2134D2EB-CAB5-6194-F841-568669B47635">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-24 06:20:15 UTC</createdTime>
+<ownerDesignName>RELATION</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="1A746CF3-0C05-73DA-AA1F-2EEC4B5ADD6B">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-24 06:20:15 UTC</createdTime>
+<ownerDesignName>RELATION</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STOCK" id="5263E588-DD55-BCEF-AEC6-8E276DDF9050">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-24 06:20:15 UTC</createdTime>
+<ownerDesignName>RELATION</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2F762BFC-9B3E-8213-EC05-ECE7ED4C0C89" name="PRODUCT_PK">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-24 06:20:15 UTC</createdTime>
+<ownerDesignName>RELATION</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00447732-7A6C-9ECA-55C7-F2947BBCA29D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
