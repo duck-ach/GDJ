@@ -84,4 +84,51 @@ COMMIT;
 -- INSERT INTO DEPARTMENT(DEPT_NO, DEPT_NAME) VALUES(5, '개발부'); 
 -- 만약 값이 없으면 NULL값을 넣게되는데 LOCATION 칼럼이 NOT NULL이라서 실행이 되지않는다.
 
-INSERT INTO DEPARTMENT(DEPT_NO, DEPT_NAME, LOCATION) VALUES(5, '개발부', '부에노스아이리스'); 
+-- INSERT INTO DEPARTMENT(DEPT_NO, DEPT_NAME, LOCATION) VALUES(5, '개발부', '부에노스아이리스');
+-- VARCHAR2(15 BYTE)라서 크기초과로 실패
+
+-- INSERT INTO DEPARTMENT(DEPT_NO, DEPT_NAME, LOCATION) VALUES(4, '개발부', '인천');
+-- PK값이 중복이라서 실행이 되지않는다.
+-- DELETE FROM DEPARTMENT WHERE DEPT_NO=5;
+
+----------------------------------------------------------------------------------------------
+
+-- 자식 테이블(관계에서 FK를 가진 테이블)은 참조 무결성에 위배되지 않는 데이터만 삽입 가능
+-- 부서(부서번호) - 사원(소속부서)
+-- PK            - FK
+-- 1,2,3,4       - 1,2,3,4중 하나만 가능
+
+-- 날짜 입력 규칙
+-- 문자열처럼 ' ' 작은 따옴표를 이용하여 입력한다.
+-- 하이픈(-)과 슬래쉬(/)를 이용하여 구분
+
+INSERT INTO
+    EMPLOYEE
+VALUES
+    (1001, '구창민', 1, '과장', 'M', '95/05/01', 5000000); -- 하나도 남김없이 다 집어넣는다.
+INSERT INTO
+    EMPLOYEE
+VALUES
+    (1002, '김민서', 1, '사원', 'F', '17/09/01', 2000000);
+INSERT INTO
+    EMPLOYEE
+VALUES
+    (1003, '이은영', 2, '부장', NULL, '90-09-01', 5500000);
+INSERT INTO
+    EMPLOYEE
+VALUES
+    (1004, '한성일', 2, '과장', 'M', '93-04-01', 5000000);
+COMMIT;
+
+/*
+INSERT INTO EMPLOYEE
+    (EMP_NO, NAME, DEPART)
+VALUES
+    (1005, '아무개', 5);
+    
+-- 부모테이블을 참조하는 EMP_NO에서 1005값이 없기때문에 에러가 뜬다.
+*/ 
+    
+-- 외부 데이터 IMPORT
+-- 엑셀 데이터(시트마다 테이블 1개)
+-- 
