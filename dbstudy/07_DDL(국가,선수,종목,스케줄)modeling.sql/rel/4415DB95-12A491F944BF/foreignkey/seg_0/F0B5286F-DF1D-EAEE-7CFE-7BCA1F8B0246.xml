@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F0B5286F-DF1D-EAEE-7CFE-7BCA1F8B0246" containerWithKeyObject="A590FAC9-F862-94D3-96A4-E200862FBA92" localFKIndex="B16B4F30-87F4-E23A-D5C5-B3605C760F08" name="FK_BANK_CODE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>ABF08B62-5503-6F0F-8DD0-A77804E4E018</importedID>
+<referredTableLongName>SCOTT.BANK_TBL</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>0F6C5076-86C8-DAC0-F3FD-3EFCFEB15962</referredTableID>
+<keyObject>A42FCECC-6D61-450E-9896-E22D102FA050</keyObject>
+<referredKeyID>A42FCECC-6D61-450E-9896-E22D102FA050</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>BANK_CODE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

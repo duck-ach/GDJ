@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A590FAC9-F862-94D3-96A4-E200862FBA92" schemaObject="9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB" name="CUSTOMER">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>25C70DD2-6305-CC7F-D30F-12BA7C4E9416</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CUST_NO" id="9BDBB506-8A06-EE3B-FC2A-938203AC04D5">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>59025FC1-2F64-B6BD-01DE-BD806A01199B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_NAME" id="1374D228-97F8-98D6-F9CE-5029DAF8819E">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>21B027C1-F4EF-CD1B-E096-98D0CAEBAA83</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="AF8B0A85-FCB7-B0FE-EE2D-8781D3CCA864">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>8C4EE598-E8C5-EF19-D68F-84D33FD17AF9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BANK_CODE" id="D3AE387D-D1D7-2B8A-E50D-22F716EAF342">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>E49D015C-6356-A0EA-835C-310BB3676D51</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F0B5286F-DF1D-EAEE-7CFE-7BCA1F8B0246" referredColumn="BE6566CB-5530-F315-487A-031356ABF8E2"/>
+</associations>
+</Column>
+<Column name="GRADE" id="9C55651E-CC8A-C580-58E2-2DD0ED0DE786">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>9E60F139-9B40-73D4-8E14-AD90442F536D</importedID>
+<constraintName>SYS_C007347</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;GOLD&apos;" description=""/>
+<valueDef value="&apos;SILVER&apos;" description=""/>
+<valueDef value="&apos;VIP&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>6 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="46B5E600-5BBE-D65F-D882-2B7C8412033F" name="PK_CUSTOMER">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>532C6966-AAC0-ECB4-5A04-BFA179E65C79</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9BDBB506-8A06-EE3B-FC2A-938203AC04D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0F2FFFE7-50BA-A712-3AE0-6CC4B392EA7D" schemaObject="9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB" name="CUSTOMER_PHONE_UN">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>CE50534C-1470-AEBD-04E9-1C2573690D8C</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AF8B0A85-FCB7-B0FE-EE2D-8781D3CCA864"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="80AF68D5-FC8F-8E1C-A3B6-53687A3DC015" schemaObject="9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB" name="PK_CUSTOMER">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>7B9362E7-E297-52E7-D281-AE927A498D9C</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9BDBB506-8A06-EE3B-FC2A-938203AC04D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B16B4F30-87F4-E23A-D5C5-B3605C760F08" name="FK_BANK_CODE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D3AE387D-D1D7-2B8A-E50D-22F716EAF342"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

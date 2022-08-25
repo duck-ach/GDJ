@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5A44CE1D-8AB6-98D2-37CA-9B3301814A3E" schemaObject="9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB" name="EVENT">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>6E2A2D0B-6E5C-D00C-955C-1E6CE72611D1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="E_CODE" id="5B680A1D-6AC6-235D-A204-AE98452049FD">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>237E90AF-26CE-9734-B321-917459AFAC5A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="E_NAME" id="7DD2DA5A-73C5-6DC0-0EC0-2FF474D28954">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>E3E2BF5E-40EC-1BDC-998F-906A8A38DEFB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="E_FIRST_YEAR" id="5AAA1BFB-DC72-146E-F217-31DC566FFA39">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>B60485DA-7907-C11C-AE4D-31F93BEFD783</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="E_INFO" id="8EAF2D8D-7868-359E-A81C-30A30D5CC897">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>B9A4FBB8-F007-1D44-61D0-33D5BB52C3E4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="68690AAA-2896-A807-C077-25179BA255DD" name="PK_EVENT">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>30AFADB7-8B39-6C77-5832-076B63E623AF</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B680A1D-6AC6-235D-A204-AE98452049FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4EA7A5CE-3386-8D49-FB58-A035726BE32E" schemaObject="9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB" name="PK_EVENT">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>14DC881D-186C-6D13-490E-8F7DA3910982</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B680A1D-6AC6-235D-A204-AE98452049FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

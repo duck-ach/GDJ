@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="89A79B9F-A8FC-93BD-139B-DBA47674B9EC" mainViewID="067CFB16-E246-3FA8-F460-F325F6825FD2">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:16:24 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="SCHEDULE" directorySegmentName="seg_0" id="CA5D69C9-39F4-248B-76DA-F7B1EE469C4E">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<schemaObject>9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>883E7BA8-887A-C8A8-CA36-379C25D0D074</segment>
+<tableSpace>8BCA4B5D-2BA7-A4BE-153C-8A5BF15DE1A0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="S_NO" id="4218CAD5-C90D-7097-D501-2794EBA28773">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="S_INFO" id="8263248D-2801-57CA-6D99-BD529F106126">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="S_END_DATE" id="A4B4BB57-3F5D-3422-1B53-EB8553603697">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="E_CODE" id="B2E885D8-F457-FB6F-8589-CD97596197A0">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="N_CODE" id="E7BC1DC9-3E99-BB9D-68A4-104C93C880F6">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="S_START_DATE" id="EFC4A784-0918-AB75-5F43-F6B31F1E6EB7">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_SCHEDULE" id="DF2682BD-A2FE-DFA4-4AFE-7EF7E6C33237">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<schemaObject>9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB</schemaObject>
+<segment>0EFE6D7B-3904-31CF-7361-796195D5CB0C</segment>
+<tableSpace>8BCA4B5D-2BA7-A4BE-153C-8A5BF15DE1A0</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SCHEDULE_EVENT" id="36B2CE09-0C70-6102-10A0-C885ADC5A3A2">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SCHEDULE_NATION" id="E5C2681D-655E-D222-DD36-60F642114FE9">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_SCHEDULE" id="8FFA6E0B-01E8-6313-3F98-001387D04E01">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<segment>0EFE6D7B-3904-31CF-7361-796195D5CB0C</segment>
+<tableSpace>8BCA4B5D-2BA7-A4BE-153C-8A5BF15DE1A0</tableSpace>
+<existingIndex>DF2682BD-A2FE-DFA4-4AFE-7EF7E6C33237</existingIndex>
+<indexSegment>0EFE6D7B-3904-31CF-7361-796195D5CB0C</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

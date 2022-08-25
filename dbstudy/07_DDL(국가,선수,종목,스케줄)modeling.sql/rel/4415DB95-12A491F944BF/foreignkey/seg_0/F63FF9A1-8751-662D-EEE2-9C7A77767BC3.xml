@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F63FF9A1-8751-662D-EEE2-9C7A77767BC3" containerWithKeyObject="8B5E0926-D0A4-54E3-B371-D025DB00AA6C" localFKIndex="9A0730C4-BC03-3898-5E1E-E72D079091AD" name="FK_PLAYER_NATION">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<importedID>E36C0F69-E31C-213B-2AEC-F4DB2AFCFFC2</importedID>
+<referredTableLongName>SCOTT.NATION</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>B252F010-4840-EEC2-E5A1-77171E1AF0DE</referredTableID>
+<keyObject>659DF64F-18DF-5EE9-A058-85B284F03E61</keyObject>
+<referredKeyID>659DF64F-18DF-5EE9-A058-85B284F03E61</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>N_CODE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="EMPLOYEE" directorySegmentName="seg_0" id="0BF57A84-5158-7DE3-12DA-BA5797B52B0F">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<schemaObject>9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>883E7BA8-887A-C8A8-CA36-379C25D0D074</segment>
+<tableSpace>8BCA4B5D-2BA7-A4BE-153C-8A5BF15DE1A0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HIRE_DATE" id="059FC724-4634-07AC-2C26-8258243C5672">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPT_NO" id="48872C25-0549-6A97-8886-66A317A53D1B">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SALARY" id="97DCC42A-5F34-5E85-1118-ED4C96391B1E">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENP_POSITION" id="C2156270-C168-C2BF-FB06-3BF692B83379">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMP_NO" id="F5B69775-03E1-5F03-1195-0FBA862A07B2">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMP_NAME" id="F8E47E0F-30B6-2745-7516-CDF49746B3AE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev11g>

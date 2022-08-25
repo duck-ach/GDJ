@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="PROCEEDING" directorySegmentName="seg_0" id="0BF8F17A-B665-9F0B-1513-9CA27179BD70">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<schemaObject>9883FDA7-2ADC-6B8B-36D1-E86BBAED14DB</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>883E7BA8-887A-C8A8-CA36-379C25D0D074</segment>
+<tableSpace>8BCA4B5D-2BA7-A4BE-153C-8A5BF15DE1A0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PJT_STATE" id="21E89A52-0AC3-6265-4436-41EEAECA52DA">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PJT_NO" id="4665B019-2C71-C7B8-F484-966F835CA88B">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMP_NO" id="6DE95408-8C5A-EFB7-7326-A4211CBCFC16">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PCD_NO" id="DB178D3B-CFFC-F995-1BB1-69E2F8E0CDE1">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:52:26 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev11g>

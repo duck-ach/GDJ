@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="883C2FEC-1825-29C1-9FC4-331A76C94D2B">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:16:24 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

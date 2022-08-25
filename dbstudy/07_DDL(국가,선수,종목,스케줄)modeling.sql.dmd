@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="07_DDL(국가,선수,종목,스케줄)modeling.sql" id="9CCDCA8C-0949-DA68-1EF9-A22A1E0DE60A" version="3.5">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:16:24 UTC</createdTime>
+<ownerDesignName>07_DDL(국가,선수,종목,스케줄)modeling.sql</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>9CCDCA8C-0949-DA68-1EF9-A22A1E0DE60A</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A9FE2DB5-6118-B81F-08C7-1DFB0C9F8BC2">
+<designStoragePath>C:\</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
