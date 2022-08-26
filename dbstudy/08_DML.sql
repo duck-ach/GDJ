@@ -29,7 +29,7 @@ ALTER TABLE EMPLOYEE
 ALTER TABLE EMPLOYEE
     ADD CONSTRAINT FK_DEPART FOREIGN KEY(DEPART)
     REFERENCES DEPARTMENT(DEPT_NO)
-    ON DELETE SET NULL;
+    ON DELETE CASCADE;
     
 /**************************************************************************/
 
@@ -45,6 +45,7 @@ ALTER TABLE EMPLOYEE
         2) UPDATE SET WHERE
         3) DELETE FROM WHERE
 */
+
 /*
     행 삽입
     1. 지정한 칼럼에 데이터 삽입
@@ -77,8 +78,11 @@ VALUES
 INSERT INTO DEPARTMENT
     (DEPT_NO, DEPT_NAME, LOCATION)
 VALUES
-    (4, '기획부', '서울');
-    
+    (4, '기획부', '서울'); 
+INSERT INTO DEPARTMENT
+    (DEPT_NO, DEPT_NAME, LOCATION)
+VALUES
+    (5, '개발부', '인천');
 COMMIT;
 
 -- INSERT INTO DEPARTMENT(DEPT_NO, DEPT_NAME) VALUES(5, '개발부'); 
@@ -118,6 +122,10 @@ INSERT INTO
     EMPLOYEE
 VALUES
     (1004, '한성일', 2, '과장', 'M', '93-04-01', 5000000);
+INSERT INTO
+    EMPLOYEE
+VALUES
+    (1005, '엄희라', 3, '사장', 'F', '99-09-02', 1000000);
 COMMIT;
 
 /*
@@ -131,4 +139,74 @@ VALUES
     
 -- 외부 데이터 IMPORT
 -- 엑셀 데이터(시트마다 테이블 1개)
--- 
+-- 부서번호가 1인 부서의 지역을 '인천'으로 수정
+UPDATE DEPARTMENT
+   SET LOCATION = '인천'
+ WHERE DEPT_NO = 1;
+ 
+-- 부서번호가 3인 부서명을 '전략부', 지역을'부산'으로 수정
+UPDATE DEPARTMENT
+   SET DEPT_NAME = '전략부'
+      ,LOCATION = '부산'
+ WHERE DEPT_NO = 3;
+ 
+-- 부서번호가 3인 부서의 부서번호를 6으로 수정
+-- DEPARTMENT의 부서번호를 EMPLOYEE가 참조중이므로 수정이 안됨
+-- 해결책
+-- 1. 외래키 일시중지를 시키려고 한다.
+-- 2. 수정
+-- 3. 외래키 재시작
+
+ALTER TABLE EMPLOYEE
+    DISABLE CONSTRAINT FK_DEPART;  -- 외래키 중지
+    
+UPDATE EMPLOYEE
+    SET DEPART = 6
+WHERE DEPART = 3;
+
+UPDATE DEPARTMENT
+    SET DEPT_NO = 6
+WHERE DEPT_NO = 3;
+
+ALTER TABLE EMPLOYEE
+    ENABLE CONSTRAINT FK_DEPART; 
+/*
+    부서 - 사원
+    1    -   1
+    2    -   1
+    3    -   2
+    4    -   2
+    5    -   3
+*/
+
+
+
+-- 4. 부서번호 1인 사원들의 월급을 100000 인상
+UPDATE EMPLOYEE
+   SET SALARY = SALARY + 100000
+ WHERE DEPART = 1;
+
+-- 5. 직급이 '과장' 인 사원들의 월급을 10%인상
+UPDATE EMPLOYEE
+   SET SALARY = SALARY * 1.1
+ WHERE POSITION = '과장';
+ 
+ /*
+    SALARY * 1 + SALARY * 0.1
+    SALARY * (1 + 0.1)
+    SALARY * 1.1
+ */
+ 
+-- 테이블 삭제
+-- 1. 부서번호가 4인 부서를 삭제
+-- 부서번호가 4인 행(ROW)을 참조하는 사원이 없으므로 정상 삭제
+DELETE
+  FROM DEPARTMENT
+ WHERE DEPT_NO = 4;
+
+-- 2. 부서번호가 1인 부서를 삭제
+-- 부서번호가 1인 행(ROW)의 소속부서가 NULL값으로 함께 변경
+-- 외래키 옵션으로 ON DELETE SET NULL 처리를 하였기 때문에
+DELETE
+  FROM DEPARTMENT
+ WHERE DEPT_NO = 1;
