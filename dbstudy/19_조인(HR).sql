@@ -161,3 +161,25 @@ FROM
 
 -- 10. 같은 부서의 사원들 중에서 나보다 늦게 입사하였으나 연봉을 더 많이 받는 사원이 있는 사원들의
 --     DEPARTMENT_ID, LAST_NAME, SALARY, HIRE_DATE와 높은 연봉을 받는 사원의 LAST_NAME, SALARY, HIRE_DATE를 조회하시오.
+
+-- 비교대상
+-- 1) 나 : EMPLOYEES ME
+-- 2) 너 : EMPLOYEES YOU
+SELECT ME.DEPARTMENT_ID AS 내부서번호
+     , ME.LAST_NAME AS 내이름
+     , ME.SALARY AS 내급여
+     , ME.HIRE_DATE AS 내입사일
+     , YOU.DEPARTMENT_ID AS 남부서번호
+     , YOU.LAST_NAME AS 남이름
+     , YOU.SALARY AS 남급여
+     , YOU.HIRE_DATE AS 남입사일
+  FROM
+      EMPLOYEES ME INNER JOIN EMPLOYEES YOU
+    ON 
+      ME.DEPARTMENT_ID = YOU.DEPARTMENT_ID
+ WHERE
+      TO_DATE(ME.HIRE_DATE) < TO_DATE(YOU.HIRE_DATE)
+   AND 
+      ME.SALARY < YOU.SALARY;
+      
+      

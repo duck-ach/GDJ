@@ -93,14 +93,6 @@ INSERT INTO EMPLOYEE VALUES (EMPLOYEE_SEQ.NEXTVAL, '이은영', 2, '부장', NUL
 INSERT INTO EMPLOYEE VALUES (EMPLOYEE_SEQ.NEXTVAL, '한성일', 2, '과장', 'M', '93-04-01', 5000000);
 COMMIT;
 
--- 참조무결성 위배 데이터 삽입을 위해서 외래키 일시중지
-ALTER TABLE EMPLOYEE
-    DISABLE CONSTRAINT FK_EMPLOYEE_DEPARTMENT;
-
--- 참조무결성 위배 데이터 삽입
-INSERT INTO EMPLOYEE VALUES (EMPLOYEE_SEQ.NEXTVAL, '신현준', 5, '대리', 'M', '98-12-01', 3500000);
-COMMIT;
-
 /*
     서브쿼리
     1. SUB QUERY
@@ -128,3 +120,45 @@ SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
  WHERE POSITION = (SELECT POSITION        -- 단일 행 서브쿼리이므로 연산자 =를 사용
                      FROM EMPLOYEE        -- 하위쿼리는 메인쿼리와 동등비교되므로, 반드시 POSITION을 반환시켜줘야한다.
                     WHERE EMP_NO = 1001); -- EMP_NO는 PK이므로 단일 행 서브쿼리(중복이없기때문)
+
+
+-- 2. 급여(SALARY)가 가장 높은 사원 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE SALARY = (SELECT MAX(SALARY) 
+                    FROM EMPLOYEE);
+                    
+-- 3. 부서번호가 1인 부서와 같은 지역에 있는 부서 정보를 조회하기
+SELECT DEPT_NO, DEPT_NAME, LOCATION
+  FROM DEPARTMENT
+ WHERE LOCATION = (SELECT LOCATION
+                     FROM DEPARTMENT
+                    WHERE DEPT_NO = 1);
+
+
+-- 4. 평균급여 이상을 갖는 사원 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE SALARY >= (SELECT AVG(SALARY)
+                    FROM EMPLOYEE);
+
+-- 5. 평균근속기간 이상을 근무한 사원 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE (SYSDATE - HIRE_DATE)  >= (SELECT AVG(SYSDATE - HIRE_DATE)
+                        FROM EMPLOYEE);
+
+
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE MONTHS_BETWEEN(SYSDATE, HIRE_DATE) >= (SELECT AVG(MONTHS_BETWEEN(SYSDATE, HIRE_DATE))
+                                                    FROM EMPLOYEE);
+
+-- 6. 부서번호가 2인 부서에 근무하는 사원들의 직급과 일치하는 직급을 가진 사원 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE POSITION IN (SELECT POSITION         -- 다중행 서브쿼리의 동등 비교는 IN 연산으로 수행해야 함
+                     FROM EMPLOYEE
+                    WHERE DEPART = 2); -- DEPART가 PK/UNIQUE가 아니기 때문에 다중 행 서브쿼리
+
+-- TIP) 단일 행 / 다중 행 상관 없이 동등 비교는 IN 연산으로 수행 가능
