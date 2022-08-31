@@ -162,3 +162,134 @@ SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
                     WHERE DEPART = 2); -- DEPART가 PK/UNIQUE가 아니기 때문에 다중 행 서브쿼리
 
 -- TIP) 단일 행 / 다중 행 상관 없이 동등 비교는 IN 연산으로 수행 가능
+
+/********************다중행**********************/
+-- 7. 부서명이 '영업부'인 부서에 근무하는 사원 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE 
+ WHERE DEPART IN (SELECT DEPT_NO 
+                    FROM DEPARTMENT
+                   WHERE DEPT_NAME = '영업부');
+                   
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM DEPARTMENT D INNER JOIN EMPLOYEE E
+    ON D.DEPT_NO = E.DEPART
+ WHERE DEPT_NAME = '영업부';
+ 
+ 
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM DEPARTMENT D, EMPLOYEE E
+ WHERE D.DEPT_NO = E.DEPART
+   AND DEPT_NAME = '영업부'; 
+
+-- 8. 직급이 '과장'인 사원들이 근무하는 부서 조회하기
+SELECT DEPT_NO, DEPT_NAME, LOCATION
+  FROM DEPARTMENT
+ WHERE DEPT_NO IN (SELECT DEPART 
+                     FROM EMPLOYEE 
+                    WHERE POSITION = '과장');
+                    
+SELECT DEPT_NO, DEPT_NAME, LOCATION
+  FROM DEPARTMENT D INNER JOIN EMPLOYEE E
+    ON D.DEPT_NO = E.DEPART
+ WHERE POSITION = '과장';
+
+
+SELECT DEPT_NO, DEPT_NAME, LOCATION
+  FROM DEPARTMENT D , EMPLOYEE E
+ WHERE D.DEPT_NO = E.DEPART
+   AND POSITION = '과장';
+   
+-- 9. 부서번호가 1인 부서에 근무하는 사원들의 급여보다 더 많은 급여를 받는 사원 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE SALARY > ANY (SELECT SALARY 
+                     FROM EMPLOYEE 
+                    WHERE DEPART = 2);
+                    
+                    
+-- WHERE SALARY > ANY(2000000, 5000000)
+-- SALARY가 2000000보다 크거나, 5000000보다 크면 됨(OR의 개념)
+
+-- SALARY > ANY(2000000, 5000000)
+-- -> SALARY > (SELECT MIN(2000000, 5000000) ...)
+-- SALARY > ALL(2000000, 5000000)
+-- -> SALARY > (SELECT MAX(2000000, 5000000) ...)
+
+-- 10. 부서번호가 1인 부서에 근무하는 사원들의 급여보다 더 많은 급여를 받는 사원 조회하기
+-- 모든 급여(2000000, 5000000)와 비교해서 많이 받으면 조회하기
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE SALARY > ALL(SELECT SALARY
+                      FROM EMPLOYEE
+                     WHERE DEPART = 1); -- DEPART가  PK/UNIQUE가 아니기 때문에 다중 행 서브쿼리
+
+-- WHERE SALARY > ALL(2000000, 5000000)
+-- SALARY가 2000000보다 크고, 5000000보다 크면 됨(AND 개념)
+-- 따라서 최대급여 5000000보다 크면 만족하는 상황임
+SELECT EMP_NO, NAME, DEPART, GENDER, POSITION, HIRE_DATE, SALARY
+  FROM EMPLOYEE
+ WHERE SALARY > (SELECT MAX(SALARY)
+                    FROM EMPLOYEE
+                  WHERE DEPART = 1);
+                  
+/* WHERE절의 서브쿼리 */
+
+-- 1. 전체 사원의 인원수, 급여합계/평균/최대/최소 조회하기
+SELECT
+        (SELECT COUNT(*) FROM EMPLOYEE) AS 인원수
+      , (SELECT SUM(SALARY) FROM EMPLOYEE) AS 급여합계
+      , (SELECT AVG(SALARY) FROM EMPLOYEE) AS 평균
+      , (SELECT MAX(SALARY) FROM EMPLOYEE) AS 최대
+      , (SELECT MIN(SALARY) FROM EMPLOYEE) AS 최소
+    FROM
+        DUAL;
+        
+-- 2. 부서번호가 1인 부서와 같은 지역에서 근무하는 사원 조회하기
+--    사원번호(EMP_NO), 사원명(NAME), 부서번호(DEPART), 부서명(DEPT_NAME) 조회
+SELECT E.EMP_NO, E.NAME, E.DEPART, D.DEPT_NAME
+  FROM DEPARTMENT D INNER JOIN EMPLOYEE E
+    ON D.DEPT_NO = E.DEPART
+ WHERE D.LOCATION = (SELECT LOCATION 
+                       FROM DEPARTMENT 
+                      WHERE DEPT_NO = 1); -- PK의 동등비교는 답이 하나만 나오니까.
+                   
+-- 스칼라 서브쿼리 접근
+-- 스칼라 서브쿼리는 일치하지 않는 정보를 NULL로 처리함
+-- 따라서 스칼라 서브쿼리와 동일한 방식의 조인은 '외부조인'이다.
+SELECT
+    E.EMP_NO
+  , E.NAME
+  , E.DEPART
+  , (SELECT D.DEPT_NAME 
+       FROM DEPARTMENT D 
+      WHERE D.DEPT_NO = E.DEPART
+        AND D.DEPT_NO = 1)
+ FROM
+    EMPLOYEE E;
+
+SELECT E.EMP_NO, E.NAME, E.DEPART, D.DEPT_NAME
+  FROM DEPARTMENT D RIGHT OUTER JOIN EMPLOYEE E
+    ON D.DEPT_NO = E.DEPART
+ WHERE D.LOCATION = (SELECT LOCATION
+                       FROM DEPARTMENT
+                      WHERE DEPT_NO = 1);
+    
+
+/* FROM절의 서브쿼리 */
+/*
+    인라인뷰
+    1. Inline-View
+    2. FROM절에서 사용하는 서브쿼리를 의미함
+    3. 인라인뷰는 주로 테이블 형식임
+    4. 인라인뷰에 별명을 주고 사용함
+    5. 인라인뷰에서 조회한 칼럼만 메인쿼리에서 조회할 수 있음
+    6. SELECT문의 실행순서를 바꿀 때 사용
+    
+    * 모든 목록보기는 정렬을 먼저 수행한다음에 어디서부터 어디까지 가져온다.
+*/
+
+SELECT A.EMP_NO, A.NAME, A.POSITION -- 인라인뷰가 조회한 칼럼만 작성할 수 있다.
+  FROM (SELECT EMP_NO, NAME, POSITION
+          FROM EMPLOYEE
+         WHERE DEPART = 1) A; -- 인라인뷰의 별명은 A임
