@@ -487,7 +487,3 @@ DELETE
                    WHERE DEPT_NAME = '영업부');
                    
 COMMIT;
-
-SELECT E.EMP_NO, D.DEPT_NAME
-  FROM DEPARTMENT2 D INNER JOIN EMPLOYEE2 E
-    ON D.DEPT_NO = E.DEPART; 
