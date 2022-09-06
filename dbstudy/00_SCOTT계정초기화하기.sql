@@ -6,3 +6,6 @@ CREATE USER SCOTT IDENTIFIED BY TIGER;
 
 -- 3. SCOTT 계정에 접속 및 객체 사용 권한을 부여한다.
 GRANT CONNECT, RESOURCE TO SCOTT;
+GRANT DBA TO SCOTT;
+
+-- SCOTT이 접속된 상태라면 실행불가능
