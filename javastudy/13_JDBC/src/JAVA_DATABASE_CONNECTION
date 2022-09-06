@@ -1,0 +1,19 @@
+JDBC
+
+1. JAVA DATABASE CONNECTION
+2. 사용할 클래스
+	1) OracleDriver : 오라클(DB벤더)에서 제공 - ojdbc6.jar
+	   C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
+	   클래스 - oracle.jdbc.OracleDriver
+	   프로젝트의 Build Path - class path에 ojdbc6.jar 라이브러리를 등록해야 함
+	   
+	   - 이후 클래스는 모두 자바에서 제공
+	   - 공통 패키지 : java.sql 패키지
+	   
+	2) DriverManager : DB접속(커넥션) 생성
+	   (1) url : DB주소(로컬에 설치한 DB - localhost 또는 127.0.0.1)
+	   (2) user : 사용자(스키마)
+	   (3) password : 비밀번호
+	3) Connection : DB접속
+	4) PreparedStatement : 쿼리문 실행
+	5) ResultSet : SELECT문 실행 결과를 처리
