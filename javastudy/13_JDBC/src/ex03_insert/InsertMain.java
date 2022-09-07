@@ -1,4 +1,4 @@
-package ex01_connection;
+package ex03_insert;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,18 +30,22 @@ public class InsertMain {
 		Connection con = null;
 		PreparedStatement ps = null;
 		try {
+			// OracleDriver 클래스 로드
+			// OracleDriver 클래스가 저장된 ojdbc6.jar 파일을 Classpath에 등록
 			Class.forName("oracle.jdbc.OracleDriver");
+			
+			// DB접속 - Connection 객체 생성
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";		// DB마다 url은 달라짐(Oracle XE 버전 기준)
 			String user = "scott";		// 대소문자 상관없다.
 			String password = "TIGER"; 	// 대소문자 구별한다.	
 			con = DriverManager.getConnection(url, user, password);
 			
+			// 쿼리문 작성(변수 처리할 부분은 ?로 처리)
 			String sql = "INSERT INTO BOARD(BOARD_NO, TITLE, CONTENT, HIT, CREATE_DATE) VALUES (BOARD_SEQ.NEXTVAL, ?, ?, 0, SYSDATE)";
 			ps = con.prepareStatement(sql);
 			
 			// 쿼리문에 포함된 ?에 변수 전달하기
 			// 쿼리문에 작성된 ?의 순서대로 명시하며 채워줌
-			
 			ps.setString(1, board.getTitle()); // 1번째 ?에 board.getTitle() 전달하기
 			ps.setString(2, board.getContent()); // 2번째 ?에 board.getContent() 전달하기
 			

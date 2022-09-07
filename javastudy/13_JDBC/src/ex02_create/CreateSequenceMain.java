@@ -1,4 +1,4 @@
-package ex01_connection;
+package ex02_create;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
