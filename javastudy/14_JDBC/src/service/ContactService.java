@@ -8,5 +8,6 @@ public interface ContactService {
 	public void deleteContact(int contact_no);
 	public void findContact(int contact_no);
 	public void findALLContacts();
+	public void createContactFile();
 }
 

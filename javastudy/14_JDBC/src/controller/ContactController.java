@@ -71,10 +71,23 @@ public class ContactController {
 				contact.setTel(tel);
 				contact.setEmail(email);
 				contactService.addContact(contact);
-			case 3: break;
-			case 4: break;
-			case 5: break;
-			case 0: return;
+				break;
+			case 3: 
+				System.out.print("삭제할 연락처 번호 >>> ");
+				contact_no = sc.nextInt();
+				contactService.deleteContact(contact_no);
+				break;
+			case 4: 
+				System.out.print("조회할 연락처 번호 >>> ");
+				contact_no = sc.nextInt();
+				contactService.deleteContact(contact_no);
+				break;
+			case 5: 
+				contactService.findALLContacts();
+				break;
+			case 0: 
+				System.out.println("연락처 프로그램을 종료합니다!");
+				return;
 			default: System.out.println("다시 선택하세요!");
 			}
 			
