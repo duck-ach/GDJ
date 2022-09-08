@@ -61,4 +61,4 @@ PreparedStatement의 로그인 상황
 	2. DAO : Database Access Object, 데이터베이스 접근 객체, 쿼리문을 실행하는 모든 메소드를 처리하는 클래스,
 	Singleton 패턴으로 하나의 객체만 존재할 수 있도록 처리
 	
-하나로 모아서 처리할 때 Map
+하나로 모아서 처리할 때 Map, List 등으로 처리

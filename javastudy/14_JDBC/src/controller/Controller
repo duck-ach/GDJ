@@ -1,0 +1,7 @@
+Controller play()
+	선택에 따른 ContactService의 메소드 호출
+
+ContactService
+	ContactDAO의 메소드 호출
+
+Controller -> Service -> DAO -> DB
