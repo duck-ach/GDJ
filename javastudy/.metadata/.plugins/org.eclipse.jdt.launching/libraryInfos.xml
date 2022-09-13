@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+    <libraryInfo home="C:\GDJ\installer\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre" version="15.0.2"/>
+    <libraryInfo home="C:\Users\GDJ54\AppData\Local\Temp\BNZ.631fcec7d1974\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre" version="15.0.2"/>
+    <libraryInfo home="C:\Users\GDJ54\AppData\Local\Temp\BNZ.631fcec7d1974\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
     <libraryInfo home="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-18.jdk/Contents/Home" version="18"/>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-11.0.13.jdk/Contents/Home" version="11.0.13"/>
@@ -7,5 +10,6 @@
     <libraryInfo home="C:\GDJ\installer\eclipse-jee-2021-03-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
     <libraryInfo home="C:\GDJ\installer\eclipse-jee-2021-03-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre" version="15.0.2"/>
     <libraryInfo home="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_15.0.2.v20210201-0955/jre" version="15.0.2"/>
+    <libraryInfo home="C:\GDJ\installer\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
     <libraryInfo home="C:\Users\GDJ54\Desktop\installer\eclipse-jee-2021-03-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
 </libraryInfos>
