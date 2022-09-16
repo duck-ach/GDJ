@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        /* 박스크기 = 이미지크기 */
+        .box1 {
+            width: 100px;
+            height: 76px;
+            background-image: url(../../images/attach.png);
+            background-size: 100px 76px; /* 너비 높이 순 */
+        }
+    </style>
+    <div class="box1"></div>
+<hr>
+    <style>
+        /* 박스 > 이미지 */
+        /* 가득채우려는 습성을 가지고있어서 반복해서 나타난다. */
+        .box2 {
+            width:200px;
+            height: 152px;
+            background-image: url(../../images/attach.png);
+            background-repeat: repeat; /* 적어주지 않아도 동작하는 default */
+        }
+    </style>
+    <div class="box2"></div>
+
+<hr>
+    <style>
+        .box3 {
+            width: 200px;
+            height: 152px;
+            background-image: url(../../images/attach.png);
+            background-repeat: no-repeat; /* 반복하지 않겠다 */
+            background-position: center; /* center로 배치 */
+        }
+    </style>
+    <div class="box3"></div>
+
+<hr>
+    <style>
+        .box4 {
+            /* 박스 < 이미지 */
+            width: 50px;
+            height: 38px;
+            background-image: url(../../images/attach.png);
+        }
+    </style>
+    <div class="box4"></div>
+
+<hr>
+    <style>
+        .box5 {
+            /* 박스 < 이미지 */
+            width: 100px;
+            height: 38px;
+            background-image: url(../../images/attach.png);
+            background-repeat: no-repeat;
+            background-size: contain; /* 너비/높이 중 작은 값에 맞춤*/
+        }
+    </style>
+    <div class="box5"></div>
+
+<hr>
+    <style>
+        .box6 {
+            /* 박스 < 이미지 */
+            width: 100px;
+            height: 38px;
+            background-image: url(../../images/attach.png);
+            background-repeat: no-repeat;
+            background-size: cover; /* 너비/높이 중 큰 값에 맞춤*/
+        }
+    </style>
+    <div class="box6"></div>
+
+<hr>
+
+    <style>
+        .box7 {
+            width: 140px;
+            height: 120px;
+            background-image: url(../../images/logos.png);
+            background-position: left -600px top -190px;
+        }
+    </style>
+    <div class="box7"></div>
+
+<hr>
+
+    <style>
+        .box8 {
+            width: 960px;
+            height: 640px;
+            background-image: url(../../images/eiffeltower.jpg);
+            background-size: 100% 100%; /* 박스 크기 기준 */
+            background-blend-mode: multiply;
+            background-color: sandybrown;
+        }
+    </style>
+    <div class="box8"></div>
+
+<hr>
+<h1>연습문제1</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+        .prac1 {
+            width: 1280px;
+            height: 960px;
+            background-image: url(../../images/hooray.jpg);
+            background-size: 100% 100%;
+            border: 5px solid black;
+            margin: 0 auto;
+
+            font-size: 130px;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            color: white;
+        }
+        p {
+            margin-top : 300px;
+        }
+        .prac1:hover {
+            background-image: url(../../images/eiffeltower.jpg);
+        }
+    </style>
+    <div class="prac1"><p><strong>가라는 회사는 안 가고<br>이래도 되나 싶다</strong></p></div>
+</body>
+</html>
