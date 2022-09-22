@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div {
+            box-sizing: border-box; /* width/height가 실제 크기가 됨 */
+        }
+        /* 
+            수평 레이아웃 - 1
+
+            1. 부모에 display=flex를 지정하면 자식들이 수평 레이아웃을 가짐
+            2. flex 관련 속성을 이용해서 자식들의 수평 레이아웃을 조정할 수 있음
+        */
+        .container1 {
+            width:300px;
+            height: 90px;
+            display: flex;
+            /* flext 관련 속성 */
+            /* flex-direction: columnes; */
+            /* flex-direction: row-reverse; : 오른쪽으로 BOX3부터 배치 (잘 사용x) */
+            /* flex-direction: column-reverse; : 위쪽에서부터 BOX3부터 배치 */
+            flex-direction: row;
+            flex-wrap: wrap; /* nowrap : 싸지않는다. wrap : 싼다. */
+            justify-content: space-around; /* 전체와 사이여백의 공백을 나눠가진다. */
+            justify-content: space-between; /* 사이여백의 공백을 나눠가진다. (맨 끝은 끝에붙는다.) */
+        }
+        
+        .container1 > div {
+            width: 90px;
+            height: 90px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 100px; /* height 값이 있을 때는 line-height값을 사용하는 것이 좋음 */
+        }
+    </style>
+    <div class="container1">
+        <div>BOX1</div>
+        <div>BOX2</div>
+        <div>BOX3</div>
+    </div>
+</body>
+</html>
