@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <style>
@@ -25,31 +26,67 @@
             text-decoration: none;
         }
         .main_box {
-            width: 1000px;
-            height: 300px;
-            border: 1px solid rgba(214, 192, 152, 0.377);
+            width: 900px;
+            height: 250px;
+            display: flex;
+            border: 1px solid rgb(124, 108, 108);
+            position: relative;
         }
         .left_box {
             flex: 3;
-            border: 1px solid rgba(214, 192, 152, 0.377);
+            border: 1px solid rgb(124, 108, 108);
+            position: relative;
         }
         .right_box {
             flex: 1;
-            border: 1px solid rgba(214, 192, 152, 0.377);
+            border: 1px solid rgb(124, 108, 108);
+            position: relative;
+        }
+        .id {
+            display: flex;
+        }
+        .pw {
+            display: flex;
+        }
+        .id_icon {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(124, 108, 108);
+            display: flex;
+        }
+        .id_content {
+            width: 500px;
+            border: 1px solid rgb(124, 108, 108);
+            display: flex;
+        }
+        .login_box {
+            width: 90%;
+            height: 90%;
+            background-color: rgb(124, 108, 108);
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 215px;
+            font-weight: 500;
+            font-size: 25px;
         }
     </style>
     <div class="main_box">
         <div class="left_box">
             <div class="id">
-                <div class="id_icon"></div>
-                <div class="id_content"></div>
+                <div class="id_icon"><i class="fa-solid fa-user"></i></div>
+                <div class="id_content"><input type="text" placeholder="Username"></div>
             </div>
             <div class="pw">
                 <div class="pw_icon"></div>
-                <div class="pw_content"></div>
+                <div class="pw_content"><input type="text" placeholder="Username"></div>
             </div>
         </div>
-        <div class="right_box"></div>
+        <div class="right_box">
+            <div class="login_box">로그인</div>
+        </div>
     </div>
 </body>
 </html>
