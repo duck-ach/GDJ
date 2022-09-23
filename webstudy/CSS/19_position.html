@@ -113,9 +113,11 @@
 <hr>
 
     <style>
+        /* help는 메롱의 부모 */
         .help {
             color: teal;
             cursor: help;
+            position: relative;
         }
         /* 
             after, before
@@ -124,10 +126,21 @@
             아이콘 같은곳에 많이 쓰인다.
         */
 
-        .help:hover::before {
-            content: '메롱';
+        /* after는 help의 자식 */
+        .help:hover::after {
+            content: attr(data-desc);  /* content:'메롱'; */
+            display: inline-block; /* 너비를 줄 수 있으나 같은 라인에 포함 */
+            width: 80px;
+            border: 1px solid bisque;
+            border-radius: 5px;
+            background-color: beige;
+            color: gray;
+            position: absolute;
+            top:30px;
+            left: 100px;
         }
+         
     </style>
-    <p><span class="help">여기</span>를 선택하시오.</p>
+    <p><span class="help" data-desc="메롱">여기</span>를 선택하시오.</p>
 </body>
 </html>

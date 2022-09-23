@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+         * {
+            box-sizing: border-box; /* 너비와 높이가 실제 크기 */
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        /* CSS 초기화 작업 2 */
+        body, header, section, article, aside, nav, footer, 
+        h1, h2, h3, h4, h5, h6, div, p, pre, ul, ol, li, dl, dt, dd {
+            padding: 0;
+            margin: 0;
+        }
+        /* a 링크의 초기화 */
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+        .main_box {
+            width: 1000px;
+            height: 300px;
+            border: 1px solid rgba(214, 192, 152, 0.377);
+        }
+        .left_box {
+            flex: 3;
+            border: 1px solid rgba(214, 192, 152, 0.377);
+        }
+        .right_box {
+            flex: 1;
+            border: 1px solid rgba(214, 192, 152, 0.377);
+        }
+    </style>
+    <div class="main_box">
+        <div class="left_box">
+            <div class="id">
+                <div class="id_icon"></div>
+                <div class="id_content"></div>
+            </div>
+            <div class="pw">
+                <div class="pw_icon"></div>
+                <div class="pw_content"></div>
+            </div>
+        </div>
+        <div class="right_box"></div>
+    </div>
+</body>
+</html>
