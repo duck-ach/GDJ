@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            함수   : function, 클래스 외부에 독립적으로 존재
+            메소드 : method, 클래스 내부에 포함된 함수
+        */ 
+        /*
+            1. 선언적 함수
+                1) 이름이 있는 함수
+                2) 함수 정의(만들어 두고) + 함수 호출(실행한다.)
+                3) 함수 정의 형식
+                    funtion 함수명(매개변수) {
+                        함수본문
+                    }
+                4) 함수 호출 형식
+                    함수명(인수(argument, parameter));
+        */
+
+        // 함수 호출 (함수 정의는 항상 먼저 처리되므로 어디서든 호출 가능)
+        func1();
+        // 호이스팅(Hoisting) 덕분에 우선순위별로 실행되기때문에 호출을 먼저 할 수 있다.
+
+       // 함수 정의(호이스팅 : 항상 먼저 처리되는 코드)
+       function func1() {
+           alert('Hello World');
+        }
+        
+    </script>
+
+    <script>
+        /*
+            2. 익명 함수
+            
+                1) 이름이 없는 함수
+                2) 변수에 익명 함수를 저장해서 사용 이벤트 처리용으로 사용
+                
+        */
+    </script>
+</body>
+</html>
