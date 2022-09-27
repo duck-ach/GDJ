@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        if(confirm('진행할까요?')){
+            alert('진행합니다');
+        } else {
+            alert('취소합니다');
+        }
+    </script> -->
+
+
+    <!-- <div>
+        <div>평균 : <span id="ava"></span>점</div>
+        <div>학점 : <span id="grd"></span></div>
+    </div>
+    <script>
+        // 국어, 영어, 수학 점수를 차례대로 입력받아서 평균, 학점(A~F) 출력
+        var kor = Number(prompt('국어 성적을 입력하세요.'));
+        var eng = Number(prompt('영어 성적을 입력하세요.'));
+        var mat = Number(prompt('수학 성적을 입력하세요.'));
+        var score = document.getElementById('ava');
+        var grade = document.getElementById('grd');
+        var average = (kor+eng+mat) / 3;
+
+        score.innerText = average;
+
+        if(average > 100 || average < 0) {
+            grade.innerText = '잘못된 점수입니다.';
+        } else if(average >= 90) {
+            grade.innerText = 'A등급 입니다.';
+        } else if (average >= 80) {
+            grade.innerText = 'B등급 입니다.';
+        } else if (average >= 70) {
+            grade.innerText = 'C등급 입니다.';
+        } else if (average >= 60) {
+            grade.innerText = 'D등급 입니다.';
+        } else {
+            grade.innerText = 'F등급 입니다.';
+        }
+    </script> -->
+
+    <div>
+        <div>평균 : <span id="ava"></span>점</div>
+        <div>학점 : <span id="grd"></span></div>
+    </div>
+    <script>
+        var kor = Number(prompt('국어 성적을 입력하세요.'));
+        var eng = Number(prompt('영어 성적을 입력하세요.'));
+        var mat = Number(prompt('수학 성적을 입력하세요.'));
+        var average = (kor+eng+mat) / 3;
+        var grade;
+        // 학점(switch) : 자바스크립트의 switch는 관계 연산자 사용 가능함
+        switch(true) {
+        case average >= 90: grade = 'A'; break;
+        case average >= 80: grade = 'B'; break;
+        case average >= 70: grade = 'C'; break;
+        case average >= 60: grade = 'D'; break;
+        default : grade = 'F';
+        }
+
+        document.getElementById('ave').textContent = average;
+        document.getElementById('grd').textContent = grade;
+    </script>
+</body>
+</html>
