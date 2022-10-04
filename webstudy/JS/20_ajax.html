@@ -282,5 +282,125 @@
     }
 </script>
 
+<hr>
+
+<!-- 6. JSON 읽기 -->
+<div><button id="btn6">클릭</button></div>
+<div id="box6">
+    <table border="1">
+        <thead>
+            <tr>
+                <td>제목</td>
+                <td>저자</td>
+                <td>가격</td>
+            </tr>
+        </thead>
+        <tbody class="book_list"></tbody>
+    </table>
+</div>
+<script>
+    document.getElementById('btn6').onclick = function(event){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'books.json', true);
+        xhr.send();
+        xhr.onreadystatechange = function(event) {
+            if(xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+                console.log(JSON.parse(xhr.responseText));
+                var data = JSON.parse(xhr.responseText);
+                var bookList = '';
+                for(let i = 0; i < data.length; i++) {
+                    // 객체 속성
+                    //      1) data[i].title
+                    //      2) data[i].['title']
+                    // 2. 객체 순회
+                    //      1) 속성의 직접 지정
+                    //         data[i].title
+                    //         data[i].author
+                    //         data[i].price
+                    //      2) for-in문을 이용한 객체 순회
+                    //         for(let prop in data[i]) {
+                    //          data[i][prop]
+                    //         }
+
+                    bookList += '<tr>';
+                    bookList += '<td>' + data[i].title + '</td>';
+                    bookList += '<td>' + data[i].author + '</td>';
+                    bookList += '<td>' + data[i].price + '</td>';
+                    bookList += '</tr>';
+                    console.log(data[i].title, data[i].author, data[i].price);
+                }
+                document.querySelector('#box6 .book_list').innerHTML = bookList;
+            }
+        }
+    }
+</script>
+
+<hr>
+
+<div><button id="btn7">클릭</button></div>
+<script>
+    document.getElementById('btn7').onclick = function(event){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'car.json', true);
+        xhr.send();
+        xhr.onreadystatechange = function(event) {
+            if(xhr.readyState == 4 && xhr.status == 200) {
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+                console.log(data.model);
+                console.log(data.maker);
+                console.log(data.price);
+
+                for(let i = 0; i < data.option.length; i++) {
+                    console.log(data.option[i]);
+                }
+                /*
+                위 for문은 아래 코드를 만듬
+                console.log(data.option[0]);
+                console.log(data.option[1]);
+                console.log(data.option[2]);
+                */
+
+               for(let prop in data.info){
+                console.log(data.info[prop]);
+               }
+               /*
+               위 for문은 아래 코드를 만듬
+               console.log(data.info.year);
+               console.log(data.info.discount);
+               */
+                // console.log(data.info.year);
+                // console.log(data.info.discount);
+            }
+        }
+    }
+</script>
+
+<hr>
+
+<!-- 8. JSON 읽기 연습 - cctv.json -->
+<!-- 전체 cctv는 몇 대인가? (카메라대수 속성 이용) -->
+<div><button id="btn8">클릭</button></div>
+<div>
+    마포구 전체 CCTV 개수 : <span id="cctv_count"></span>대
+</div>
+<script>
+    document.getElementById('btn8').onclick = function(event) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'cctv.json', true);
+        xhr.send();
+        xhr.onreadystatechange = function(event){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var data = JSON.parse(xhr.responseText);
+                var totalCount = 0;
+                for(let i = 0; i < data.length; i++) {
+                    totalCount += Number(data[i].카메라대수);
+                }
+                document.getElementById('cctv_count').textContent = totalCount;
+            }
+        }
+    }
+</script>
 </body>
 </html>
