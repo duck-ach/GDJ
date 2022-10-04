@@ -236,7 +236,47 @@
                     itemList += '<td>' + item[i].getElementsByTagName('description')[0].textContent + '</td>';
                     itemList += '</tr>'
                 }
-                document.getElementById('search_list').innerHTML = itemList;
+                document.querySelector('#box4 #search_list').innerHTML = itemList;
+            }
+        }
+    }
+</script>
+
+<hr>
+
+<!-- 4. XML 읽기 연습 - sfc_web_map.xml -->
+<div><button id="btn5">클릭</button></div>
+<div id="box5">
+    <table border="1">
+        <thead>
+            <tr>
+                <td>지역명</td>
+                <td>날씨</td>
+                <td>온도</td>
+            </tr>
+        </thead>
+        <tbody id="weather"></tbody>
+    </table>
+</div>
+<script>
+    document.getElementById('btn5').onclick = function(event) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'sfc_web_map.xml', true);
+        xhr.send();
+        xhr.onreadystatechange = function(event){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var data = xhr.responseXML;
+                console.log(data);
+                var local = data.getElementsByTagName('local');
+                var localList = '';
+                for(let i = 0; i < local.length; i++) {
+                    localList += '<tr>'
+                    localList += '<td>' + local[i].textContent + '</td>';
+                    localList += '<td>' + local[i].getAttribute('desc') + '</td>';
+                    localList += '<td>' + local[i].getAttribute('ta') + '</td>';
+                    localList += '</tr>'
+                }
+                document.getElementById('weather').innerHTML = localList;
             }
         }
     }
