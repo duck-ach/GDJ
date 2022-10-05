@@ -176,25 +176,114 @@
         <tbody id="weather"></tbody>
     </table>
 </div>
-
 <script>
-
+    $('#btn6').on('click', function(event){
+        $.ajax({
+            'type': 'GET',
+            'url': 'books.json',
+            'dataType': 'json',
+            'success': function(data){
+                $.each(data, function(i, book){
+                    var tr = $('<tr>');
+                    /*
+                    tr.append($('<td>').text(book.title));
+                    tr.append($('<td>').text(book.author));
+                    tr.append($('<td>').text(book.price));
+                    */
+                    for(let prop in book){
+                        tr.append($('<td>').text(book[prop]));
+                    }
+                    tr.appendTo('#box6 .book_list');
+                });
+            }
+        });
+    });
 </script>
 
-<!-- 5. JSON 읽기 -->
-<div><button id="btn6">클릭</button></div>
-<div id="box6">
-    <table border="1">
-        <thead>
-            <tr>
-                <td>제목</td>
-                <td>저자</td>
-                <td>가격</td>
-            </tr>
-        </thead>
-        <tbody class="book_list"></tbody>
-    </table>
-</div>
+   <!-- 5. JSON 읽기 -->
+   <div><button id="btn6">클릭</button></div>
+   <div id="box6">
+       <table border="1">
+           <thead>
+               <tr>
+                   <td>제목</td>
+                   <td>저자</td>
+                   <td>가격</td>
+               </tr>
+           </thead>
+           <tbody class="book_list"></tbody>
+       </table>
+   </div>
+   <script>
+       $('#btn6').on('click', function(event){
+           $.ajax({
+               'type': 'GET',
+               'url': 'books.json',
+               'dataType': 'json',
+               'success': function(data){
+                   $.each(data, function(i, book){
+                       var tr = $('<tr>');
+                       /*
+                       tr.append($('<td>').text(book.title));
+                       tr.append($('<td>').text(book.author));
+                       tr.append($('<td>').text(book.price));
+                       */
+                       for(let prop in book){
+                           tr.append($('<td>').text(book[prop]));
+                       }
+                       tr.appendTo('#box6 .book_list');
+                   });
+               }
+           });
+       });
+   </script>
+
+    <!-- 6. JSON 읽기 -->
+    <div><button id="btn7">클릭</button></div>
+    <script>
+        $('#btn7').on('click', function(event){
+            $.ajax({
+                'type': 'GET',
+                'url': 'car.json',
+                'dataType': 'json',
+                'success': function(data){
+                    console.log('모델명', data.model);
+                    console.log('제조사', data.maker);
+                    console.log('가격', data.price);
+                    $.each(data.option, function(i, item){
+                        console.log('옵션' + (i + 1), item);
+                    })
+                    console.log('연식', data.info.year);
+                    console.log('할인액', data.info.discount);
+                }
+            });
+        })
+    </script>
+
+
+    <!-- 7. JSON 읽기 연습 - cctv.json -->
+    <!-- 전체 cctv는 몇 대인가? (카메라대수 속성 이용) -->
+    <div><button id="btn8">클릭</button></div>
+    <div>
+        마포구 전체 CCTV 개수 : <span id="cctv_count"></span>대
+    </div>
+    <script>
+        $('#btn8').on('click', function(event){
+            $.ajax({
+                'type': 'GET',
+                'url': 'cctv.json',
+                'dataType': 'json',
+                'success': function(data){
+                    var cctvCount = 0;
+                    $.each(data, function(i, location){
+                        cctvCount += Number(location.카메라대수);
+                    })
+                    $('#cctv_count').text(cctvCount);
+                }
+            });
+        });
+    </script>
+
 
 </body>
 </html>

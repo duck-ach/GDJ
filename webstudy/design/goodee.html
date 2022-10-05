@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        /* CSS 초기화 */
+        body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(255, 254, 254, 0.877);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #sign_in_form {
+            width: 400px;
+            padding: 60px 50px 51px;
+            margin: 110px auto 0;
+        }
+
+        /* 로고이미지 */
+        #image {
+            margin: 0 auto 30px auto;
+            padding-left: 135px;
+        }
+
+        /* 회원구분체크 */
+        #checkMember {
+            font-size: 14px;
+        }
+
+        .input_box {
+            width: 450px;
+            height: 40px;
+            padding: 3px;
+            margin: 3px;
+            border: 2px solid green;
+            font-size: 13px;
+        }
+
+        .btn_login {
+            display: block;
+            width: 455px;
+            height: 40px;
+            padding: 3px;
+            margin: 3px;
+            border: none;
+            background-color: green;
+
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .box_parent {
+            position: relative;
+            width: 460px;
+            height: 200px;
+        }
+
+        .box1 {
+            width: 210px;
+            height: 120px;
+            position: absolute;
+            left: 3px;
+            padding-top: 40px;
+
+            text-align: center;
+        }
+        .box2 {
+            width: 210px;
+            height: 120px;
+            position: absolute;
+            left: 250px;
+            padding-top: 40px;
+
+            text-align: center;
+        }
+
+        .box_strong_text {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .box_thin_text {
+            font-size: 10px;
+            letter-spacing: -0.5px;
+            color: gray;
+        }
+
+        .btn_bottom {
+            display: block;
+            position: absolute;
+            margin-left: 5px;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: teal;
+
+            color: white;
+        }
+    </style>
+    <div id="sign_in_form">
+        <form>
+            <div id="image">
+                <a href="https://gdu.co.kr/main/main.html"><img src="https://www.gdu.co.kr/images/main/logo.png" width="176px"></a>
+            </div>
+            <div id="checkMember">
+                <span>
+                    <strong>※회원구분을 위해 체크해 주세요</strong>
+                </span>
+                <span>
+                    <label for="student">
+                        <input type="radio" name="member" value="student" id="student">수강생
+                    </label>
+                    <label for="basic">
+                        <input type="radio" name="member" value="basic" id="basic">일반회원
+                    </label>
+                </span>
+            </div>
+            <div>
+                <input type="text" name="id" placeholder="아이디" class="input_box">
+            </div>
+            <div>
+                <input type="password" name="pw" placeholder="●●●●" class="input_box">
+            </div>
+            <div>
+                <a href="javascript:void(0)" class="btn_login">Sign In</a>
+            </div>
+            <div class="box_parent">
+                <span class="box1">
+                    <div class="box_strong_text">아직 회원이 아닌가요?</div>
+                    <div class="box_thin_text">가입하면 다양한 서비스 이용이 가능합니다.</div>
+                    <a href="javascript:void(0)" class="btn_bottom">SignUp</a>
+                </span>
+                <span class="box2">
+                    <div class="box_strong_text">아이디/비밀번호를 잊으셨나요?</div>
+                    <div class="box_thin_text">간단하게 아이디/비밀번호를 찾을 수 있습니다.</div>
+                    <a href="javascript:void(0)" class="btn_bottom">Find ID/PW</a>
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
