@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 1. GET 방식 요청 : <a> 태그 -->
+	<div>
+		<a href="http://localhost:9090/01_Servlet/AnchorServlet">링크1</a> <!-- Full 주소 (200) -->
+	</div>
+	
+	<!-- (추천)링크2번과 같이 적어주는게 가장 좋다. -->
+	<div>
+		<a href="/01_Servlet/AnchorServlet">링크2</a> <!-- context path + mapping값 (200) -->
+	</div>
+	
+	<div>
+		<a href="/AnchorServlet">링크3</a> <!-- mapping값만 (404오류) -->
+	</div><!-- 슬래시로 시작하면 컨텍스트 패스로 인식 -->
+	<div>
+		<a href="01_Servlet/AnchorServlet">링크4</a> <!-- mapping값만 (404오류) -->
+	</div> <!-- 슬래시가 있으면 context path로 슬래시가 있으면 mapping으로 인식 -->
+	<div>
+		<a href="AnchorServlet">링크5</a> <!-- (404) URL매핑으로 인식되지만, HTML문서의 경로에 따라 실행 여부가 다름 -->
+	</div>
+	
+	<!-- 연습. -->
+	<!-- 응답 : 1+2=3 -->
+	<div>
+		<a href="/01_Servlet/AnchorServlet?a=1&b=2">더하기</a>
+	</div>
+	
+	
+	<!-- 2. GET 방식 요청 : 자바스크립트 location -->
+	<div>
+		<button id="btn1">링크1</button>
+		<!-- data- 뒤에는 쓰고싶은거 쓰면된다. (태그안에 데이터를 저장하는 것이 data속성 -->
+		<!-- 이벤트 속성은 항상 this -->
+		<button id="btn2" data-name="엄희라">링크2</button>
+	</div>
+	<script src="../JS/jquery-3.6.1.min.js"></script>
+	<script>
+		$('#btn1').on('click', function(event){
+			// location.href = '/01_Servlet/LocationServlet';
+			open('/01_Servlet/LocationServlet'); // open(url, [[name], [features]])
+		});
+		// location(새창이 필요없는 경우) / open(새창이 필요한 경우)
+		
+		$('#btn2').click(function(event){
+			location.href = '/01_Servlet/LocationServlet?param=' + $(this).data("name");
+		});
+		
+	</script> 
+</body>
+</html>

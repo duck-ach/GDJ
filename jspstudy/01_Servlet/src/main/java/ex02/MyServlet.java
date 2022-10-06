@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/My")
+@WebServlet({"/my", "/me"}) // 처럼 2개 이상의 URL Mapping을 지정할 수 있음
 public class MyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -76,7 +76,7 @@ public class MyServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		// 4) 응답 만들기(HTML 문서 만들기)
-	    out.println("<html lang=ko>");
+	    out.println("<html lang=\"ko\">");
 	    out.println("<head>");
 	    out.println("<meta charset=\"UTF-8\">");
 	    out.println("<title>");
@@ -86,9 +86,9 @@ public class MyServlet extends HttpServlet {
 	    out.println("<body>");
 	    out.println("<h1>안녕하세요. " +name +"님 반갑습니다 ♥ <h1>");
 	    if(age>=20) {
-	    out.println("<h1>귀하는 "+age+"살 이므로 입장이 가능합니다.</h1>");
+	    out.println("<h1>귀하는 " + age + "살 이므로 입장이 가능합니다.</h1>");
 	    } else {
-	    out.println("<h1>귀하는 "+age+"살?애들은 다음에</h1>");
+	    out.println("<h1>귀하는 " + age + "살?애들은 다음에</h1>");
 	    }
 	    out.println("</body>");
 	    out.println("</html>");
