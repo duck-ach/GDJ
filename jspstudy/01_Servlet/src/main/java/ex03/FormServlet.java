@@ -34,7 +34,11 @@ public class FormServlet extends HttpServlet {
 		if(id.isEmpty() || id == null) {
 			id = "빈 아이디";
 		}
-		String pw = request.getParameter("pwd");
+		String pwd = request.getParameter("pwd");
+		if(pwd.isEmpty()) {
+			pwd = "빈 비밀번호";
+		}
+		
 		String gender = request.getParameter("gender");
 		// gender 검사
 		if(gender == null) {
@@ -55,6 +59,7 @@ public class FormServlet extends HttpServlet {
 			}			
 		}
 		String strPhone = phone[0] + "-" + phone[1] + "-" + phone[2];
+		
 		String[] agree = request.getParameterValues("agree");
 		
 		String emailId = request.getParameter("email_id");
@@ -65,23 +70,23 @@ public class FormServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.println("<h3> 아이디 : " + id + "</h3>");
-		out.println("<h3> 비밀번호 : " + pw + "</h3>");
+		out.println("<h3> 비밀번호 : " + pwd + "</h3>");
 		out.println("<h3> 성별 : " + gender + "</h3>");
 		out.println("<h3> 거주도시 : " + city + "</h3>");
 		out.println("<h3> 연락처 : " + strPhone + "</h3>");
 		out.println("<h3> 이메일 : " + emailId + "@" + domain);
 		
 		out.println("<h3> 동의한내역 : " + Arrays.toString(agree) + "</h3>");			
-//		List<String> list = Arrays.asList(agree); // 문자열배열이 리스트로 변환(for문을 안돌리고 검사를 할수있다.)
-//		if(list.contains("terms")) {
-//			out.println("<h3>이용약관에 동의하셨습니다.</h3>");
-//		}
-//		if(list.contains("service")) {
-//			out.println("<h3>서비스에 동의하셨습니다.</h3>");
-//		}
-//		if(list.contains("marketing")) {
-//			out.println("<h3>마케팅에 동의하셨습니다.</h3>");
-//		}
+		List<String> list = Arrays.asList(agree); // 문자열배열이 리스트로 변환(for문을 안돌리고 검사를 할수있다.)
+		if(list.contains("terms")) {
+			out.println("<h3>이용약관에 동의하셨습니다.</h3>");
+		}
+		if(list.contains("service")) {
+			out.println("<h3>서비스에 동의하셨습니다.</h3>");
+		}
+		if(list.contains("marketing")) {
+			out.println("<h3>마케팅에 동의하셨습니다.</h3>");
+		}
 		
 		
 		

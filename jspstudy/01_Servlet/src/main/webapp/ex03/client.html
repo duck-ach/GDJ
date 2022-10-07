@@ -109,32 +109,38 @@
 		// 도시 선택 없으면 서브밋 방지
 		// 이용약관 동의, 서비스 동의 없으면 서브밋 방지
 		/*
+		
+		// 1. 폼 서브밋 이벤트
 		$('#frm').on('submit', function(event){
 			
 		});
 		
+		// 2. <button> 클릭 이벤트
+		//    <button>을 클릭하면 서브밋되므로 폼의 서브밋 이벤트와 동일함
 		$('#btn').on('click', function(event){
 			
 		});
+		
 		*/
 		
 		
-		$('#frm').on('submit', function(event){
+		$('#btn').on('click', function(event){
 			
 			// 아이디, 비밀번호 입력 없으면 서브밋 방지
-			if($('#id').val() == ''){
+			if($('#id').val() == '') {
 				alert('아이디는 필수입니다.');
-				event.preventDefault(); // 이벤트 서브밋 방지
-				return; // 더 이상 코드 진행하지 말 것
+				event.preventDefault();  // 이벤트(서브밋) 방지
+				return;  // 더 이상 코드 진행하지 말 것
 			}
-			if($('#pwd').val() == ''){
+			
+			if($('#pwd').val() == '') {
 				alert('비밀번호는 필수입니다.');
 				event.preventDefault();
 				return;
 			}
 			
 			// 성별 선택 없으면 서브밋 방지
-			if($(':radio').is(':cheked') == false) {
+			if($(':radio').is(':checked') == false) {
 				alert('성별은 필수입니다.');
 				event.preventDefault();
 				return;
@@ -148,12 +154,12 @@
 			}
 			
 			// 이용약관 동의, 서비스 동의 없으면 서브밋 방지
-	         if($('#terms').is(':checked') == false || $('#service').is(':checked') == false) {
-	            alert('이용약관과 서비스 동의를 해야합니다.');
-	            event.preventDefault();
-	            return;
-	         }
-
+			if($('#terms').is(':checked') == false || $('#service').is(':checked') == false) {
+				alert('이용약관과 서비스 동의를 해야합니다.');
+				event.preventDefault();
+				return;
+			}
+			
 		});
 		
 		
