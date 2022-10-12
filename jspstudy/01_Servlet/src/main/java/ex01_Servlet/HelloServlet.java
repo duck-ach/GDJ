@@ -1,4 +1,4 @@
-package ex01;
+package ex01_Servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletConfig;

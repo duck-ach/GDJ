@@ -1,4 +1,4 @@
-package ex09;
+package ex10_up_down;
 
 import java.io.File;
 import java.io.IOException;

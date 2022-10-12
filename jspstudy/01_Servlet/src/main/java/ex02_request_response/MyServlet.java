@@ -1,4 +1,4 @@
-package ex02;
+package ex02_request_response;
 
 import java.io.IOException;
 import java.io.PrintWriter;
