@@ -80,6 +80,8 @@ public class UploadServlet extends HttpServlet {
 		out.println("<h3>저장 파일명 : " + filesystemName + "</h3>");
 		out.println("<h3>파일 크기 : " + lastModified + "</h3>");
 		out.println("<h3>파일 최종 수정일 : " + strLastModified + "</h3>");
+		out.println("<a href=\"/01_Servlet/FileListServlet\">파일목록</a>");
+		out.close();
 
 		
 	}

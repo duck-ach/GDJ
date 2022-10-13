@@ -1,0 +1,119 @@
+ /* CSS 초기화 */
+ body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul , header, section {
+    padding: 0;
+    margin: 0;
+    font-family: 'Malgun Gothic', sans-serif;
+    box-sizing: border-box;
+}
+
+/**/
+body {
+    background-color: #F5F6F7;
+}
+
+/* a 태그 초기화*/
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#sign_in_form {
+    width: 460px;
+    padding: 60px 50px 51px;
+    margin: 110px auto;
+}
+
+/* 로고이미지 */
+#image {
+    margin: 0 auto 30px auto;
+    padding-left: 135px;
+}
+
+/* 회원구분체크 */
+#checkMember {
+    font-size: 14px;
+}
+
+.input_box {
+    width: 450px;
+    height: 40px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #00FF00;
+    font-size: 13px;
+}
+
+.input_box:hover {
+    border: 2px solid #FF8800;
+}
+
+
+.btn_login {
+    display: block;
+    width: 445px;
+    height: 40px;
+    padding: 3px;
+    margin: 3px;
+    border: none;
+    background-color: #00FF00;
+
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.btn_login:hover{
+    cursor: pointer;
+}
+
+
+.box_parent {
+    position: relative;
+    width: 460px;
+    height: 200px;
+}
+
+.box1 {
+    width: 210px;
+    height: 120px;
+    position: absolute;
+    left: 3px;
+    padding-top: 40px;
+
+    text-align: center;
+}
+.box2 {
+    width: 210px;
+    height: 120px;
+    position: absolute;
+    left: 250px;
+    padding-top: 40px;
+
+    text-align: center;
+}
+
+.box_strong_text {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.box_thin_text {
+    font-size: 10px;
+    letter-spacing: -0.5px;
+    color: gray;
+}
+
+/* Sign Up, Find ID/PW 버튼*/
+.btn_bottom {
+    display: block;
+    position: absolute;
+    margin-left: 5px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #007777;
+
+    color: white;
+}
