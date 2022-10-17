@@ -17,8 +17,8 @@ public class TripleService implements MyService {
 		// 포워드 할 데이터
 		request.setAttribute("width", width);
 		request.setAttribute("height", height);
-		request.setAttribute("result", (width * height) / 2);
-		request.setAttribute("command", "triple");
+		request.setAttribute("result", (width * height) * 0.5);
+		request.setAttribute("shape", "triple");
 		
 		// 어디로 어떻게?
 		ActionForward af = new ActionForward();

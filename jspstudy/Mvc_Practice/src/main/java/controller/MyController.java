@@ -25,22 +25,24 @@ public class MyController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		// 요청 확인
-		String requestURL = request.getRequestURI();
+		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
-		String command = requestURL.substring(contextPath.length() + 1);
+		String command = requestURI.substring(contextPath.length() + 1);
 		
 		// MySercive 선언
 		MyService myService = null;
+		
+		// ActionForward 선언
 		ActionForward actionForward = null;
 		
 		// 요청에 따른 Model 선택
 		switch(command) {
 			// 비즈니스로직 필요한 경우
-		case "triple.do":
-			myService = new TripleService();
-			break;
 		case "square.do":
 			myService = new SquareService();
+			break;
+		case "triple.do":
+			myService = new TripleService();
 			break;
 		case "circle.do":
 			myService = new CircleService();
@@ -48,6 +50,7 @@ public class MyController extends HttpServlet {
 		case "input.do":
 			actionForward = new ActionForward();
 			actionForward.setView("views/input.jsp");
+			actionForward.setRedirect(false);
 			break;
 		}
 		
@@ -64,7 +67,6 @@ public class MyController extends HttpServlet {
 			}
 		}
 		
-		request.getRequestDispatcher(actionForward.getView()).forward(request, response);
 		
 		
 		

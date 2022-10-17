@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +18,13 @@
 	--%>
 	
 <c:choose>
-	<c:when test="${command == square.do}">
+	<c:when test="${shape == 'square'}">
 		<h1>너비 ${width}, 높이 ${height}인 사각형의 넓이는 ${result} 입니다. </h1>
 	</c:when>
-	<c:when test="${command == triple.do}">
+	<c:when test="${shape == 'triple'}">
 		<h1>너비 ${width}, 높이 ${height}인 삼각형의 넓이는 ${result} 입니다. </h1>
 	</c:when>
-	<c:when test="${command == circle.do}">
+	<c:when test="${shape == 'circle'}">
 		<h1>반지름 ${radius}인 원의 넓이는 ${result} 입니다. </h1>
 	</c:when>
 </c:choose>

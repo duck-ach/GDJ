@@ -18,7 +18,7 @@ public class SquareService implements MyService {
 		request.setAttribute("width", width);
 		request.setAttribute("height", height);
 		request.setAttribute("result", width * height);
-		request.setAttribute("command", "square");
+		request.setAttribute("shape", "square");
 		
 		// 어디로 어떻게?
 		ActionForward af = new ActionForward();
