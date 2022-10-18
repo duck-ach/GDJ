@@ -11,7 +11,7 @@
 <body>
 
 	<ul>
-		<li><a href="${contextPath}/board/list.oo">게시판</a></li>
+		<li><a href="${contextPath}/board/list.do">게시판</a></li>
 		<li><a href="${contextPath}">공지사항</a></li>
 		<li><a href="#">QnA</a></li>
 	</ul>
