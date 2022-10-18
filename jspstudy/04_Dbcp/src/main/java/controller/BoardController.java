@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ActionForward;
+import service.BoardAddService;
 import service.BoardDetailService;
 import service.BoardListService;
 import service.BoardService;
@@ -35,11 +36,21 @@ public class BoardController extends HttpServlet {
 		
 		// 요청(urlMapping)에 따른 Service 생성
 		switch(urlMapping) {
+		// (비즈니스 로직이 필요한 경우)
 		case "board/list.do":
 			service = new BoardListService();
 			break;
 		case "board/detail.do":
 			service = new BoardDetailService();
+			break;
+		case "board/add.do":
+			service = new BoardAddService();
+			break;
+		// (비즈니스 로직이 필요없는 경우(단순이동))
+		case "board/write.do": // 작성 페이지로 단순이동
+			af = new ActionForward();
+			af.setView("/board/write.jsp");
+			af.setRedirect(false); // 단순이동은 forward
 			break;
 		}
 		
@@ -53,7 +64,7 @@ public class BoardController extends HttpServlet {
 		}
 		
 		// 어디로 어떻게?
-		if(af != null) {
+	 	if(af != null) {
 			if(af.isRedirect()) {
 				response.sendRedirect(af.getView());
 			} else {

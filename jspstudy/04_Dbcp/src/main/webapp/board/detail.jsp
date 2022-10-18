@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${board.board_no}번 게시물</title>
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 

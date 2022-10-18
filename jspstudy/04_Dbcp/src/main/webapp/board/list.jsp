@@ -9,6 +9,22 @@
 <title>게시글 전체 목록</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
+<script>
+	
+	// ready 이벤트
+	// 문서를 모두 확인한 뒤 처리하는 window.onload 이벤트를 대신하는 jQuery 이벤트
+	
+	$(document).ready(function(){
+		
+		$('#btn_write').click(function(){
+			location.href = '${contextPath}/board/write.do';
+			
+		});
+		
+	});
+	
+	
+</script>
 </head>
 <body>
 
