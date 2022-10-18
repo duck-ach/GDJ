@@ -7,39 +7,41 @@ import common.ActionForward;
 import domain.Board;
 import repository.BoardDao;
 
-public class BoardAddService implements BoardService {
+public class BoardModifyService implements BoardService {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		// 요청 파라미터
+		// <input type="text">, <textarea> 태그 요소는 입력 값이 없을 때 빈 문자열("")로 적용
+		// Optional은 사용할 수 없다. (null이 안온다!!)
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		int board_no = Integer.parseInt(request.getParameter("board_no"));
 		
 		// DB로 보낼 Board 생성
 		Board board = new Board();
 		board.setTitle(title);
 		board.setContent(content);
+		board.setBoard_no(board_no);
 		
-		// DB로 Board 보냄(삽입)
-		int result = BoardDao.getInstance().insertBoard(board);
+		// DB로 Board 보내서 수정
+		int result = BoardDao.getInstance().updateBoard(board);
 		
+		// 수정 결과는 콘솔에서 확인
 		String strResult = null;
-		// 이번에는 삽입 성공/실패 처리는 하지 않음
 		if(result == 1) {
 			strResult = "성공";
 		} else {
 			strResult = "실패";
 		}
-		System.out.println("삽입 결과 : " + strResult);
+		System.out.println("수정 결과 : " + strResult);
 		
 		// 어디로 / 어떻게
-		// 단순이동이나 SELECT이후에는 Forward
 		ActionForward af = new ActionForward();
-		af.setView(request.getContextPath() + "/board/list.do"); 			// Redirect할 때는 대부분 jsp가 아니라 매핑으로 요청함
-		af.setRedirect(true);					// INSERT, UPDATE, DELETE 이후에는 Redirect
+		af.setView(request.getContextPath() + "/board/detail.do?board_no=" + board_no); // Redirect할때는 매핑으로 이동
+		af.setRedirect(true);									   // UPDATE 이후에는 Redirect
 		return af;
 	}
 
 }
-// 정처기공부하다가 

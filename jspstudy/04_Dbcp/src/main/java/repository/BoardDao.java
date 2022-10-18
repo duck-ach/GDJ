@@ -129,4 +129,23 @@ public class BoardDao {
 		return result;
 	}
 	
+	// 5. 게시글 수정
+	public int updateBoard(Board board) {
+		int result = 0;
+		try {
+			con = dataSource.getConnection();
+			sql = "UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE BOARD_NO = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, board.getTitle());
+			ps.setString(2, board.getContent());
+			ps.setInt(3, board.getBoard_no());
+			result = ps.executeUpdate(); // UPDATE문은 executeUpdate() 메소드 사용
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, null);
+		}
+		return result;
+	}
+	
 }

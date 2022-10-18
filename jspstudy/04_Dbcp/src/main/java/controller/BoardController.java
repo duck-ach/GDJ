@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import common.ActionForward;
 import service.BoardAddService;
 import service.BoardDetailService;
+import service.BoardEditService;
 import service.BoardListService;
+import service.BoardModifyService;
 import service.BoardService;
 
 @WebServlet("*.do")
@@ -45,6 +47,12 @@ public class BoardController extends HttpServlet {
 			break;
 		case "board/add.do":
 			service = new BoardAddService();
+			break;
+		case "board/edit.do":
+			service = new BoardEditService();
+			break;
+		case "board/modify.do":
+			service = new BoardModifyService();
 			break;
 		// (비즈니스 로직이 필요없는 경우(단순이동))
 		case "board/write.do": // 작성 페이지로 단순이동
