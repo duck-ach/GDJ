@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ActionForward;
+import service.BoardAddService;
 import service.BoardDetailService;
 import service.BoardListService;
+import service.BoardRemoveService;
 import service.BoardService;
 
 
@@ -40,6 +42,18 @@ public class BoardController extends HttpServlet {
 			break;
 		case "/board/detail.do":
 			service = new BoardDetailService();
+			break;
+		case "/board/add.do":
+			service = new BoardAddService();
+			break;
+		case "/board/remove.do":
+			service = new BoardRemoveService();
+			break;
+		// 단순이동(포워딩
+		case "/board/write.do":
+			af = new ActionForward();
+			af.setView("/board/write.jsp");
+			af.setRedirect(false);
 			break;
 		}
 		

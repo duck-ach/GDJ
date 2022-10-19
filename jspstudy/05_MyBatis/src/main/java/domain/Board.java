@@ -15,7 +15,7 @@ import lombok.Setter;
 @Builder
 public class Board {
 
-	private int board_no;
+	private int boardNo;
 	private String title;
 	private String content;
 	private Date createDate;
