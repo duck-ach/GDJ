@@ -25,7 +25,7 @@ public class CookieServlet3 extends HttpServlet {
 		
 		// 쿠키 수정하기
 		// 같은 이름의 쿠키를 만들어서 덮어쓰기 하면 된다.
-		Cookie cookie1 = new Cookie("address", URLEncoder.encode("서울시 금천구 가산동", "UTF-8")); 
+		Cookie cookie1 = new Cookie("lyrics", URLEncoder.encode("너에게는 독이지", "UTF-8")); 
 		cookie1.setMaxAge(60); // 기존 10초에서 60초로 수정
 		response.addCookie(cookie1);
 		

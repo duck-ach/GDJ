@@ -29,12 +29,12 @@ public class CookieServlet1 extends HttpServlet {
 		// 1. 쿠키이름 : 알파벳, 숫자로 만듬
 		// 2. 쿠키값   : 공백, 콜론, 세미콜론 등 불가능한 문자가 있는 경우 인코딩해서 포함할 수 있음
 		
-		Cookie cookie1 = new Cookie("name", "엄희라");
-		Cookie cookie2 = new Cookie("address", URLEncoder.encode("서울시 금천구 가산동", "UTF-8")); // ASCII CODE[32] = 공백(space bar)
+		Cookie cookie1 = new Cookie("name", "newjeans");
+		Cookie cookie2 = new Cookie("lyrics", URLEncoder.encode("내가만든쿠키", "UTF-8")); // ASCII CODE[32] = 공백(space bar)
 		
 		// 쿠키 유효시간 설정
 		cookie1.setMaxAge(60 * 60 * 24 * 15); // 15일간 유효한 쿠키
-		cookie2.setMaxAge(10); // 10초간 유효한 쿠키
+		cookie2.setMaxAge(30); // 30초간 유효한 쿠키
 		
 		// 클라이언트 PC에 쿠키 저장하기
 		response.addCookie(cookie1);
