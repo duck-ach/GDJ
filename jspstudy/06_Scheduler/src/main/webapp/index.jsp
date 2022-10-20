@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<a href="${contextPath}/board/list.do">게시판</a>
+	<a href="${contextPath}/student/list.do">학생관리</a>
 	
 </body>
 </html>

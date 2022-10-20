@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="domain.Board"%>
+<%@page import="domain.Student"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Arrays"%>
@@ -39,9 +39,8 @@
 
 	<%-- 4. 배열 --%>
 	<%
-		String[] menus = {"김밥", "떡볶이", "순대"};
-		pageContext.setAttribute("menus", menus);
-		
+	String[] menus = {"김밥", "떡볶이", "순대"};
+			pageContext.setAttribute("menus", menus);
 	%>
 	
 	<c:forEach var="menu" items="${menus}" varStatus="vs">
@@ -52,8 +51,8 @@
 
 	<%-- 5. List --%>
 	<%
-		List<String> seasons = Arrays.asList("봄", "여름", "가을", "겨울");
-		pageContext.setAttribute("seasons", seasons);
+	List<String> seasons = Arrays.asList("봄", "여름", "가을", "겨울");
+			pageContext.setAttribute("seasons", seasons);
 	%>
 	
 	<c:forEach var="season" items="${seasons}" varStatus="k">
@@ -64,10 +63,10 @@
 
 	<%-- 6. Map (반복이 필요한 건 아님) --%>
 	<%
-		Map<String, Integer> map = new HashMap<>();
-		map.put("begin", 1);
-		map.put("end",10);
-		pageContext.setAttribute("map", map);
+	Map<String, Integer> map = new HashMap<>();
+			map.put("begin", 1);
+			map.put("end",10);
+			pageContext.setAttribute("map", map);
 	%>
 	${map.begin} ~ ${map.end};<br>
 
@@ -75,11 +74,11 @@
 	
 	<%-- 7. 객체 (반복이 필요한 건 아님) --%>
 	<%
-		Board board = new Board();
-		board.setBoardNo(1);
-		board.setTitle("도대체 언제까지...");
-		board.setHit(100);
-		pageContext.setAttribute("board", board);
+	Student board = new Student();
+			board.setBoardNo(1);
+			board.setTitle("도대체 언제까지...");
+			board.setHit(100);
+			pageContext.setAttribute("board", board);
 	%>
 	${board.boardNo}, ${board.title}, ${board.hit}<br>
 	${board.getBoardNo()}, ${board.getTitle()}, ${board.getHit()}
@@ -90,12 +89,12 @@
 <hr>
 	<%-- 연습. Board 객체를 3개 저장한 List만들고, 테이블에 뿌리기 --%>
 	   <%
-      List<Board> boards = new ArrayList();
-      boards.add(new Board(101, "질문입니다", 3));
-      boards.add(new Board(102, "감사합니다", 10));
-      boards.add(new Board(103, "안녕하세요", 8));
-      pageContext.setAttribute("boards", boards);
-   %>
+	   List<Student> boards = new ArrayList();
+	         boards.add(new Student(101, "질문입니다", 3));
+	         boards.add(new Student(102, "감사합니다", 10));
+	         boards.add(new Student(103, "안녕하세요", 8));
+	         pageContext.setAttribute("boards", boards);
+	   %>
 	<table border="1">
 		<thead>
 			<tr>
