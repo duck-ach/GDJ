@@ -36,7 +36,7 @@ public class BoardRemoveService implements BoardService {
 		}
 		out.close();
 				
-		return null; // Java문법 때문에 남겨둔 코드(실행되지 않는 코드)
+		return null; // 컨트롤러로 null을 반환하면 컨트롤러는 Redirect&Forward 모두 수행하지 않는다.
 		
 	}
 
