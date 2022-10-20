@@ -13,6 +13,9 @@ import domain.Student;
 
 public class StudentDao {
 
+	/* 
+		Sql
+	*/
 	// SqlSessionFactory 빌드
 	private SqlSessionFactory factory;
 	

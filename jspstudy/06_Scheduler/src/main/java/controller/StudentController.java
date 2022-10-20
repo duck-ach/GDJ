@@ -26,8 +26,8 @@ public class StudentController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		// 요청 확인
-		String requestURI = request.getRequestURI();
-		String contextPath = request.getContextPath();
+		String requestURI = request.getRequestURI(); 					// 프로젝트 .do
+		String contextPath = request.getContextPath();					
 		String urlMapping = requestURI.substring(contextPath.length());
 		
 		// StudentService 객체
