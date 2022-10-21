@@ -34,7 +34,7 @@ public class BindingServlet1 extends HttpServlet {
 		// 		3) HttpServletRequest : 응답전까지 접근해서 사용가능 (한번의 요청은 한번의 응답으로 끝)
 		// 3. 사용 메소드
 		// 		1) getAttribute('속성') 	: 해당 속성 값 가져오기
-		//		2) setAttribute('속성', 값) : 속성에 값 저장하기 (값은 Object타입으로 저장. getter에서 값 가져올 때캐스팅해서 사용하면된다.)
+		//		2) setAttribute('속성', 값) : 속성에 값 저장하기 (값은 Object타입으로 저장. getter에서 값 가져올 때 캐스팅해서 사용하면된다.)
 		//		3) removeAttribute('속성')  : 해당 속성 삭제하기
 		// 로그인정보는 브라우저를 끄면 로그인이 풀리게 되어 있으므로 Session에 저장.
 		

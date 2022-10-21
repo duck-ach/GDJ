@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>신규학생등록</title>
+<title>학생조회</title>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
 <script>
 
 	$(document).ready(function(){
-		$('#frm_write').submit(function(event){
+		$('#frm_detail').submit(function(event){
 			var kor = $('#kor');
 			var eng = $('#eng');
 			var math = $('#math');
@@ -44,29 +44,41 @@
 </head>
 <body>
 
-	<h1>신규학생등록 화면</h1>
+	<h1>학생 상세 조회</h1>
 	<div>
-		<form id="frm_write" method="POST" action="${contextPath}/student/add.do">
+		<form id="frm_detail" method="POST" action="${contextPath}/student/modify.do">
+			<div>
+				<label for="stuNo">학번</label>
+				<input type="text" id="stuNo" name="stuNo" value="${student.stuNo}" readonly>
+			</div>
 			<div>
 				<label for="name">이름</label>
-				<input type="text" id="name" name="name">
+				<input type="text" id="name" name="name" value="${student.name}">
 			</div>
 			<div>
 				<label for="kor">국어</label>
-				<input type="text" id="kor" name="kor">
+				<input type="text" id="kor" name="kor" value="${student.kor}">
 			</div>
 			<div>
 				<label for="eng">영어</label>
-				<input type="text" id="eng" name="eng">
+				<input type="text" id="eng" name="eng" value="${student.eng}">
 			</div>
 			<div>
 				<label for="math">수학</label>
-				<input type="text" id="math" name="math">
+				<input type="text" id="math" name="math" value="${student.math}">
+			</div>
+			<div>
+				<label for="ave">평균</label>
+				<input type="text" id="ave" name="math" value="${student.ave}" readonly>
+			</div>
+			<div>
+				<label for="grade">학점</label>
+				<input type="text" id="grade" name="grade" value="${student.grade}" readonly>
 			</div>
 			<hr>
 			<div>
-				<input type="submit" value="등록완료">
-				<input type="reset" value="다시작성">
+				<input type="submit" value="수정완료">
+				<input type="reset" value="입력초기화">
 				<input type="button" value="목록" id="btn_list">
 			</div>
 		</form>
