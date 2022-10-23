@@ -1,5 +1,5 @@
+<%@page import="domain.Board"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="domain.Student"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Arrays"%>
@@ -74,7 +74,7 @@
 	
 	<%-- 7. 객체 (반복이 필요한 건 아님) --%>
 	<%
-	Student board = new Student();
+	Board board = new Board();
 			board.setBoardNo(1);
 			board.setTitle("도대체 언제까지...");
 			board.setHit(100);
@@ -89,10 +89,10 @@
 <hr>
 	<%-- 연습. Board 객체를 3개 저장한 List만들고, 테이블에 뿌리기 --%>
 	   <%
-	   List<Student> boards = new ArrayList();
-	         boards.add(new Student(101, "질문입니다", 3));
-	         boards.add(new Student(102, "감사합니다", 10));
-	         boards.add(new Student(103, "안녕하세요", 8));
+	   List<Board> boards = new ArrayList();
+	         boards.add(new Board(101, "질문입니다", 3));
+	         boards.add(new Board(102, "감사합니다", 10));
+	         boards.add(new Board(103, "안녕하세요", 8));
 	         pageContext.setAttribute("boards", boards);
 	   %>
 	<table border="1">
