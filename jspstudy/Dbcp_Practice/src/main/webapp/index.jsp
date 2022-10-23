@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<a href="${contextPath}">게시판</a>
+<a href="${contextPath}/post/list.do">게시판</a>
 
 </body>
 </html>
