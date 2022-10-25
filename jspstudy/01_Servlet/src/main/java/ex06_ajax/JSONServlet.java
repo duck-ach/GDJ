@@ -27,7 +27,7 @@ public class JSONServlet extends HttpServlet {
 		// 요청 파라미터
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
-
+		
 		// 응답할 JSON 객체 만들기
 		JSONObject obj = new JSONObject();
 		obj.put("name", name);

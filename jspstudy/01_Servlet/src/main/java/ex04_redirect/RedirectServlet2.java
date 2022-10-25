@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/RedirectServlet2")
+
+
 public class RedirectServlet2 extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		// 요청 파라미터 확인
+
+		// 요청 파라미터 a 확인
 		String a = request.getParameter("a");
 		
 		// 응답
@@ -26,11 +27,11 @@ public class RedirectServlet2 extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.println("<h1>Hello World</h1>");
-		out.println("<h1> 파라미터 a = " + a);
+		out.println("<h1>파라미터 a = " + a + "</h1>");
 		out.close();
+	
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
