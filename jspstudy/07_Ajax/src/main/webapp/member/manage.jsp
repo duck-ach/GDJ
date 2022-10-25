@@ -10,16 +10,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
+<link rel="stylesheet" href="../assets/css/member.css">
 <script>
 	/*
 		ajax는 A에서 요청하면 A로 응답이온다.
 		MVC는 A에서 요청하면 B로 응답이온다.
 	*/
 	$(document).ready(function(){
+		fn_init();
 		fn_getAllMembers();
 		fn_getMember();
 		fn_registration();
+		fn_modify();
+		fn_remove();
 	});
+	function fn_init() {
+		$('#id').val('').prop('readonly', false);
+		$('#name').val('');
+		$(':radio[name=gender]').prop('checked', false);
+		$('#grade').val('');
+		$('#address').val('');
+	}
 	function fn_getAllMembers() {
 		$.ajax({
 			/* 요청 */
@@ -43,7 +54,7 @@
 					tr += '<td>' + (member.gender == 'M' ? '남자' : '여자') + '</td>';
 					tr += '<td>' + member.grade + '</td>';
 					tr += '<td>' + member.address + '</td>'; 
-					tr += '<td><input type="hidden" value="'+member.memberNo+'"><input type="button" value="조회" class="btn_detail"></td>'; // 문자열과 문자열 사이에 요소를 삽입할 때 ++를 이용한다.
+					tr += '<td><input type="hidden" value="'+member.memberNo+'"><input type="button" value="조회" class="btn_detail"><input type="hidden" value="'+member.memberNo+'"><input type="button" value="삭제" class="btn_remove"></td>'; // 문자열과 문자열 사이에 요소를 삽입할 때 ++를 이용한다.
 					tr += '</tr>';
 					$('#member_list').append(tr); // html(tr)은 원래있던거 제거하고 덮어쓰기
 				})
@@ -72,6 +83,7 @@
 						$(':radio[name=gender][value=' + resData.member.gender + ']').prop('checked', true);
 						$('#grade').val(resData.member.grede);
 						$('#address').val(resData.member.address);
+						$('#memberNo').val(resData.member.memberNo);
 					} else {
 						alert('조회된 회원 정보가 없습니다.');
 					}
@@ -95,8 +107,9 @@
 					if(resData.isSuccess) {
 						alert('신규 회원이 등록되었습니다.');
 						fn_getAllMembers(); // 목록을 새로 가져와서 갱신함
+						fn_init(); // 입력 초기화
 					} else {
-						alert('신규 회원 등록이 실패했습니다.')
+						alert('신규 회원 등록이 실패했습니다.');
 					}
 				},
 				// 예외 응답
@@ -108,6 +121,66 @@
 			
 		}); // click
 	
+	} // function
+	function fn_modify() {
+		
+		$('#btn_modify').click(function(){
+			
+			$.ajax({
+				/* 요청 */
+				type : 'post',
+				url  : '${contextPath}/member/modify.do',
+				data : $('#frm_member').serialize(),
+				/* 응답 */
+				dataType: 'json',
+				success : function(resData){ // resData : {"isSucess" : true}
+					if(resData.isSuccess) {
+						alert('회원 정보가 수정되었습니다.');
+						fn_getAllMembers(); // 수정된 내용이 반영되도록 회원 목록을 새로 고침
+					} else {
+						alert('회원 정보 수정이 실패했습니다.');
+					}
+				},
+				error : function(jqXHR) {
+					alert(jqXHR.responseText);
+				}
+			}); // ajax
+			
+		}); // click
+		
+	} // function
+	
+	function fn_remove() {
+		$('body').on('click', '.btn_remove', function(){
+			
+			if(confirm('삭제할까요?') == false) {
+				return;
+			}
+			
+			$.ajax({
+				/* 요청 */
+				type : 'get',
+				url: '${contextPath}/member/remove.do',
+				data : 'memberNo=' + $(this).next().val(), // 삭제 버튼의 다음 태그의 값(?)
+				/* 응답 */
+				dataType : 'json',
+				success : function(resData){
+					if(resData.isSuccess) {
+						alert('회원 정보가 삭제되었습니다.');
+						fn_getAllMembers();
+						fn_init();
+					} else {
+						alert('회원 정보 삭제가 실패했습니다.')
+					}
+				},
+				error : function(jqXHR) {
+					alert(jqXHR.responseText);
+				}
+				
+			});
+			
+		}); // click
+		
 	} // function
 	
 </script>
@@ -145,10 +218,11 @@
 				<input type="text" id="address" name="address">
 			</div>
 			<div>
-				<input type="button" value="초기화" id="btn_init">
-				<input type="button" value="신규등록" id="btn_add">
-				<input type="button" value="변경내용저장" id="btn_modify">
-				<input type="button" value="회원삭제" id="btn_remove">
+				<input type="button" value="초기화" id="btn_init" class="btn_primary" onclick="fn_init();">
+				<input type="button" value="신규등록" id="btn_add" class="btn_primary">
+				<input type="button" value="변경내용저장" id="btn_modify" class="btn_primary">
+				<input type="button" value="회원삭제" class="btn_primary btn_remove">
+				<input type="hidden" id="memberNo">
 			</div>
 		</form>
 	<hr>

@@ -74,4 +74,27 @@ public class MemberDao {
 		return result;
 	}
 	
+	// 5. 회원수정
+	public int updateMember(Member member) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.update(mapper + "updateMember", member);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+	
+	// 6. 회원삭제
+	public int deleteMember(int memberNo) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.delete(mapper + "deleteMember", memberNo);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+
+	
 }
