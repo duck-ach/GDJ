@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="mapper의 패키지 경로" -->
+
+<mapper namespace="mybatis.mapper.member"> <!-- 이 mapper의 이름 -->
+
+	<!-- 
+		mapper
+		1. 쿼리문 작성하는 곳
+		2. 모든 쿼리문에 세미콜론(;) 금지
+		3. <select>, <insert>, <update>, <delete> 태그 사용
+		4. 
+	 -->
+	<select id="login" parameterType="Member" resultType="Member">
+		SELECT MEMBER_NO, ID, PW, NAME, EMAIL, REGISTED_DATE
+		  FROM MEMBER
+		 WHERE ID = #{id} AND PW = #{pw}
+	</select>
+	 
+	  
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+	
+		안녕. 난 String Bean Configuration File이야.
+		난 Bean을 만드는 xml이야.
+		내가 만든 Bean은 컨테이너(Container)에 보관되지.
+	
+	-->
+	 
+	<!-- 
+	 	1. 디폴트 생성자 + setter
+	-->
+	<bean id="calc" class="com.gdu.app1.xml01.Calculator"></bean>
+	<bean id="haksang" class="com.gdu.app1.xml01.Student">
+		<property name="name">
+			<value>홍길동</value> 	<!-- setName() 연결. (property라는 태그는 setter랑 연결) -->
+		</property>
+		<property name="school">	<!-- 각종 데이터타입은 value태그안 byte, int, String, char 등 -->
+			<value>스프링대학교</value>  <!-- setSchool() 연결. -->
+		</property>
+		<property name="calculator">
+			<ref bean="calc"/>		<!-- setCalculator() 연결. -->
+		</property>					<!-- ref태그는 참조타입 -->
+	</bean>
+	<!-- 
+		2. 생성자(Generate Constructor using Fields)
+	-->
+
+	 
+</beans>
