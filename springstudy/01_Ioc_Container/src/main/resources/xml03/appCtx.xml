@@ -10,7 +10,7 @@
 	
 	 -->
 	
-	<bean id="address" class="com.gdu.app1.xml03.Address" p:jibun="가산" p:road="디지털로" p:zipCode="12345"/>
+	<bean id="address" class="com.gdu.app1.xml03.Address" p:jibun="코딩" p:road="디지털로" p:zipCode="12345"/>
 
 	<bean id="person" class="com.gdu.app1.xml03.Person" p:name="히룽지" p:age="24" p:addr-ref="address"/>
 
