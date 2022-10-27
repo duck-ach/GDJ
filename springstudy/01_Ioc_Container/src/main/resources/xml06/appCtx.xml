@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="human" class="com.gdu.app1.xml06.Person">
+		<!-- Property 태그는 Setter를 이용해서 데이터를 주입합니다. Setter가 없으면 안된다. (Setter Injection) -->
+		
+		<!-- List -->
+		<!-- List속성은 <list>태그를 사용하면 된다. -->
+		<property name="hobbies">
+			<list>
+				<value>여행</value>
+				<value>운동</value>
+			</list>
+		</property>
+		
+		<!-- Set -->
+		<!-- Set 속성은 <set> 태그를 사용하면 된다. -->
+		<property name="contacts">
+			<set>
+				<value>010-1111-1111</value>
+				<value>010-1111-1111</value>
+				<value>010-1111-1111</value> <!-- 인덱스는 없으나, 중복데이터 저장 x -->
+				<value>02-123-4567</value>
+			</set>
+		</property>	
+		
+		<!-- Map -->
+		<!-- Map 속성은 <map> 태그와 <entry>태그를 사용하며, key와 value값을 속성으로 준다.-->
+		<property name="friends">
+			<map>
+				<entry key="동네친구" value="영심이"/>
+				<entry key="학교친구" value="최자두"/>
+				<entry key="회사친구" value="나루토"/>
+			</map>
+		</property>
+	</bean>
+</beans>

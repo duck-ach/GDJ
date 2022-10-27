@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="mapper의 패키지 경로" -->
+
+<mapper namespace="mybatis.mapper.board"> <!-- 이 mapper의 이름 -->
+	 
+	 <!-- 게시글 목록 -->
+	 <select id="selectBoardList" resultType="Board">
+	 	SELECT BOARD_NO, WRITER, TITLE, WRITE_DATE
+	 	  FROM BOARD
+	 	 ORDER BY BOARD_NO DESC
+	 </select>
+	 
+	 <!-- 게시글 개수 -->
+	 <select id="getBoardCount" resultType="int">
+	 	SELECT COUNT(*)
+	 	  FROM BOARD
+	 </select>
+	 
+	 <!-- 게시글 상세보기 -->
+	 <select id="selectBoardByNo" parameterType="int" resultType="Board">
+	 	SELECT BOARD_NO, WRITER, TITLE, CONTENT
+	 	  FROM BOARD
+	 	 WHERE BOARD_NO = #{boardNo}
+	 </select>
+	 
+	<!-- 게시글 삽입 -->
+	<insert id="insertBoard" parameterType="Board">
+		INSERT INTO BOARD
+			(BOARD_NO, WRITER, TITLE, CONTENT, WRITE_DATE)
+		VALUES
+			(BOARD_SEQ.NEXTVAL, #{writer}, #{title}, #{content}, SYSDATE)
+	</insert>
+	
+	<!-- 게시글 수정  -->
+	<update id="updateBoard" parameterType="Board">
+		UPDATE BOARD
+		   SET TITLE = #{title}, CONTENT = #{content}
+		 WHERE BOARD_NO = #{boardNo}
+	</update> 
+
+	<!-- 게시글 삭제 -->
+	 
+	 <delete id="deleteBoard" parameterType="int">
+	 	DELETE
+	 	  FROM BOARD
+	 	 WHERE BOARD_NO = #{boardNo}
+	 </delete>
+	 
+	 
+
+	 
+	  
+</mapper>

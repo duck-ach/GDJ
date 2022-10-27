@@ -39,7 +39,7 @@
 			</div>
 			<div>
 				<label for="content">내용</label>
-				<textarea type="text" id="content" name="content" rows="5" cols="30"></textarea>
+				<textarea id="content" name="content" rows="5" cols="30"></textarea>
 			</div>
 			<div>
 				<input type="submit" value="작성완료">

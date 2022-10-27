@@ -40,7 +40,6 @@
 	 	SELECT BOARD_NO, TITLE, CONTENT, CREATE_DATE
 	 	  FROM BOARD
 	 	 WHERE BOARD_NO = #{boardNo}
-	 	
 	 </select>
 	 
 	<!-- 3. 게시글 삽입
