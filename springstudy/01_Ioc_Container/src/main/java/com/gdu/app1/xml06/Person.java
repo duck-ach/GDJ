@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-// Collection Framwork(List, Set, Map)에 주입
+// Collection Framework(List, Set, Map)에 주입
 
 public class Person {
 

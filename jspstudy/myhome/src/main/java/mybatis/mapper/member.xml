@@ -20,6 +20,17 @@
 		  FROM MEMBER
 		 WHERE ID = #{id} AND PW = #{pw}
 	</select>
-	 
-	  
+	
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO MEMBER
+			(MEMBER_NO, ID, PW, NAME, EMAIL, REGISTED_DATE)
+		VALUES
+			(MEMBER_SEQ.NEXTVAL, #{id}, #{pw}, #{name}, #{email}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'))
+	</insert>
+	
+	<delete id="deleteMember">  <!-- #을 붙이면 mybatis내부에서('')를 붙여준다. -->
+		DELETE
+		  FROM MEMBER
+		 WHERE MEMBER_NO = ${memberNo} <!-- $는 숫자 타입에서 쓸 수 있다. -->
+	</delete>
 </mapper>

@@ -31,6 +31,8 @@ public class MemberDao {
 	}
 	
 	String mapper = "mybatis.mapper.member.";
+	
+	// login
 	public Member login(Member member) {
 		SqlSession ss = factory.openSession();
 		Member login = ss.selectOne(mapper + "login", member);
@@ -43,6 +45,27 @@ public class MemberDao {
 	
 	// Tip. 메소드 이름을 실행할 쿼리문의 id와 맞추자
 	
+	// 삽입
+	public int insertMember(Member member) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.insert(mapper + "insertMember", member);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+	
+	// 탈퇴
+	public int deleteMember(int memberNo) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.delete(mapper + "deleteMember", memberNo);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
 	
 	
 }

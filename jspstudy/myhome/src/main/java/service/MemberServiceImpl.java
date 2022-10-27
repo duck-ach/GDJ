@@ -59,14 +59,78 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void register(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		
+		Member member = Member.builder()
+				.id(id)
+				.pw(pw)
+				.name(name)
+				.email(email)
+				.build();
+		
+		int result = MemberDao.getInstance().insertMember(member);
+		
+		try {
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			if(result > 0) {
+				// 회원가입하면 로그인 처리
+				// 회원가입한 회원의 정보를 DB에서 가져온 뒤 session에 login이라는 이름으로 올리기
+				HttpSession session = request.getSession();
+				session.setAttribute("login", MemberDao.getInstance().login(member));
+				out.println("alert('환영합니다');");
+				out.println("location.href='" + request.getContextPath() + "';"); // contextPath로 이동하라는 것은 메인 홈페이지로 가라는 것과 같음
+			} else {
+				out.println("alert('회원 가입에 실패했습니다.');");
+				out.println("history.back();");
+			}
+			out.println("</script>");
+			out.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public void cancel(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		
+		// 세션에 있는 정보는 지워지지 않는 정보
+		// 세션이 지워지는 시점 : (로그아웃눌렀을 때, 브라우저 닫혔을 때, 세팅된시간이 지났을 때)
+		
+		// session에 저장된 login 정보에서 탈퇴할 회원의 정보를 추출
+		HttpSession session = request.getSession();
+		Member login = (Member)session.getAttribute("login"); // 세션에서 꺼내쓸 때는 꼭 캐스팅할것. Member 꺼냈으면 Member로 캐스팅
+		int memberNo = login.getMemberNo();
+		
+		int result = MemberDao.getInstance().deleteMember(memberNo);
+		
+		try {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			if(result > 0) {
+				// 탈퇴 성공하면 session 초기화
+				session.invalidate(); // 세션초기화
+				out.println("alert('추신. 당신을 꽤 좋아했어...');");
+				out.println("location.href='" + request.getContextPath() + "';");
+			} else {
+				out.println("history.back();");
+			}
+			out.println("</script>");
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+		
+		
+		
 	}
 
 }
