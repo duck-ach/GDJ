@@ -35,9 +35,4 @@ public class Song {
 		this.genre = genre;
 	}
 	
-	
-	
-	
-	
-	
 }
