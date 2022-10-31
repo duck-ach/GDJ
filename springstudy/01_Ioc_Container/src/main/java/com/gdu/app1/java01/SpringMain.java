@@ -22,6 +22,8 @@ public class SpringMain {
 		System.out.println(s3.getName());
 		System.out.println(s3.getSong().getTitle());
 		System.out.println(s3.getSong().getGenre());
+		
+		ctx.close();
 	}
 
 }

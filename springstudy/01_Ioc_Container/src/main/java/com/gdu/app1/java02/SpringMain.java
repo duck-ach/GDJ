@@ -14,6 +14,7 @@ public class SpringMain {
 		System.out.println(student.getAwards());
 		System.out.println(student.getContact());
 
+		ctx.close();
 	}
 
 }
