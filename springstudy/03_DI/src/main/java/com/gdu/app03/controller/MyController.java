@@ -132,7 +132,7 @@ public class MyController {
 //	public void setB2(Board board2) {
 //		this.b2 = board2;
 //	}
-	// 위처럼 메소드를 2개 만들이유가 없어보여서 아래와같이 하나로 통합해버린다.
+	// 위처럼 메소드를 2개 만들이유가 없어서 아래와같이 하나로 통합해버린다.
 	@Autowired
 	public void setBoard(Board board1, Board board2) {
 		this.b1 = board1;
