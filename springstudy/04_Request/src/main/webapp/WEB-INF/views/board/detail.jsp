@@ -9,9 +9,9 @@
 </head>
 <body>
 	
-	<h1>회원상세보기</h1>
-	<div>아이디 ${member.id}</div> 	<%-- ${member.id}는 member.getId()를 호출한다. --%>
-	<div>비밀번호 ${member.pw}</div>	<%-- ${member.pw}는 member.getPw()를 호출한다. --%>
+	<h1>게시글 상세보기</h1>
+	<div>제목 ${title}</div> 	<%--  --%>
+	<div>조회수 ${hit}</div>	<%--  --%>
 
 </body>
 </html>

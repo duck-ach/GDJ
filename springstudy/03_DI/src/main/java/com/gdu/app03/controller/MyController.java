@@ -39,7 +39,7 @@ public class MyController {
 			1) 이름(id)이 일치하는 Bean을 가지고 오는 애너테이션
 		@Autowired : 
 			1) 타입(class)이 일치하는 Bean을 가지고 오는 애너테이션
-			2) 동일 타입이 여러 개 이쓴 경우 자동으로 @Qualifier를 동록해서 Bean을 식별
+			2) 동일 타입이 여러 개 있는 경우 자동으로 @Qualifier를 동록해서 Bean을 식별
 			3) 실무에서 주로 사용
 	*/
 	/*

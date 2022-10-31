@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -55,14 +57,42 @@ public class MyController1 {
 	
 	*/
 	
+	/*
+		Model
+		
+		Controller 에서 생성된 데이터를 담아서 View로 전달할 때 사용하는 객체
+		Servlet의 request.setAttribute()와 유사한 역할을 한다.
+		Method에 Model 타입이 지정된 경우 Model 타입의 객체를 만들어서 메서드에 주입한다.
+		addAttribute("키", "값") 메소드를 사용하여 전달할 데이터 세팅을 한다.
+		forward할 데이터를 담아두는 곳.
+		
+	*/
+	
 	
 	// location.href='${contextPath}/member/detail3?id=admin&pw=1234';
-	@GetMapping("detail3")
-	public String detail3(String id
+	@GetMapping("detail3") 	// @RequestParam은 생략할 수 있다. 파라미터 id 가 없는 경우 null이 저장된다.
+	public String detail3(String id // @RequestParam은 생략할 수 있다. 파라미터 pw 가 없는 경우 null이 저장된다.
 					    , String pw
-					    , Model model);
+					    , Model model) {
 		Member member = new Member(id, pw);
 		model.addAttribute("member", member);
 		return "member/detail";
+	}
+	
+	// <form action="${contextPath}/member/detail4" method="get">
+	@GetMapping("detail4")
+	public String getDetail4(Member member // 파라미터 id, pw를 setId(), setPw() 메소드를 이용해서 member 객체에 저장해 준다.
+						   , Model model) {
+		model.addAttribute("member", member);
+		
+		return "member/detail";
+	}
+	
+	// <form action="${contextPath}/member/detail4" method="post">
+	@PostMapping("detail4") // 요청 : URLMapping + 요청메소드
+	public String postDetail4(@ModelAttribute(value="member") Member member) { // 파라미터 id, pw를 이용해 Member member를 만들고, Model에 member라는 이름의 속성으로 저장하시오.
+		return "member/detail";
+	}
+	
 		
 }
