@@ -49,6 +49,9 @@
 	<div>
 		<a href="${contextPath}/board/detail1?title=notice&hit=10">전송</a>
 	</div>
+	<div>
+		<a href="${contextPath}/board/detail3?title=notice&hit=10">전송</a>
+	</div>
 	
 		
 </body>

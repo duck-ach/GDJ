@@ -1,0 +1,15 @@
+bean / Map
+->
+JSON / XML
+
+== 자바객체를 JSON이나 XML로 자동으로 변환해주는 라이브러리 (Map이나 ArrayList도 바꿔줌)
+
+new JSONObject(bean) 이걸 더이상 사용하지 않고,
+Jackson Databind라는 것을 사용한다.
+
+https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+
+pom.xml에 Jackson Databind의 버전도 업데이트 해줘야 한다. 실습할 때 사용한 버전은 2.12.1버전이고,
+Maven Dependence를 카피해서 pom.xml에 붙여준다.
+
+dependencies 밑에 붙여주고, mvnrepository에서 불러온 애들은 초반에 붙여주기로 했다.
