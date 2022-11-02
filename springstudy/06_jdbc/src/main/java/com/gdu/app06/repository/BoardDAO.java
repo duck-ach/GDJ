@@ -21,7 +21,14 @@ import com.gdu.app06.domain.BoardDTO;
 	@Repository 안에 @Component를 가지고 있다. (repository 전용 컴포넌트가 있으니 쓰자.)
 	@component  == @configuration, @bean
  */
-@Repository // Service가 사용하는 @Component
+
+/*
+	@Repository
+	안녕. 난 DAO에 추가하는 @Component이야.
+	servlet-context.xml에 등록된 <context:component-scan> 태그에 의해서 bean으로 검색되지
+	root-context.xml이나 @Configuration에 @Bean으로 등록하지 않아도 Container에 만들어 져
+*/
+@Repository // Service가 사용하는 @Component로 트랜잭션 기능이 추가되어 있어.
 public class BoardDAO {
 
 	private Connection con;
@@ -29,6 +36,8 @@ public class BoardDAO {
 	private ResultSet rs;
 	private String sql;
 	
+	// private 메소드
+	// 이 메소드는 BoardDAO에서만 사용한다.
 	private Connection getConnection() {
 		Connection con = null;
 		try {
@@ -63,13 +72,11 @@ public class BoardDAO {
 	
 	public int insertBoard(BoardDTO board) {
 		int result = 0;
-	      
 		return result;
 	}
 	   
 	public int updateBoard(BoardDTO board) {
 		int result = 0;
-	      
 		return result;
 	}
 	   
