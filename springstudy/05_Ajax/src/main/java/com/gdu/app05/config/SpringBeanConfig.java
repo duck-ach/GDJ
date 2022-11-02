@@ -16,9 +16,4 @@ public class SpringBeanConfig {
 		return new BoardServiceImpl();
 	}
 	
-	@Bean
-	public MovieService movieService() {
-		return new MovieServiceImpl();
-	}
-	
 }

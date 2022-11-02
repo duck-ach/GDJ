@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-// Collection Framework(List, Set, Map)¿¡ ÁÖÀÔ
+//Collection Framework(List, Set, Map)ì— ì£¼ì…
 
 public class Person {
 
@@ -33,13 +33,13 @@ public class Person {
 		this.friends = friends;
 	}
 	
-	// info() ¸Ş¼Òµå
+	// info() ë©”ì†Œë“œ
 	public void info() {
 		// List
 		for(int i = 0; i <hobbies.size(); i++) {
-			System.out.println((i + 1) + "¹øÂ° Ãë¹Ì : " + hobbies.get(i));
+			System.out.println((i + 1) + "ï¿½ï¿½Â° ï¿½ï¿½ï¿½ : " + hobbies.get(i));
 		}
-		// Set (ÀÎµ¦½º ¾øÀ½ : Çâ»ó for¹®¸¸ °¡´É)
+		// Set (ì¸ë±ìŠ¤ ì—†ìŒ : í–¥ìƒ forë¬¸ë§Œ ê°€ëŠ¥)
 		for(String contact : contacts) {
 			System.out.println(contact);
 		}

@@ -8,7 +8,7 @@ public class SpringMain {
 	public static void main(String[] args) {
 		
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext("xml07/appCtx.xml");
-		User user = ctx.getBean("user", User.class); // (이름, 타입)
+		User user = ctx.getBean("user", User.class); 
 		user.info();
 		ctx.close();
 

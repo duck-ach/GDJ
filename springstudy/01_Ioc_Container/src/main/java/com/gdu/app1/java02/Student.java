@@ -5,9 +5,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class Student {
-	private List<Integer> scores; // 0 ~ 100 »çÀÌÀÇ ·£´ı Á¤¼ö 5°³
-	private Set<String> awards;   // ÀÓÀÇÀÇ »óÀå 3°³
-	private Map<String, String> contact; // ¿¬¶ôÃ³(address, tel)
+	private List<Integer> scores; // 0 ~ 100 ì‚¬ì´ì˜ ëœë¤ ì •ìˆ˜ 5ê°œ
+	private Set<String> awards;   // ì„ì˜ì˜ ìƒì¥ 3ê°œ
+	private Map<String, String> contact; // ì—°ë½ì²˜(address, tel)
 
 	public List<Integer> getScores() {
 		return scores;

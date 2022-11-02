@@ -19,9 +19,9 @@ public class MemberServiceImpl implements MemberService {
 			id = request.getParameter("id");
 			pw = request.getParameter("pw");
 			if(id.isEmpty() || pw.isEmpty()) {
-				throw new RuntimeException("¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ ¸ğµÎ ÀÔ·ÂÇÏ¼¼¿ä.");
+				throw new RuntimeException("ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ëª¨ë‘ ì…ë ¥í•˜ì„¸ìš”.");
 			}
-			return "´ç½ÅÀÇ ¾ÆÀÌµğ´Â " + id + "ÀÌ°í, ÆĞ½º¿öµå´Â " + pw + "ÀÔ´Ï´Ù.";
+			return "ë‹¹ì‹ ì˜ ì•„ì´ë””ëŠ” " + id + "ì´ê³ , íŒ¨ìŠ¤ì›Œë“œëŠ” " + pw + "ì…ë‹ˆë‹¤.";
 		} catch (Exception e) {
 			try {
 				response.setContentType("text/html; charset=UTF-8");

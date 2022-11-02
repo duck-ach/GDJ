@@ -7,18 +7,18 @@ public class SpringMain {
 
 	public static void main(String[] args) {
 		
-		// ±âÁ¸ °³¹ßÀÚ
-		// °³¹ßÀÚ°¡ BeanÀ» ¸¸µé¾ú´Ù ¹æ½Ä.
+		// ê¸°ì¡´ ê°œë°œì
+		// ê°œë°œìê°€ Beanì„ ë§Œë“¤ì—ˆë‹¤ ë°©ì‹.
 		// Calculator calculator = new Calculator();
 		
-		// »õ·Î¿î ÇÁ·¹ÀÓ¿öÅ©
-		// ÇÁ·¹ÀÓ¿öÅ©°¡ ¸¸µç BeanÀ» °¡Á®´Ù ¾´´Ù.
+		// ìƒˆë¡œìš´ í”„ë ˆì„ì›Œí¬
+		// í”„ë ˆì„ì›Œí¬ê°€ ë§Œë“  Beanì„ ê°€ì ¸ë‹¤ ì“´ë‹¤.
 		
-		// XML¿¡ ÀúÀåµÈ Bean °¡Á®¿À´Â Å¬·¡½º
+		// XMLì— ì €ì¥ëœ Bean ê°€ì ¸ì˜¤ëŠ” í´ë˜ìŠ¤
 		// GenericXmlApplicationContext
 		// ClassPathXmlApplicationContext
-		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:xml01/appCtx.xml"); // ÄÁÅ×ÀÌ³Ê¿¡ ÀÖ´Â BeanÀ» °¡Á®´Ù ¾µ ¶§ »ç¿ëÇÏ´Â Å¬·¡½º
-		Calculator calculator = ctx.getBean("calc", Calculator.class); // (ÀÌ¸§ , Å¸ÀÔ)
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:xml01/appCtx.xml"); // ì»¨í…Œì´ë„ˆì— ìˆëŠ” Beanì„ ê°€ì ¸ë‹¤ ì“¸ ë•Œ ì‚¬ìš©í•˜ëŠ” í´ë˜ìŠ¤
+		Calculator calculator = ctx.getBean("calc", Calculator.class); // (ì´ë¦„ , íƒ€ì…)
 		calculator.add(5, 2);
 		calculator.sub(5, 2);
 		calculator.mul(5, 2);
@@ -29,7 +29,7 @@ public class SpringMain {
 		System.out.println(student.getSchool());
 		student.getCalculator().add(8, 7);
 		
-		ctx.close(); // »ı·«°¡´É
+		ctx.close(); // ìƒëµê°€ëŠ¥
 	}
 
 }

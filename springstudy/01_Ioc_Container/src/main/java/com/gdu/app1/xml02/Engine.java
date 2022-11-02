@@ -3,9 +3,9 @@ package com.gdu.app1.xml02;
 public class Engine {
 	
 	// field
-	private String fuel; 		// ¿¬·á(µðÁ©, °¡¼Ö¸°)
-	private double efficency; 	// ¿¬ºñ(12.5)
-	private int cc;				// ¹è±â·®(1998)
+	private String fuel; 		// ì—°ë£Œ(ë””ì ¤, ê°€ì†”ë¦°)
+	private double efficency; 	// ì—°ë¹„(12.5)
+	private int cc;				// ë°°ê¸°ëŸ‰(1998)
 	
 	// getter / setter
 	public String getFuel() {

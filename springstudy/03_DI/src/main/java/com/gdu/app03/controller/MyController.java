@@ -10,55 +10,55 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.gdu.app03.domain.Board;
 import com.gdu.app03.domain.Notice;
 
-@Controller // Controller´Â Setvlet¿¡¼­ ÀÛ¾÷ÇÒ ÇÊ¿ä¾øÀÌ Controller°¡ µÈ´Ù.
+@Controller // ControllerëŠ” Setvletì—ì„œ ì‘ì—…í•  í•„ìš”ì—†ì´ Controllerê°€ ëœë‹¤.
 public class MyController {
 
 	/*
 		@RequestMapping(value="/", method=RequestMethod.GET)
 		@RequestMapping(value="/", method=RequestMethod.POST)
 		
-		Spring4ºÎÅÍ »õ·Î¿î ¾Ö³ÊÅ×ÀÌ¼Ç(Annotation)À¸·Î ¹Ù²Ü ¼ö ÀÖ´Ù.
+		Spring4ë¶€í„° ìƒˆë¡œìš´ ì• ë„ˆí…Œì´ì…˜(Annotation)ìœ¼ë¡œ ë°”ê¿€ ìˆ˜ ìˆë‹¤.
 		
 		@GetMapping("/")
 		@PostMapping("/")
 	*/
-	@RequestMapping("/") // ContextPath·Î ¿äÃ»µÇ¸é ÀÌ¶ó´Â ¶æ [ http://localhost:9090/app03À¸·Î Á¢¼ÓÇÏ¸é Ã³¸®µÇ´Â ¸Ş¼Òµå ]
+	@RequestMapping("/") // ContextPathë¡œ ìš”ì²­ë˜ë©´ ì´ë¼ëŠ” ëœ» [ http://localhost:9090/app03ìœ¼ë¡œ ì ‘ì†í•˜ë©´ ì²˜ë¦¬ë˜ëŠ” ë©”ì†Œë“œ ]
 	public String welcome() {
 		return "default";
-		// ViewResolver¿¡ ÀÇÇØ¼­ 
-		// return "/WEB-INF/views/default.jsp"·Î ÇØ¼®
+		// ViewResolverì— ì˜í•´ì„œ 
+		// return "/WEB-INF/views/default.jsp"ë¡œ í•´ì„
 	}
 	
 	/*
-		Container¿¡ µî·ÏµÈ BeanÀ» °¡Áö°í¿À´Â ¹æ¹ı (¸¸µå´Â¹æ¹ı¸»°í, °¡Áö°í¿À´Â °Í)
+		Containerì— ë“±ë¡ëœ Beanì„ ê°€ì§€ê³ ì˜¤ëŠ” ë°©ë²• (ë§Œë“œëŠ”ë°©ë²•ë§ê³ , ê°€ì§€ê³ ì˜¤ëŠ” ê²ƒ)
 		
 		@Inject    : 
-			1) Å¸ÀÔ(Class)ÀÌ ÀÏÄ¡ÇÏ´Â BeanÀ» °¡Áö°í ¿À´Â ¾Ö³ÊÅ×ÀÌ¼Ç
-			2) µ¿ÀÏ Å¸ÀÔÀÌ ¿©·¯ °³ ÀÖ´Â °æ¿ì @Qualifier¸¦ ÀÌ¿ëÇØ¼­ BeanÀ» ½Äº°
+			1) íƒ€ì…(Class)ì´ ì¼ì¹˜í•˜ëŠ” Beanì„ ê°€ì§€ê³  ì˜¤ëŠ” ì• ë„ˆí…Œì´ì…˜
+			2) ë™ì¼ íƒ€ì…ì´ ì—¬ëŸ¬ ê°œ ìˆëŠ” ê²½ìš° @Qualifierë¥¼ ì´ìš©í•´ì„œ Beanì„ ì‹ë³„
 		@Resource  :
-			1) ÀÌ¸§(id)ÀÌ ÀÏÄ¡ÇÏ´Â BeanÀ» °¡Áö°í ¿À´Â ¾Ö³ÊÅ×ÀÌ¼Ç
+			1) ì´ë¦„(id)ì´ ì¼ì¹˜í•˜ëŠ” Beanì„ ê°€ì§€ê³  ì˜¤ëŠ” ì• ë„ˆí…Œì´ì…˜
 		@Autowired : 
-			1) Å¸ÀÔ(class)ÀÌ ÀÏÄ¡ÇÏ´Â BeanÀ» °¡Áö°í ¿À´Â ¾Ö³ÊÅ×ÀÌ¼Ç
-			2) µ¿ÀÏ Å¸ÀÔÀÌ ¿©·¯ °³ ÀÖ´Â °æ¿ì ÀÚµ¿À¸·Î @Qualifier¸¦ µ¿·ÏÇØ¼­ BeanÀ» ½Äº°
-			3) ½Ç¹«¿¡¼­ ÁÖ·Î »ç¿ë
+			1) íƒ€ì…(class)ì´ ì¼ì¹˜í•˜ëŠ” Beanì„ ê°€ì§€ê³  ì˜¤ëŠ” ì• ë„ˆí…Œì´ì…˜
+			2) ë™ì¼ íƒ€ì…ì´ ì—¬ëŸ¬ ê°œ ìˆëŠ” ê²½ìš° ìë™ìœ¼ë¡œ @Qualifierë¥¼ ë™ë¡í•´ì„œ Beanì„ ì‹ë³„
+			3) ì‹¤ë¬´ì—ì„œ ì£¼ë¡œ ì‚¬ìš©
 	*/
 	/*
-		@Autowired »ç¿ë ¹æ¹ı
+		@Autowired ì‚¬ìš© ë°©ë²•
 		
-		1. ÇÊµå·Î »ı¼ºµÈ Bean °¡Á®¿À±â
-			1) ÇÊµå¸¶´Ù @Autowired¸¦ Ãß°¡ÇÑ´Ù. (ÇÊµå°¡ 10°³¸é @Autowiredµµ 10¹ø ÀÛ¼º)
-			2) ÇÊµå°¡ ¸¹À¸¸é »ç¿ëÇÏÁö ¾Ê´Â´Ù.
-		2. »ı¼ºÀÚ¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
-			1) »ı¼ºÀÚÀÇ ¸Å°³º¯¼ö·Î BeanÀ» °¡Á®¿Â´Ù.
-			2) @Autowired¸¦ ÀÛ¼ºÇÒ ÇÊ¿ä°¡ ¾ø´Ù.
-		3. ¸Ş¼Òµå¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
-			1) ¸Ş¼ÒµåÀÇ ¸Å°³º¯¼ö·Î BeanÀ» °¡Á®¿Â´Ù.
-			2) @Autowired¸¦ ÀÛ¼ºÇØ¾ß ÇÑ´Ù.
-			3) ÀÏ¹İÀûÀ¸·Î setter¸¦ »ç¿ëÇÏÁö¸¸ setter°¡ ¾Æ´Ï¾îµµ »ó°ü ¾ø´Ù.
+		1. í•„ë“œë¡œ ìƒì„±ëœ Bean ê°€ì ¸ì˜¤ê¸°
+			1) í•„ë“œë§ˆë‹¤ @Autowiredë¥¼ ì¶”ê°€í•œë‹¤. (í•„ë“œê°€ 10ê°œë©´ @Autowiredë„ 10ë²ˆ ì‘ì„±)
+			2) í•„ë“œê°€ ë§ìœ¼ë©´ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		2. ìƒì„±ìë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
+			1) ìƒì„±ìì˜ ë§¤ê°œë³€ìˆ˜ë¡œ Beanì„ ê°€ì ¸ì˜¨ë‹¤.
+			2) @Autowiredë¥¼ ì‘ì„±í•  í•„ìš”ê°€ ì—†ë‹¤.
+		3. ë©”ì†Œë“œë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
+			1) ë©”ì†Œë“œì˜ ë§¤ê°œë³€ìˆ˜ë¡œ Beanì„ ê°€ì ¸ì˜¨ë‹¤.
+			2) @Autowiredë¥¼ ì‘ì„±í•´ì•¼ í•œë‹¤.
+			3) ì¼ë°˜ì ìœ¼ë¡œ setterë¥¼ ì‚¬ìš©í•˜ì§€ë§Œ setterê°€ ì•„ë‹ˆì–´ë„ ìƒê´€ ì—†ë‹¤.
 	*/
 	
-	// 1. ÇÊµå·Î »ı¼ºµÈ Bean °¡Á®¿À±â (ContainerÀÇ BeanÀ» °¡Á®¿Í¼­ ¿©±â´Ù ³ÖÀº °Í)
-	// Autowired¶ó´Â ¾Ö°¡ BeanÀ» Ã£¾Æ¼­ ÀÚµ¿À¸·Î °ªÀ» ³Ö¾îÁÖ´Â °Í(getter/setter)¾øÀÌ ½ÇÇà
+	// 1. í•„ë“œë¡œ ìƒì„±ëœ Bean ê°€ì ¸ì˜¤ê¸° (Containerì˜ Beanì„ ê°€ì ¸ì™€ì„œ ì—¬ê¸°ë‹¤ ë„£ì€ ê²ƒ)
+	// Autowiredë¼ëŠ” ì• ê°€ Beanì„ ì°¾ì•„ì„œ ìë™ìœ¼ë¡œ ê°’ì„ ë„£ì–´ì£¼ëŠ” ê²ƒ(getter/setter)ì—†ì´ ì‹¤í–‰
 /*	
  	@Autowired
 	private Board board; 
@@ -66,10 +66,10 @@ public class MyController {
 	
 	
 	/*
-		@Autowired´Â Å¸ÀÔ(class)ÀÌ ÀÏÄ¡ÇÏ´Â BeanÀ» Container¿¡¼­ °¡Á®¿Â´Ù.
+		@AutowiredëŠ” íƒ€ì…(class)ì´ ì¼ì¹˜í•˜ëŠ” Beanì„ Containerì—ì„œ ê°€ì ¸ì˜¨ë‹¤.
 		
 		@Autowired
-		private Board board; // Å¸ÀÔÀÌ BoardÀÎ BeanÀ» Container¿¡¼­ °¡Á®¿À±â
+		private Board board; // íƒ€ì…ì´ Boardì¸ Beanì„ Containerì—ì„œ ê°€ì ¸ì˜¤ê¸°
 		
 		--- Container ---------------------------
 		<bean id="board1" class="Board">
@@ -77,50 +77,50 @@ public class MyController {
 		-----------------------------------------
 	*/
 	
-	// 2. »ı¼ºÀÚ¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+	// 2. ìƒì„±ìë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 /*
 	private Board board;
 	
-	public MyController(Board board) { // ¸Å°³º¯¼ö Board board·Î Å¸ÀÔÀÌ BoardÀÎ BeanÀ» Container¿¡¼­ °¡Á®¿À°Å¶ó.
+	public MyController(Board board) { // ë§¤ê°œë³€ìˆ˜ Board boardë¡œ íƒ€ì…ì´ Boardì¸ Beanì„ Containerì—ì„œ ê°€ì ¸ì˜¤ê±°ë¼.
 		super();
 		this.board = board;
 	}
 */
 	
-//	// 3. ¸Ş¼Òµå¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+//	// 3. ë©”ì†Œë“œë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 //	private Board board;
-//	// setter¸¸ »ı¼º
-//	@Autowired // ÀÏ¹İ ¸Ş¼Òµå´Â @Autowired¸¦ ¹İµå½Ã ÀÛ¼ºÇØ¾ß ÇÑ´Ù.
-//	public void ¸Ş¼ÒµåÀÌ¸§Àº»ó°üÀÌ¾ø´Ù(Board board) { // ¸Å°³º¯¼ö Board board·Î Board Å¸ÀÔÀÇ BeanÀÌ Container¿¡¼­ 
+//	// setterë§Œ ìƒì„±
+//	@Autowired // ì¼ë°˜ ë©”ì†Œë“œëŠ” @Autowiredë¥¼ ë°˜ë“œì‹œ ì‘ì„±í•´ì•¼ í•œë‹¤.
+//	public void ë©”ì†Œë“œì´ë¦„ì€ìƒê´€ì´ì—†ë‹¤(Board board) { // ë§¤ê°œë³€ìˆ˜ Board boardë¡œ Board íƒ€ì…ì˜ Beanì´ Containerì—ì„œ 
 //		this.board = board;
 //	}
 
 
 	/*
-	  	Autowired´Â class¸¦ ÅëÇØ °´Ã¼¸¦ Ã£´Â´Ù.
-	  	root-content.xml ¿¡¼­´Â Board °´Ã¼°¡ 2°³°¡ ÀÖ±â ¶§¹®¿¡, Å¸ÀÔ(class)¸¦ ÅëÇØ Ã£´Â°ÍÀº ½ÇÆĞ·Î µ¹¸°´Ù. (plan A)
-	  	±×·³ ÀÌÁ¦ plan B ´Ü°è·Î µé¾î¼­¼­ id(º¯¼ö¸í)¸¦ °¡Á®¿À°Ô µÈ´Ù. (±×·¡¼­ ¾Æ·¡ Autowired¿¡¼­ º¯¼ö¸íÀ» board1ÀÌ ¾Æ´Ñ b1À¸·Î ¹Ù²Ù°ÔµÇ¸é Ã£Áö¸øÇÏ¿© ¿À·ù°¡ ¶á´Ù.)
+	  	AutowiredëŠ” classë¥¼ í†µí•´ ê°ì²´ë¥¼ ì°¾ëŠ”ë‹¤.
+	  	root-content.xml ì—ì„œëŠ” Board ê°ì²´ê°€ 2ê°œê°€ ìˆê¸° ë•Œë¬¸ì—, íƒ€ì…(class)ë¥¼ í†µí•´ ì°¾ëŠ”ê²ƒì€ ì‹¤íŒ¨ë¡œ ëŒë¦°ë‹¤. (plan A)
+	  	ê·¸ëŸ¼ ì´ì œ plan B ë‹¨ê³„ë¡œ ë“¤ì–´ì„œì„œ id(ë³€ìˆ˜ëª…)ë¥¼ ê°€ì ¸ì˜¤ê²Œ ëœë‹¤. (ê·¸ë˜ì„œ ì•„ë˜ Autowiredì—ì„œ ë³€ìˆ˜ëª…ì„ board1ì´ ì•„ë‹Œ b1ìœ¼ë¡œ ë°”ê¾¸ê²Œë˜ë©´ ì°¾ì§€ëª»í•˜ì—¬ ì˜¤ë¥˜ê°€ ëœ¬ë‹¤.)
 	 */
 	
-	// 4. µ¿ÀÏÇÑ Å¸ÀÔÀÇ BeanÀÌ ¿©·¯ °³ µî·ÏµÈ °æ¿ì
-	// 	  1) º¯¼ö¸íÀ» ÀÚµ¿À¸·Î ½Äº°ÀÚ(Qualifier)·Î ÀÎ½ÄÇÑ´Ù.
-	// 	  2) ½Äº°ÀÚ(@Qualifier)´Â BeanÀÇ ÀÌ¸§(id)ÀÌ ÀÏÄ¡ÇÏ´Â BeanÀ» °¡Á®¿Â´Ù.
+	// 4. ë™ì¼í•œ íƒ€ì…ì˜ Beanì´ ì—¬ëŸ¬ ê°œ ë“±ë¡ëœ ê²½ìš°
+	// 	  1) ë³€ìˆ˜ëª…ì„ ìë™ìœ¼ë¡œ ì‹ë³„ì(Qualifier)ë¡œ ì¸ì‹í•œë‹¤.
+	// 	  2) ì‹ë³„ì(@Qualifier)ëŠ” Beanì˜ ì´ë¦„(id)ì´ ì¼ì¹˜í•˜ëŠ” Beanì„ ê°€ì ¸ì˜¨ë‹¤.
 //	@Autowired
 //	private Board board1;
 //	
 //	@Autowired
 //	private Board board2;
 
-	// 4-2. »ı¼ºÀÚ¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+	// 4-2. ìƒì„±ìë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 //	private Board b1;
 //	private Board b2;
 //	
-//	public MyController(Board board1, Board board2) { // ¸Å°³º¯¼ö¸íÀÌ BeanÀÇ ÀÌ¸§(id)°ú ÀÏÄ¡ÇÏ¹Ç·Î ÀÚµ¿À¸·Î ÁÖÀÔµÈ´Ù.
+//	public MyController(Board board1, Board board2) { // ë§¤ê°œë³€ìˆ˜ëª…ì´ Beanì˜ ì´ë¦„(id)ê³¼ ì¼ì¹˜í•˜ë¯€ë¡œ ìë™ìœ¼ë¡œ ì£¼ì…ëœë‹¤.
 //		b1 = board1;
 //		b2 = board2;
 //	}
 	
-	// 4-3. ¸Ş¼Òµå¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+	// 4-3. ë©”ì†Œë“œë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 	private Board b1;
 	private Board b2;
 	
@@ -132,7 +132,7 @@ public class MyController {
 //	public void setB2(Board board2) {
 //		this.b2 = board2;
 //	}
-	// À§Ã³·³ ¸Ş¼Òµå¸¦ 2°³ ¸¸µéÀÌÀ¯°¡ ¾ø¾î¼­ ¾Æ·¡¿Í°°ÀÌ ÇÏ³ª·Î ÅëÇÕÇØ¹ö¸°´Ù.
+	// ìœ„ì²˜ëŸ¼ ë©”ì†Œë“œë¥¼ 2ê°œ ë§Œë“¤ì´ìœ ê°€ ì—†ì–´ì„œ ì•„ë˜ì™€ê°™ì´ í•˜ë‚˜ë¡œ í†µí•©í•´ë²„ë¦°ë‹¤.
 	@Autowired
 	public void setBoard(Board board1, Board board2) {
 		this.b1 = board1;
@@ -141,16 +141,16 @@ public class MyController {
 	
 
 	/*
-		@Inject : ¿ÀÁ÷ Å¸ÀÔ(class)¸¸ È®ÀÎ. µ¿ÀÏ Å¸ÀÔÀÌ ´Ù¼ö ¹ß°ßµÇ¸é @Qualifier¸¦ ÅëÇØ¼­ ÀÌ¸§(id)À» ±¸ºĞ.
-					@Qualifier°¡ ¾øÀ¸¸é ÃÖÁ¾ ¿À·ù
-		@Resource : ÀÌ¸§(id)À¸·Î È®ÀÎ
-		@Autowired : ÀÏ´Ü Å¸ÀÔ(class) È®ÀÎ. µ¿ÀÏ Å¸ÀÔÀÌ ´Ù¼ö ¹ß°ßµÇ¸é ÀÚµ¿À¸·Î º¯¼ö¸íÀ» @Qualifier·Î ÀÎ½ÄÇØ¼­ ÀÌ¸§(id)¸¦ È®ÀÎ
+		@Inject : ì˜¤ì§ íƒ€ì…(class)ë§Œ í™•ì¸. ë™ì¼ íƒ€ì…ì´ ë‹¤ìˆ˜ ë°œê²¬ë˜ë©´ @Qualifierë¥¼ í†µí•´ì„œ ì´ë¦„(id)ì„ êµ¬ë¶„.
+					@Qualifierê°€ ì—†ìœ¼ë©´ ìµœì¢… ì˜¤ë¥˜
+		@Resource : ì´ë¦„(id)ìœ¼ë¡œ í™•ì¸
+		@Autowired : ì¼ë‹¨ íƒ€ì…(class) í™•ì¸. ë™ì¼ íƒ€ì…ì´ ë‹¤ìˆ˜ ë°œê²¬ë˜ë©´ ìë™ìœ¼ë¡œ ë³€ìˆ˜ëª…ì„ @Qualifierë¡œ ì¸ì‹í•´ì„œ ì´ë¦„(id)ë¥¼ í™•ì¸
 		
-		Inject¸¦ ¾È¾²´Â ÀÌÀ¯´Â QualifierÀÛ¾÷À» µû·Îµû·Î ÇØÁÖ¾î¾ß ÇØ¼­ Àß ¾È¾´´Ù.
-		Autowired´Â QualifierÀÛ¾÷ÀÌ ³»ÀåµÇ¾î ÀÖ±â ¶§¹®¿¡ 2¹ø¾²°í ±×·² ÇÊ¿ä°¡ ¾ø±â ¶§¹®¿¡ Àß ¾²ÀÎ´Ù.
+		Injectë¥¼ ì•ˆì“°ëŠ” ì´ìœ ëŠ” Qualifierì‘ì—…ì„ ë”°ë¡œë”°ë¡œ í•´ì£¼ì–´ì•¼ í•´ì„œ ì˜ ì•ˆì“´ë‹¤.
+		AutowiredëŠ” Qualifierì‘ì—…ì´ ë‚´ì¥ë˜ì–´ ìˆê¸° ë•Œë¬¸ì— 2ë²ˆì“°ê³  ê·¸ëŸ´ í•„ìš”ê°€ ì—†ê¸° ë•Œë¬¸ì— ì˜ ì“°ì¸ë‹¤.
 	*/
 	
-	// ¿äÃ»À» ¸¸µé¾î È®ÀÎ
+	// ìš”ì²­ì„ ë§Œë“¤ì–´ í™•ì¸
 	@GetMapping("board/detail") // @GetMapping("/board/detail")
 	public void boardDetail() {
 		System.out.println(b1.getBoardNo());
@@ -161,26 +161,26 @@ public class MyController {
 		System.out.println(b2.getCreateDate());
 	}
 	
-// @Autowired¸¦ »ç¿ëÇÏ´Â ÀÌÀ¯ : @Inject + @Qualifier
+// @Autowiredë¥¼ ì‚¬ìš©í•˜ëŠ” ì´ìœ  : @Inject + @Qualifier
 /*
 	@Inject
-	@Qualifier(value="board1") // Qualifier¸¦ º¸°í board1À» Ã£¾Æ¶ó ÇÏ´Â°Å´Ù.
+	@Qualifier(value="board1") // Qualifierë¥¼ ë³´ê³  board1ì„ ì°¾ì•„ë¼ í•˜ëŠ”ê±°ë‹¤.
 	private Board b1;
 	@Inject
-	@Qualifier(value="board2") // Qualifier¸¦ º¸°í board1À» Ã£¾Æ¶ó ÇÏ´Â°Å´Ù.
+	@Qualifier(value="board2") // Qualifierë¥¼ ë³´ê³  board1ì„ ì°¾ì•„ë¼ í•˜ëŠ”ê±°ë‹¤.
 	private Board b2;
 */
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	// 1. field¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+	// 1. fieldë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 //	@Autowired
 //	private Notice notice1;
 //	
 //	@Autowired
 //	private Notice notice2;
 	
-	// 2. »ı¼ºÀÚ¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+	// 2. ìƒì„±ìë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 //	@Autowired
 //	private Notice notice1;
 //	@Autowired
@@ -193,7 +193,7 @@ public class MyController {
 //	}
 
 	
-	// 3. ¸Ş¼Òµå¸¦ ÀÌ¿ëÇØ Bean °¡Á®¿À±â
+	// 3. ë©”ì†Œë“œë¥¼ ì´ìš©í•´ Bean ê°€ì ¸ì˜¤ê¸°
 	private Notice noti1;
 	private Notice noti2;
 	@Autowired

@@ -12,15 +12,15 @@ import com.gdu.app05.domain.Board;
 public class BoardServiceImpl implements BoardService {
 
 	/*
-		ResponseEntity<T> Å¬·¡½º
-		¾È³ç. ³­ Ajax ÀÀ´ä µ¥ÀÌÅÍ¸¦ ¸¸µé±â À§ÇÑ Àü¿ë Å¬·¡½º¾ß.
+		ResponseEntity<T> í´ë˜ìŠ¤
+		ì•ˆë…•. ë‚œ Ajax ì‘ë‹µ ë°ì´í„°ë¥¼ ë§Œë“¤ê¸° ìœ„í•œ ì „ìš© í´ë˜ìŠ¤ì•¼.
 		
 		new ResponseEntity<T>(T body, HttpHeaders header, HttpStatus status)
-		 	1) T body 			  : ½ÇÁ¦ ÀÀ´äÇÒ µ¥ÀÌÅÍ
-		 	2) HttpHeaders header : ÀÀ´ä Çì´õ
-		 	3) HttpStatus status  : ÀÀ´ä ÄÚµå(200, 404, 500 µî)
-		 		OK¸¸ 200¹ø, ³ª¸ÓÁö´Â ¿À·ù
-	*/
+		 	1) T body 			  : ì‹¤ì œ ì‘ë‹µí•  ë°ì´í„°
+		 	2) HttpHeaders header : ì‘ë‹µ í—¤ë”
+		 	3) HttpStatus status  : ì‘ë‹µ ì½”ë“œ(200, 404, 500 ë“±)
+		 		OKë§Œ 200ë²ˆ, ë‚˜ë¨¸ì§€ëŠ” ì˜¤ë¥˜
+	 */
 	
 	@Override
 	public ResponseEntity<Board> execute1(HttpServletRequest request) {
@@ -32,10 +32,10 @@ public class BoardServiceImpl implements BoardService {
 		
 		ResponseEntity<Board> entity = null;
 		if(title.isEmpty()) {
-			entity = new ResponseEntity<Board>(board, HttpStatus.INTERNAL_SERVER_ERROR); // 500¹ø´ë ¿À·ù. $.ajax()ÀÇ error¿¡¼­ Ã³¸®
+			entity = new ResponseEntity<Board>(board, HttpStatus.INTERNAL_SERVER_ERROR); // 500ë²ˆëŒ€ ì˜¤ë¥˜. $.ajax()ì˜ errorì—ì„œ ì²˜ë¦¬
 		} else {
 			board = new Board(title, content);
-			entity = new ResponseEntity<Board>(board, HttpStatus.OK); // $.ajax()ÀÇ success¿¡¼­ Ã³¸®
+			entity = new ResponseEntity<Board>(board, HttpStatus.OK); // $.ajax()ì˜ successì—ì„œ ì²˜ë¦¬
 		}
 		return entity;
 	}

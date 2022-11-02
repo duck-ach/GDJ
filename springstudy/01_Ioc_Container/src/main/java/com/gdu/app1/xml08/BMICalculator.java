@@ -16,13 +16,13 @@ public class BMICalculator {
 		this.height = height;
 		this.weight = weight;
 		bmi = calc.div(weight, calc.div(calc.mul(height, height), 10000));
-	    health = (bmi < 20) ? "ÀúÃ¼Áß" : (bmi < 25) ? "Á¤»ó" : (bmi < 30) ? "°úÃ¼Áß" : "ºñ¸¸";
+	    health = (bmi < 20) ? "ï¿½ï¿½Ã¼ï¿½ï¿½" : (bmi < 25) ? "ï¿½ï¿½ï¿½ï¿½" : (bmi < 30) ? "ï¿½ï¿½Ã¼ï¿½ï¿½" : "ï¿½ï¿½";
 		
-		// height¿Í weight´Â BMICalculator Å¬·¡½º¿¡¼­ º¸¿©ÁàµµµÇ°í, Member Å¬·¡½º¿¡¼­ º¸¿©Áàµµ µÈ´Ù.
-		// bmi¿Í health´Â ²À BMICalculator¿¡¼­ º¸¿©Áà¾ß ÇÔ
+		// heightì™€ weightëŠ” BMICalculator í´ëž˜ìŠ¤ì—ì„œ ë³´ì—¬ì¤˜ë„ë˜ê³ , Member í´ëž˜ìŠ¤ì—ì„œ ë³´ì—¬ì¤˜ë„ ëœë‹¤.
+		// bmiì™€ healthëŠ” ê¼­ BMICalculatorì—ì„œ ë³´ì—¬ì¤˜ì•¼ í•¨
 	}
 	
-	// info() ¸Þ¼Òµå
+	// info() ë©”ì†Œë“œ
 	public void info() {
 		System.out.println("BMI : " + bmi);
 		System.out.println("Health : " + health);

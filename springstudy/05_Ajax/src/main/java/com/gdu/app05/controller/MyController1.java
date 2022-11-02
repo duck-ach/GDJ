@@ -20,51 +20,51 @@ import com.gdu.app05.service.MemberService;
 @Controller
 public class MyController1 {
 	
-	// welcomePage µî·Ï
+	// welcomePage ë“±ë¡
 	@GetMapping("/")
 	public String welcome() {
 		return "index";
 	}
 	
-	// index.jsp ¿¡¼­ member.jsp·Î ÀÌµ¿
+	// index.jsp ì—ì„œ member.jspë¡œ ì´ë™
 	@GetMapping("member")
 	public String member() {
 		return "member";
 	}
 	
 	// field
-	@Autowired // Container(root-context.xml)¿¡¼­ Å¸ÀÔ(class)ÀÌ ÀÏÄ¡ÇÏ´Â beanÀ» °¡Á®¿À¼¼¿ä.
+	@Autowired // Container(root-context.xml)ì—ì„œ íƒ€ì…(class)ì´ ì¼ì¹˜í•˜ëŠ” beanì„ ê°€ì ¸ì˜¤ì„¸ìš”.
 	private MemberService memberService;
 	
 	/*
 		@ResponseBody
 		
-		¾È³ç. ³­ ajax Ã³¸®ÇÏ´Â ¸Ş¼Òµå¾ß.
-		³»°¡ ¹İÈ¯ÇÏ´Â °ªÀº ºä(JSP) ÀÌ¸§ÀÌ ¾Æ´Ï°í, ¾î¶² µ¥ÀÌÅÍ(text, json, xml µî)¾ß.
+		ì•ˆë…•. ë‚œ ajax ì²˜ë¦¬í•˜ëŠ” ë©”ì†Œë“œì•¼.
+		ë‚´ê°€ ë°˜í™˜í•˜ëŠ” ê°’ì€ ë·°(JSP) ì´ë¦„ì´ ì•„ë‹ˆê³ , ì–´ë–¤ ë°ì´í„°(text, json, xml ë“±)ì•¼.
 		`
 	*/
 	
 	// btn1
-	// member¿¡¼­ detail1 ¿äÃ»ÀÌ µé¾î¿ÔÀ» ¶§
+	// memberì—ì„œ detail1 ìš”ì²­ì´ ë“¤ì–´ì™”ì„ ë•Œ
 	@ResponseBody
 	@GetMapping(value="member/detail1"
-			  , produces="text/plain; charset=UTF-8") // produces : ÀÀ´äµ¥ÀÌÅÍÀÇ Type(mime-type)À» ÀûÀ½
+			  , produces="text/plain; charset=UTF-8") // produces : ì‘ë‹µë°ì´í„°ì˜ Type(mime-type)ì„ ì ìŒ
 	public String detail1(HttpServletRequest request, HttpServletResponse response) {
 		String str = memberService.execute1(request, response);
-		return str; // ¸¸¾à @ResponseBody°¡ ¾ø°í @GetMapping¸¸ µÇ¾îÀÖ´Ù¸é (str¿¡µé¾î°¡ÀÖ´Âµ¥ÀÌÅÍ).jsp¶ó°í ÀÎ½Ä
+		return str; // ë§Œì•½ @ResponseBodyê°€ ì—†ê³  @GetMappingë§Œ ë˜ì–´ìˆë‹¤ë©´ (strì—ë“¤ì–´ê°€ìˆëŠ”ë°ì´í„°).jspë¼ê³  ì¸ì‹
 	}
 	
 	// btn2
 	@ResponseBody
 	@GetMapping(value="member/detail2"
 			  , produces="application/json; charset=UTF-8")
-	public Member detail2(@RequestParam(value="id") String id, @RequestParam(value="pw") String pw) {// MemberÅ¸ÀÔÀ» ¹İÈ¯ÇÒ°Å¶ó°í service¿¡ ¸í½ÃÇØµÎ¾ú±â ¶§¹®¿¡ ¹İÈ¯Å¸ÀÔÀÌ Member
+	public Member detail2(@RequestParam(value="id") String id, @RequestParam(value="pw") String pw) {// Memberíƒ€ì…ì„ ë°˜í™˜í• ê±°ë¼ê³  serviceì— ëª…ì‹œí•´ë‘ì—ˆê¸° ë•Œë¬¸ì— ë°˜í™˜íƒ€ì…ì´ Member
 		Member member = memberService.execute2(id, pw);
-		return member; // JacksonÀÌ member °´Ã¼¸¦ {"id":¾ÆÀÌµğ, "pw":ÆĞ½º¿öµå} Çü½ÄÀÇ JSONÀ¸·Î ¹Ù²ã¼­ Àü´ŞÇÕ´Ï´Ù.
-		// JacksonÀÌ Member°´Ã¼¸¦ ¹İÈ¯½ÃÅ°´Âµ¥ Jackson°ü·ÃµÈ ÄÚµå°¡ ¾ø´Ù. (produces°¡ ¾Ë·ÁÁØ°ÅÀÓ ÀÎ½ÎÀÓ..)
+		return member; // Jacksonì´ member ê°ì²´ë¥¼ {"id":ì•„ì´ë””, "pw":íŒ¨ìŠ¤ì›Œë“œ} í˜•ì‹ì˜ JSONìœ¼ë¡œ ë°”ê¿”ì„œ ì „ë‹¬í•©ë‹ˆë‹¤..
+		// Jacksonì´ Memberê°ì²´ë¥¼ ë°˜í™˜ì‹œí‚¤ëŠ”ë° Jacksonê´€ë ¨ëœ ì½”ë“œê°€ ì—†ë‹¤. (producesê°€ ì•Œë ¤ì¤€ê±°ì„ ì¸ì‹¸ì„..)
 		
 		/*
-			Ãß¾ïÀÇ ÄÚµå
+			ì¶”ì–µì˜ ì½”ë“œ
 			JSONObject obj = new JSONObject(member);
 			return obj.toString();
 		 */
@@ -75,19 +75,19 @@ public class MyController1 {
 	@GetMapping(value="member/detail3"
 		      , produces=MediaType.APPLICATION_JSON_VALUE) // produces="application/json; charset=UTF-8"
 	public Map<String, Object> detail3(Member member) {
-		Map<String, Object> map = memberService.execute3(member); // execute3¹øÀÇ °á°ú
+		Map<String, Object> map = memberService.execute3(member); // execute3ë²ˆì˜ ê²°ê³¼
 		return map;
-	 // return memberService.execute3(member); ÀÌ·¸°Ô ÇÑÁÙ·Î returnÇÏ´Â °ÍÀ» ±ÇÀå. 
+		// return memberService.execute3(member); ì´ë ‡ê²Œ í•œì¤„ë¡œ returní•˜ëŠ” ê²ƒì„ ê¶Œì¥.  
 	}
 	
-	// btn4 (postÃ³¸®)
+	// btn4 (postì²˜ë¦¬)
 	/*
 		@RequestBody
-		
-		¾È³ç. ³­ ¿äÃ» µ¥ÀÌÅÍ°¡ body¿¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù°í ¾Ë·ÁÁÖ´Â ÀÏÀ» ÇØ
-		¿äÃ» ÆÄ¶ó¹ÌÅÍ¿¡¼­´Â »ç¿ëÇÒ ¼ö ¾ø°í,
-		post ¹æ½ÄÀ¸·Î ÆÄ¶ó¹ÌÅÍ ¾øÀÌ µ¥ÀÌÅÍ°¡ Àü´ŞµÉ ¶§ »ç¿ëÇÒ ¼ö ÀÖ¾î.
-	*/
+	
+		ì•ˆë…•. ë‚œ ìš”ì²­ ë°ì´í„°ê°€ bodyì— í¬í•¨ë˜ì–´ ìˆë‹¤ê³  ì•Œë ¤ì£¼ëŠ” ì¼ì„ í•´
+		ìš”ì²­ íŒŒë¼ë¯¸í„°ì—ì„œëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ê³ ,
+		post ë°©ì‹ìœ¼ë¡œ íŒŒë¼ë¯¸í„° ì—†ì´ ë°ì´í„°ê°€ ì „ë‹¬ë  ë•Œ ì‚¬ìš©í•  ìˆ˜ ìˆì–´.
+	 */
 	@ResponseBody
 	@PostMapping(value="member/detail4"
 			   , produces=MediaType.APPLICATION_JSON_VALUE)

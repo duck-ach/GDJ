@@ -18,10 +18,9 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 	
-	// 요청처리 메소드만들기
 	@ResponseBody
 	@GetMapping("movie/boxOfficeList")
-	public String movieDetail(String targetDt) {
+	public String movieService(String targetDt) {
 		return movieService.getBoxOffice(targetDt);
 	}
 	

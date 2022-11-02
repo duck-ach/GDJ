@@ -6,4 +6,5 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="service" class="com.gdu.app05.service.MemberServiceImpl" /> <!-- MemberService와 MemberServiceImpl 은 부모자식관계라 같다고 볼 수 있다. -->
 		<!-- service 타입이름과 memberService는 타입은 같기 때문에 괜찮다. 하지만 일반적으로는 이름을 같게 해서 사용한다. -->
+	<bean id="movieService" class="com.gdu.app05.service.MovieServiceImpl"/>
 </beans>

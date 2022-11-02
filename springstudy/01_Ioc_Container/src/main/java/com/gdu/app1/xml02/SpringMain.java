@@ -8,7 +8,7 @@ public class SpringMain {
 	public static void main(String[] args) {
 		
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("xml02/appCtx.xml");
-		Car myCar = ctx.getBean("dreamCar", Car.class); // 이름, 타입전달
+		Car myCar = ctx.getBean("dreamCar", Car.class);
 		
 		System.out.println(myCar.getModel());
 		System.out.println(myCar.getMaker());

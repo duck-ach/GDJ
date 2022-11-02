@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 
 import com.gdu.app05.domain.Board;
 
-// ResponseEntity : Ajax ÀÀ´ä Àü¿ë °´Ã¼°¡ ¸¸µé¾îÁ® ÀÖÀ½.
+//ResponseEntity : Ajax ì‘ë‹µ ì „ìš© ê°ì²´ê°€ ë§Œë“¤ì–´ì ¸ ìˆìŒ.
 public interface BoardService {
-	public ResponseEntity<Board> execute1(HttpServletRequest request);// ResponseEntity ¾È¿¡ Board¸¦ Áı¾î³Ö´Â´Ù.
-	public ResponseEntity<Board> execute2(String title, String content);// ResponseEntity ¾È¿¡ Board¸¦ Áı¾î³Ö´Â´Ù.
-	public ResponseEntity<Board> execute3(Board board);// ResponseEntity ¾È¿¡ Board¸¦ Áı¾î³Ö´Â´Ù.
+	public ResponseEntity<Board> execute1(HttpServletRequest request);// ResponseEntity ï¿½È¿ï¿½ Boardï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â´ï¿½.
+	public ResponseEntity<Board> execute2(String title, String content);// ResponseEntity ï¿½È¿ï¿½ Boardï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â´ï¿½.
+	public ResponseEntity<Board> execute3(Board board);// ResponseEntity ï¿½È¿ï¿½ Boardï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â´ï¿½.
 }
 

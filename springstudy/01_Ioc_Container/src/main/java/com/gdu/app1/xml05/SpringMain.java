@@ -11,7 +11,7 @@ public class SpringMain {
 
 	public static void main(String[] args) {
 		
-		// ÇÁ·ÎÁ§Æ®ÀÇ Build Path¿¡ ojdbc6.jar µî·ÏÇÏ°í ½ÇÇàÇÕ´Ï´Ù.
+		// í”„ë¡œì íŠ¸ì˜ Build Pathì— ojdbc6.jar ë“±ë¡í•˜ê³  ì‹¤í–‰í•©ë‹ˆë‹¤.
 		
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("xml05/appCtx.xml");
 		MyConnection myCon = ctx.getBean("conn", MyConnection.class);

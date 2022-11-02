@@ -5,95 +5,95 @@ import org.springframework.context.annotation.Configuration;
 
 /*
 	@Configuration
-	¾È³ç. ³­ BeanÀ» ¸¸µå´Â Java ÆÄÀÏÀÌ¾ß.
-	Spring Bean Configuration FileÇÏ°í ÇÏ´Â ÀÏÀÌ °°Áö.
+	ì•ˆë…•. ë‚œ Beanì„ ë§Œë“œëŠ” Java íŒŒì¼ì´ì•¼.
+	Spring Bean Configuration Fileí•˜ê³  í•˜ëŠ” ì¼ì´ ê°™ì§€.
 */
 
-// xmlÀ» Ã³¸®ÇÏ´Â ¿ªÇÒ ¼öÇà
+// xmlì„ ì²˜ë¦¬í•˜ëŠ” ì—­í•  ìˆ˜í–‰
 @Configuration
 public class SpringBeanConfig {
 
-	// ¸Ş¼Òµå ÇÏ³ª´ç Bean ÇÏ³ª¸¦ ¸Ã¾Æ¼­ »ı¼ºÇÑ´Ù.
+	// ë©”ì†Œë“œ í•˜ë‚˜ë‹¹ Bean í•˜ë‚˜ë¥¼ ë§¡ì•„ì„œ ìƒì„±í•œë‹¤.
 	
 	/*
 		@Bean
-		¾È³ç. ³­ BeanÀ» ¸¸µå´Â ¸Ş¼Òµå¾ß.
-		¸Ş¼Òµå ÀÌ¸§ÀÌ BeanÀÇ ÀÌ¸§(id)ÀÌ°í,
-		¹İÈ¯Å¸ÀÔÀÌ BeanÀÇ Å¸ÀÔ(class)ÀÌ¾ß.
+		ì•ˆë…•. ë‚œ Beanì„ ë§Œë“œëŠ” ë©”ì†Œë“œì•¼.
+		ë©”ì†Œë“œ ì´ë¦„ì´ Beanì˜ ì´ë¦„(id)ì´ê³ ,
+		ë°˜í™˜íƒ€ì…ì´ Beanì˜ íƒ€ì…(class)ì´ì•¼.
 	*/
 	
 	/*
-	 [ 1. ¸Ş¼Òµå¿¡ ÀÌ¸§(id)¸¦ ÁÖ´Â ¹æ¹ı ]
+	 [ 1. ë©”ì†Œë“œì— ì´ë¦„(id)ë¥¼ ì£¼ëŠ” ë°©ë²• ]
 	 	<bean id="song1" class="Song">
-	 		<property name="title" value="Á¦¸ñ1"/>
-	 		<property name="genre" value="Àå¸£1"/>
+	 		<property name="title" value="ì œëª©1"/>
+	 		<property name="genre" value="ì¥ë¥´1"/>
 	 	</bean>
 	 */
 	
 	@Bean
 	public Song song1() {
 		Song song = new Song();
-		song.setTitle("¿À¸£Æ®±¸¸§");
-		song.setGenre("ÀÎµğ");
+		song.setTitle("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½");
+		song.setGenre("ï¿½Îµï¿½");
 		return song;
 	}
 	
 	/*
-	 [ 2. bean¿¡ Á÷Á¢ ÀÌ¸§(name)À» ÁÖ´Â ¹æ¹ı ]
+	 [ 2. beanì— ì§ì ‘ ì´ë¦„(name)ì„ ì£¼ëŠ” ë°©ë²• ]
 	 	<bean id="song2" class="Song">
-	 		<property name="title" value="Á¦¸ñ2"/>
-	 		<property name="genre" value="Àå¸£2"/>
+	 		<property name="title" value="ì œëª©2"/>
+	 		<property name="genre" value="ì¥ë¥´2"/>
 	 	</bean>
 	 */
 	
-	@Bean(name="song2")		  // @Bean¿¡ name°ªÀ¸ ÁöÁ¤ÇÏ¸é id·Î »ç¿ëµÈ´Ù.
-	public Song asdfghjkl() { // ÀÌ¸§(id)À» Bean¿¡ Áà¹ö¸®¸é ¸Ş¼Òµå ÀÌ¸§Àº ¾Æ¹«°Å³ª Àû¾îµµµÈ´Ù. 
+	@Bean(name="song2")		  // @Beanì— nameê°’ìœ¼ ì§€ì •í•˜ë©´ idë¡œ ì‚¬ìš©ëœë‹¤..
+	public Song asdfghjkl() { // ì´ë¦„(id)ì„ Beanì— ì¤˜ë²„ë¦¬ë©´ ë©”ì†Œë“œ ì´ë¦„ì€ ì•„ë¬´ê±°ë‚˜ ì ì–´ë„ëœë‹¤. 
 		Song song = new Song();
-		song.setTitle("ºÒ²É");
-		song.setGenre("ÈüÇÕ");
+		song.setTitle("ï¿½Ò²ï¿½");
+		song.setGenre("ï¿½ï¿½ï¿½ï¿½");
 		return song;
 	}
 	
 	/*
-	 [ 3. »ı¼ºÀÚ¿¡ °ªÀ» ÁÖ´Â ¹æ¹ı ]
+	 [ 3. ìƒì„±ìì— ê°’ì„ ì£¼ëŠ” ë°©ë²• ]
 	 	<bean id="song3" class="Song">
-	 		<constructor-arg value="Á¦¸ñ3"/>
-	 		<constructor-arg value="Àå¸£3"/>
+	 		<constructor-arg value="ì œëª©3"/>
+	 		<constructor-arg value="ì¥ë¥´3"/>
 	 	</bean>
 	 */
 	@Bean
 	public Song song3() {
-		return new Song("¿ì¸®¼­·Î»ç¶ûÇÏÁö´Â¸»ÀÚ", "ÈüÇÕ");
+		return new Song("ï¿½ì¸®ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	
 	// Question.
-	// song1À» °¡Áö´Â singer1À» ¸¸µé¾î º¸ÀÚ.
+	// song1ì„ ê°€ì§€ëŠ” singer1ì„ ë§Œë“¤ì–´ ë³´ì.
 	// setter injection
 	@Bean
 	public Singer singer1() {
 		Singer singer = new Singer();
-		singer.setName("À±ÇÏ");
+		singer.setName("ï¿½ï¿½ï¿½ï¿½");
 		singer.setSong(song1());
 		return singer;
 	}
 	
 	
-	// song2¸¦ °¡Áö´Â singer2¸¦ name°ªÀ¸·Î ¸¸µé¾î º¸ÀÚ.
+	// song2ë¥¼ ê°€ì§€ëŠ” singer2ë¥¼ nameê°’ìœ¼ë¡œ ë§Œë“¤ì–´ ë³´ì.
 	// setter injection
 	@Bean(name="singer2")
-	public Singer ÇÑ¿äÇÑ() {
+	public Singer í•œìš”í•œ() {
 		Singer singer = new Singer();
-		singer.setName("ÇÑ¿äÇÑ");
+		singer.setName("í•œìš”í•œ");
 		singer.setSong(asdfghjkl());
 		return singer;
 	}
 	
-	// song3À» °¡Áö´Â singer3À» ¸¸µé¾îº¸ÀÚ.
+	// song3ì„ ê°€ì§€ëŠ” singer3ì„ ë§Œë“¤ì–´ë³´ì.
 	// constructor injection
 	@Bean
 	public Singer singer3() {
-		return new Singer("±â¸®º¸ÀÌ", song3());
+		return new Singer("ê¸°ë¦¬ë³´ì´", song3());
 	}
 	
 }

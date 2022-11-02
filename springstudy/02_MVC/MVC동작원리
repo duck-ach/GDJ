@@ -1,27 +1,27 @@
-½ºÇÁ¸µ MVC µ¿ÀÛ¿ø¸®
+ìŠ¤í”„ë§ MVC ë™ì‘ì›ë¦¬
 
-1. Å¬¶óÀÌ¾ğÆ®°¡ ¿äÃ»À» ÇÑ´Ù.
+1. í´ë¼ì´ì–¸íŠ¸ê°€ ìš”ì²­ì„ í•œë‹¤.
 	<a href="${contextPath}/list.do">
 
-2. DispatcherServletÀÌ ¿äÃ»À» ¹Ş´Â´Ù (Controller°¡ ¹ŞÁö ¾Ê´Â´Ù.)
+2. DispatcherServletì´ ìš”ì²­ì„ ë°›ëŠ”ë‹¤ (Controllerê°€ ë°›ì§€ ì•ŠëŠ”ë‹¤.)
 
-3. DispatcherServletÀº ¿äÃ»À» Ã³¸®ÇÒ Controller¸¦ ÆÇ´ÜÇÏ´Â HandlerMappingÀ» È£ÃâÇÑ´Ù.
+3. DispatcherServletì€ ìš”ì²­ì„ ì²˜ë¦¬í•  Controllerë¥¼ íŒë‹¨í•˜ëŠ” HandlerMappingì„ í˜¸ì¶œí•œë‹¤.
 
-4. HandlerMappingÀº ¿äÃ»À» Ã³¸®ÇÒ Controller¸¦ È£ÃâÇÑ´Ù.
+4. HandlerMappingì€ ìš”ì²­ì„ ì²˜ë¦¬í•  Controllerë¥¼ í˜¸ì¶œí•œë‹¤.
 
-5. Controller°¡ ¿äÃ»À» Ã³¸®ÇÒ Service¸¦ È£ÃâÇÑ´Ù. (ºñÁî´Ï½º ·ÎÁ÷ Ã³¸®)
+5. Controllerê°€ ìš”ì²­ì„ ì²˜ë¦¬í•  Serviceë¥¼ í˜¸ì¶œí•œë‹¤. (ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ ì²˜ë¦¬)
 
-6. Controller°¡ ÀÀ´äÀ» Ã³¸®ÇÒ ModelAndView¸¦ È£ÃâÇÑ´Ù.
-	1) JSP 	  : °ªÀ» Àü´Ş(forward)ÇÒ ¶§ request¸¦ »ç¿ë
-	2) Spring : °ªÀ» Àü´Ş(forward)ÇÒ ¶§ ModelÀ» »ç¿ë
+6. Controllerê°€ ì‘ë‹µì„ ì²˜ë¦¬í•  ModelAndViewë¥¼ í˜¸ì¶œí•œë‹¤.
+	1) JSP 	  : ê°’ì„ ì „ë‹¬(forward)í•  ë•Œ requestë¥¼ ì‚¬ìš©
+	2) Spring : ê°’ì„ ì „ë‹¬(forward)í•  ë•Œ Modelì„ ì‚¬ìš©
 	
-	* Model : ³»ºÎÀûÀ¸·Î request¸¦ »ç¿ëÇÏ´Â º¸¾ÈÀÌ Çâ»óµÈ °´Ã¼
-	* View  : ÀÀ´äÇÒ JSP ÀÌ¸§
+	* Model : ë‚´ë¶€ì ìœ¼ë¡œ requestë¥¼ ì‚¬ìš©í•˜ëŠ” ë³´ì•ˆì´ í–¥ìƒëœ ê°ì²´
+	* View  : ì‘ë‹µí•  JSP ì´ë¦„
 	
-7. ModelAndView´Â Àü´ŞÇÒ °ªÀº Model¿¡ ÀúÀåÇÏ°í, ÀÀ´äÇÒ ºä´Â View¿¡ ÀúÀåÇØ¼­ DispatcherServlet¿¡°Ô Àü´ŞÇÑ´Ù.
+7. ModelAndViewëŠ” ì „ë‹¬í•  ê°’ì€ Modelì— ì €ì¥í•˜ê³ , ì‘ë‹µí•  ë·°ëŠ” Viewì— ì €ì¥í•´ì„œ DispatcherServletì—ê²Œ ì „ë‹¬í•œë‹¤.
 
-8. DispatcherServletÀº ÀÀ´äÇÒ ºä Á¤º¸¸¦ ViewResolver¿¡°Ô Àü´ŞÇÑ´Ù.
+8. DispatcherServletì€ ì‘ë‹µí•  ë·° ì •ë³´ë¥¼ ViewResolverì—ê²Œ ì „ë‹¬í•œë‹¤.
 
-9. ViewResolver°¡ ½ÇÁ¦·Î ÀÀ´äÇÒ ºäÀÇ ÀüÃ¼ Á¤º¸(°æ·Î¸¦ Æ÷ÇÔÇÑ JSPÀÇ ÀÌ¸§)¸¦ DispatcherServlet¿¡°Ô ¾Ë·ÁÁØ´Ù.
+9. ViewResolverê°€ ì‹¤ì œë¡œ ì‘ë‹µí•  ë·°ì˜ ì „ì²´ ì •ë³´(ê²½ë¡œë¥¼ í¬í•¨í•œ JSPì˜ ì´ë¦„)ë¥¼ DispatcherServletì—ê²Œ ì•Œë ¤ì¤€ë‹¤.
 
-10. DispatcherServletÀÌ ÀÀ´äÇÒ ºä·Î ÀÌµ¿ÇÑ´Ù.
+10. DispatcherServletì´ ì‘ë‹µí•  ë·°ë¡œ ì´ë™í•œë‹¤.

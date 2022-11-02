@@ -33,13 +33,13 @@ public class MyController2 {
 	
 	/***********************************************/
 	@ResponseBody
-	@GetMapping("board/detail2") // produces°¡ ¾øÀ½À» ÁÖÀÇ! ¹İÈ¯°ª ResponseEntity¿¡ °ü·Ã ÄÚµå¸¦ ÀÛ¼ºÇÏ¿´À½ »ç½Ç ³ª¿µÀÌ´Â ¿©½ÅÀÌ¾ú´ø°ÅÀÓ
+	@GetMapping("board/detail2")// producesê°€ ì—†ìŒì„ ì£¼ì˜! ë°˜í™˜ê°’ ResponseEntityì— ê´€ë ¨ ì½”ë“œë¥¼ ì‘ì„±í•˜ì˜€ìŒ
 	public ResponseEntity<Board> detail2(@RequestParam(value="title") String title, @RequestParam(value="content") String content) {
 		return boardService.execute2(title, content);
 	}
 	
 	@ResponseBody
-	@GetMapping("board/detail3")  // ÀÌ¹ø¿¡µµ produces°¡ ¾øÀ½
+	@GetMapping("board/detail3")  // ì´ë²ˆì—ë„ producesê°€ ì—†ìŒ
 	public ResponseEntity<Board> detail3(Board board){
 		return boardService.execute3(board);
 	}

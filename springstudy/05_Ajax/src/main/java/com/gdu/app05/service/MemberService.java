@@ -9,13 +9,13 @@ import com.gdu.app05.domain.Member;
 
 public interface MemberService {
 	
-	// ¿äÃ» ÆÄ¶ó¹ÌÅÍ
-	public String execute1(HttpServletRequest request, HttpServletResponse response); // response¸¦ »ç¿ëÇÒ ¶§ Service°¡ ÃÖÃÊ°¡ ¾Æ´Ï¶ó ControllerÀÌ´Ù.
+	// ìš”ì²­ íŒŒë¼ë¯¸í„°
+	public String execute1(HttpServletRequest request, HttpServletResponse response); // responseë¥¼ ì‚¬ìš©í•  ë•Œ Serviceê°€ ìµœì´ˆê°€ ì•„ë‹ˆë¼ Controllerì´ë‹¤.
 	public Member execute2(String id, String pw);
 	public Map<String, Object> execute3(Member member);
 	
-	// ¿äÃ» JSON (Map ¶Ç´Â Member °´Ã¼°¡ ¹ŞÀ» ¼ö ÀÖÀ½)
-	// MapÀ» JSONÀ¸·Î º¯È¯ÇÏ°Å³ª JSONÀ» MapÀ¸·Î º¯È¯ÇÏ´Â°ÍÀº JACKSONÀÌ ¿©ÀüÈ÷ ÇØÁÖ°í ÀÖ´Ù.
+	// ìš”ì²­ JSON (Map ë˜ëŠ” Member ê°ì²´ê°€ ë°›ì„ ìˆ˜ ìˆìŒ)
+		// Mapì„ JSONìœ¼ë¡œ ë³€í™˜í•˜ê±°ë‚˜ JSONì„ Mapìœ¼ë¡œ ë³€í™˜í•˜ëŠ”ê²ƒì€ JACKSONì´ ì—¬ì „íˆ í•´ì£¼ê³  ìˆë‹¤.
 	public Member execute4(Member member);
 	
 }

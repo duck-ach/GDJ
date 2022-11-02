@@ -12,14 +12,14 @@ public class SpringBeanConfig {
 	public Notice notice1() { 				// <bean id="notice1" class="Notice">
 		Notice notice = new Notice();		
 		notice.setNoticeNo(1);				// <property name="noticeNo" value="1" />
-		notice.setTitle("ÀÏ¹İ°øÁö");		// <property name="title" value="ÀÏ¹İ°øÁö" />
+		notice.setTitle("ì¼ë°˜ê³µì§€");		// <property name="title" value="ì¼ë°˜ê³µì§€" />
 		return notice;
 	}
 	
 	@Bean
 	public Notice notice2() {				// <bean id="notice2" class="Notice">
-		return new Notice(2, "±ä±Ş°øÁö"); 	// <constructor-arg value="2" />
-	}										// <constructor-arg value="±ä±Ş°øÁö" />
+		return new Notice(2, "ê¸´ê¸‰ê³µì§€"); 	// <constructor-arg value="2" />
+	}										// <constructor-arg value="ê¸´ê¸‰ê³µì§€" />
 	
 	
 }

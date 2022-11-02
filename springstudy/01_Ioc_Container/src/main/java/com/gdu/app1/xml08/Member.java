@@ -6,7 +6,7 @@ public class Member {
 
 	// field
 	private String name;
-	private List<String> course; // µî·Ï°úÁ¤(Çï½º, ¼ö¿µ, ½ºÇÇ´×, ÇÊ¶óÅ×½º µî)
+	private List<String> course; // ë“±ë¡ê³¼ì •(í—¬ìŠ¤, ìˆ˜ì˜, ìŠ¤í”¼ë‹, í•„ë¼í…ŒìŠ¤ ë“±)
 	private double height;
 	private double weight;
 	private BMICalculator bmiCalc;

@@ -2,14 +2,14 @@ bean / Map
 ->
 JSON / XML
 
-== ÀÚ¹Ù°´Ã¼¸¦ JSONÀÌ³ª XML·Î ÀÚµ¿À¸·Î º¯È¯ÇØÁÖ´Â ¶óÀÌºê·¯¸® (MapÀÌ³ª ArrayListµµ ¹Ù²ãÁÜ)
+== ìë°”ê°ì²´ë¥¼ JSONì´ë‚˜ XMLë¡œ ìë™ìœ¼ë¡œ ë³€í™˜í•´ì£¼ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ (Mapì´ë‚˜ ArrayListë„ ë°”ê¿”ì¤Œ)
 
-new JSONObject(bean) ÀÌ°É ´õÀÌ»ó »ç¿ëÇÏÁö ¾Ê°í,
-Jackson Databind¶ó´Â °ÍÀ» »ç¿ëÇÑ´Ù.
+new JSONObject(bean) ì´ê±¸ ë”ì´ìƒ ì‚¬ìš©í•˜ì§€ ì•Šê³ ,
+Jackson Databindë¼ëŠ” ê²ƒì„ ì‚¬ìš©í•œë‹¤.
 
 https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
 
-pom.xml¿¡ Jackson DatabindÀÇ ¹öÀüµµ ¾÷µ¥ÀÌÆ® ÇØÁà¾ß ÇÑ´Ù. ½Ç½ÀÇÒ ¶§ »ç¿ëÇÑ ¹öÀüÀº 2.12.1¹öÀüÀÌ°í,
-Maven Dependence¸¦ Ä«ÇÇÇØ¼­ pom.xml¿¡ ºÙ¿©ÁØ´Ù.
+pom.xmlì— Jackson Databindì˜ ë²„ì „ë„ ì—…ë°ì´íŠ¸ í•´ì¤˜ì•¼ í•œë‹¤. ì‹¤ìŠµí•  ë•Œ ì‚¬ìš©í•œ ë²„ì „ì€ 2.12.1ë²„ì „ì´ê³ ,
+Maven Dependenceë¥¼ ì¹´í”¼í•´ì„œ pom.xmlì— ë¶™ì—¬ì¤€ë‹¤.
 
-dependencies ¹Ø¿¡ ºÙ¿©ÁÖ°í, mvnrepository¿¡¼­ ºÒ·¯¿Â ¾ÖµéÀº ÃÊ¹İ¿¡ ºÙ¿©ÁÖ±â·Î Çß´Ù.
+dependencies ë°‘ì— ë¶™ì—¬ì£¼ê³ , mvnrepositoryì—ì„œ ë¶ˆëŸ¬ì˜¨ ì• ë“¤ì€ ì´ˆë°˜ì— ë¶™ì—¬ì£¼ê¸°ë¡œ í–ˆë‹¤.

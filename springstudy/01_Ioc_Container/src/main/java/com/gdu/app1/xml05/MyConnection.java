@@ -37,7 +37,6 @@ public class MyConnection {
 		this.password = password;
 	}
 	
-	// connection 반환하는 method
 	public Connection getConnection() {
 		Connection con = null;
 		try {

@@ -10,24 +10,24 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gdu.app04.domain.Board;
 
-@RequestMapping("board") // URL MappingÀÌ board·Î ½ÃÀÛÇÏ´Â ¸ğµç ¿äÃ»À» Ã³¸®ÇÏ´Â ÄÁÆ®·Ñ·¯
+@RequestMapping("board") // URL Mappingì´ boardë¡œ ì‹œì‘í•˜ëŠ” ëª¨ë“  ìš”ì²­ì„ ì²˜ë¦¬í•˜ëŠ” ì»¨íŠ¸ë¡¤ëŸ¬
 @Controller
 public class MyController2 {
 
 	/*
-		±î¸ÔÀ¸¸é Á×À½ »ÓÀÌ´Ù.
+		ê¹Œë¨¹ìœ¼ë©´ ì£½ìŒ ë¿ì´ë‹¤.
 		
 		1. forward
 		return "board/detail";
-		board Æú´õ ¾Æ·¡ detail.jsp·Î forward ÇÏ½Ã¿À.
+		board í´ë” ì•„ë˜ detail.jspë¡œ forward í•˜ì‹œì˜¤.
 		
 		2. redirect
 		return "redirect:/board/detail";
-		URL Mapping °ªÀÌ /board/detailÀÎ »õ·Î¿î ¿äÃ»À¸·Î redirect ÇÏ½Ã¿À.
+		URL Mapping ê°’ì´ /board/detailì¸ ìƒˆë¡œìš´ ìš”ì²­ìœ¼ë¡œ redirect í•˜ì‹œì˜¤.
 	*/
 	
-	// <a href="${contextPath}/board/detail1?title=°øÁö»çÇ×&hit=10">
-	// 1. Request·Î ¹Ş±â (@RequestParam)
+	// <a href="${contextPath}/board/detail1?title=ê³µì§€ì‚¬í•­&hit=10">
+	// 1. Requestë¡œ ë°›ê¸° (@RequestParam)
 	@GetMapping("detail1")
 	public String detail1(HttpServletRequest request) {
 		
@@ -36,42 +36,42 @@ public class MyController2 {
 		request.setAttribute("title", title);
 		request.setAttribute("hit", hit);
 		
-		// »õ·Î¿î¿äÃ»À» /board/detail2?title=title&hit=hit ·Î ¸¸µé¾î detail2ÀÇ Mapping°ªÀ» °¡Áö°íÀÖ´Â °÷À¸·Î ÀÌµ¿ÇÏ½Ã¿À.
-		return "redirect:/board/detail2?title=" + title + "&hit=" + hit; // /board/detail2 == »õ·Î¿î ¿äÃ», ¾Æ·¡ÀÇ detail2·Î Ã£¾Æ°¡¶ó´Â ¿äÃ»
+		// ìƒˆë¡œìš´ìš”ì²­ì„ /board/detail2?title=title&hit=hit ë¡œ ë§Œë“¤ì–´ detail2ì˜ Mappingê°’ì„ ê°€ì§€ê³ ìˆëŠ” ê³³ìœ¼ë¡œ ì´ë™í•˜ì‹œì˜¤.
+		return "redirect:/board/detail2?title=" + title + "&hit=" + hit; // /board/detail2 == ìƒˆë¡œìš´ ìš”ì²­, ì•„ë˜ì˜ detail2ë¡œ ì°¾ì•„ê°€ë¼ëŠ” ìš”ì²­
 	}
 	
-	// 2. º¯¼ö·Î ¹Ş±â
-	// <a href="${contextPath}/board/detail2?title=°øÁö»çÇ×&hit=10">
+	// 2. ë³€ìˆ˜ë¡œ ë°›ê¸°
+	// <a href="${contextPath}/board/detail2?title=ê³µì§€ì‚¬í•­&hit=10">
 	@GetMapping("detail2")
 	public String detail2(String title, int hit, Model model) {
-		// º¯¼ö·Î¹Ş±â, °´Ã¼·Î¹Ş±â µÎ°¡Áö¹æ¹ıÀÌ ÀÖ´Âµ¥ domainÀ» ¸¸µé¾îµÎÁö ¾Ê¾ÒÀ¸¹Ç·Î º¯¼ö·Î ¹Ş´Â´Ù.
+		// ë³€ìˆ˜ë¡œë°›ê¸°, ê°ì²´ë¡œë°›ê¸° ë‘ê°€ì§€ë°©ë²•ì´ ìˆëŠ”ë° domainì„ ë§Œë“¤ì–´ë‘ì§€ ì•Šì•˜ìœ¼ë¯€ë¡œ ë³€ìˆ˜ë¡œ ë°›ëŠ”ë‹¤.
 		model.addAttribute("title", title);
 		model.addAttribute("hit", hit);
 		return "board/detail";
 	}
 	
 	/*
-		¼Ó¼º(Attribute) Àü´Ş ¹æ½Ä
+		ì†ì„±(Attribute) ì „ë‹¬ ë°©ì‹
 		
-		±¸ºĞ				forward				redirect
+		êµ¬ë¶„				forward				redirect
 		-------------------------------------------------------------
-		ÀÎÅÍÆäÀÌ½º			Model				RedirectAttributes
-		¸Ş¼Òµå				addAttribute()		addFlashAttribute()
-												addAttribute()¸¦ ¾µ¼ö ÀÖÁö¸¸ forwardÃ³·³ µ¿ÀÛÇÏ¹Ç·Î »ç¿ëÇÏÁö ¸» °Í
-												Flash°¡ ºÙ¾îÀÖ´ÂÁö È®ÀÎÇÏ¸é µÊ.
+		ì¸í„°í˜ì´ìŠ¤			Model				RedirectAttributes
+		ë©”ì†Œë“œ				addAttribute()		addFlashAttribute()
+												addAttribute()ë¥¼ ì“¸ìˆ˜ ìˆì§€ë§Œ forwardì²˜ëŸ¼ ë™ì‘í•˜ë¯€ë¡œ ì‚¬ìš©í•˜ì§€ ë§ ê²ƒ
+												Flashê°€ ë¶™ì–´ìˆëŠ”ì§€ í™•ì¸í•˜ë©´ ë¨.
 	*/
 	
-	// 3. °´Ã¼·Î ¹Ş±â
-	// domain¿¡¼­ setter(setTitle, setHit)¸¦ ¼³Á¤ÇØ ³õÀ¸¸é SpringÀÌ ÀÎ½ÄÇØ¼­ ¹ŞÀ» ¼ö ÀÖ´Ù.
+	// 3. ê°ì²´ë¡œ ë°›ê¸°
+	// domainì—ì„œ setter(setTitle, setHit)ë¥¼ ì„¤ì •í•´ ë†“ìœ¼ë©´ Springì´ ì¸ì‹í•´ì„œ ë°›ì„ ìˆ˜ ìˆë‹¤.
 	// <a href="${contextPath}/board/detail2?title=notice&hit=10">
 	@GetMapping("detail3")
 	public String detail3(Board board, 
-						  RedirectAttributes redirectAttributes) {  // RedirectAttributes : RedirectÇÒ ¶§ ¼Ó¼ºÀ» º¸³» ÁÖ°Ú´Ù. 
+						  RedirectAttributes redirectAttributes) {  // RedirectAttributes : Redirectí•  ë•Œ ì†ì„±ì„ ë³´ë‚´ ì£¼ê² ë‹¤. 
 		redirectAttributes.addFlashAttribute("board", board);
-		return "redirect:/board/detail4"; // »õ·Î¿î ¿äÃ»¿¡ ÆÄ¶ó¹ÌÅÍ¸¦ Ãß°¡ÇÏÁö ¾Ê¾ÒÀ½À» ÁÖÀÇÇÒ °Í
+		return "redirect:/board/detail4"; // ìƒˆë¡œìš´ ìš”ì²­ì— íŒŒë¼ë¯¸í„°ë¥¼ ì¶”ê°€í•˜ì§€ ì•Šì•˜ìŒì„ ì£¼ì˜í•  ê²ƒ
 	}
 	
-	// 2¹ø°ú 3¹øÀº ÆÄ¶ó¹ÌÅÍ°¡ ÅëÀÏÀÌ ¾ÈµÇ°í, ¼¼¼Çµµ ¾²±â ¾î·Æ±â ¶§¹®¿¡ request¸¦ »ç¿ëÇÏ´Â 1¹øÀ» ÃßÃµÇÑ´Ù.
+	// 2ë²ˆê³¼ 3ë²ˆì€ íŒŒë¼ë¯¸í„°ê°€ í†µì¼ì´ ì•ˆë˜ê³ , ì„¸ì…˜ë„ ì“°ê¸° ì–´ë µê¸° ë•Œë¬¸ì— requestë¥¼ ì‚¬ìš©í•˜ëŠ” 1ë²ˆì„ ì¶”ì²œí•œë‹¤.
 	
 	@GetMapping("detail4")
 	public String detail4() {

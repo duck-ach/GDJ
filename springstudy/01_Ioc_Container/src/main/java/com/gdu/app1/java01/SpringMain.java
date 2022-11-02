@@ -6,7 +6,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 public class SpringMain {
 
 	public static void main(String[] args) {
-		// ½ºÇÁ¸µ(Spring)ÀÌ ÄÚµå¸¦ ÁÙÀÏ ¶§ @¾Ö³ÊÅ×ÀÌ¼ÇÀ» »ç¿ëÇØ¼­ ÁÙÀÎ´Ù. (ÀÏÁ¾ÀÇ ¾à¼Ó)
+		// ìŠ¤í”„ë§(Spring)ì´ ì½”ë“œë¥¼ ì¤„ì¼ ë•Œ @ì• ë„ˆí…Œì´ì…˜ì„ ì‚¬ìš©í•´ì„œ ì¤„ì¸ë‹¤. (ì¼ì¢…ì˜ ì•½ì†)
 		AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(SpringBeanConfig.class);
 		Singer s1 = ctx.getBean("singer1", Singer.class);
 		System.out.println(s1.getName());

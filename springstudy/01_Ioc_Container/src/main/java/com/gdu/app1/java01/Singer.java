@@ -4,11 +4,10 @@ public class Singer {
 
 	// field
 	private String name;
-	private Song song; // ¥Î«•∞Ó 1∞≥
+	private Song song;
 	
 	// constructor
 	public Singer() {
-		// TODO Auto-generated constructor stub
 	}
 	public Singer(String name, Song song) {
 		super();

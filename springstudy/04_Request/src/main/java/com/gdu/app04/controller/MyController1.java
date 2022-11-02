@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gdu.app04.domain.Member;
 
-// ÀÌ ÄÁÆ®·Ñ·¯¿¡ µµÂøÇÑ ¿äÃ»Àº member¿¡¼­ ½ÃÀÛÇÑ´Ù. ¶ó´Â ¶æ
-@RequestMapping("member")	// URL MappingÀÌ member·Î ½ÃÀÛÇÏ´Â ¸ğµç ¿äÃ»À» Ã³¸®ÇÏ´Â ÄÁÆ®·Ñ·¯
+// ì´ ì»¨íŠ¸ë¡¤ëŸ¬ì— ë„ì°©í•œ ìš”ì²­ì€ memberì—ì„œ ì‹œì‘í•œë‹¤. ë¼ëŠ” ëœ»
+@RequestMapping("member")	// URL Mappingì´ memberë¡œ ì‹œì‘í•˜ëŠ” ëª¨ë“  ìš”ì²­ì„ ì²˜ë¦¬í•˜ëŠ” ì»¨íŠ¸ë¡¤ëŸ¬
 @Controller
 public class MyController1 {
 	
 	// <a href="${contextPath}/member/detail1">
-	@GetMapping("detail1") // À§¿¡ RequestMappingÀ» member¸¦ ÁÖ¾úÀ¸¹Ç·Î (/member/detail1)ÀÌ µÈ´Ù.
-	public String detail1(HttpServletRequest request) { // ¿©±â ¸Å°³º¯¼ö·Î index.jspÀÇ <a href="${contextPath}/member/detail?id=admin&pw=1234">ÀÇ ¸Å°³º¯¼ö°¡ Àü¼ÛµÈ´Ù.
+	@GetMapping("detail1") // ìœ„ì— RequestMappingì„ memberë¥¼ ì£¼ì—ˆìœ¼ë¯€ë¡œ (/member/detail1)ì´ ëœë‹¤.
+	public String detail1(HttpServletRequest request) { // ì—¬ê¸° ë§¤ê°œë³€ìˆ˜ë¡œ index.jspì˜ <a href="${contextPath}/member/detail?id=admin&pw=1234">ì˜ ë§¤ê°œë³€ìˆ˜ê°€ ì „ì†¡ëœë‹¤.
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
@@ -27,51 +27,51 @@ public class MyController1 {
 		Member member = new Member(id, pw);
 		request.setAttribute("member", member);
 		
-		return "member/detail"; // member Æú´õ ¾Æ·¡ detail.jsp·Î forward ÇÏ½Ã¿À. ¶ó´Â ¶æ 		
+		return "member/detail"; // member í´ë” ì•„ë˜ detail.jspë¡œ forward í•˜ì‹œì˜¤. ë¼ëŠ” ëœ» 		
 	}
 	
 	// location.href=1${contextPath}/member/detail2?id=admin&pw=1234';
 	@GetMapping("detail2")
-	public String detail2(@RequestParam(value="id", required = false, defaultValue = "master") String id // ÆÄ¶ó¹ÌÅÍ id¸¦ String id¿¡ ÀúÀåÇÏ½Ã¿À
-						, @RequestParam(value="pw", required = false, defaultValue = "1111") String pw // ÆÄ¶ó¹ÌÅÍ pw¸¦ String pw¿¡ ÀúÀåÇÏ½Ã¿À
+	public String detail2(@RequestParam(value="id", required = false, defaultValue = "master") String id // íŒŒë¼ë¯¸í„° idë¥¼ String idì— ì €ì¥í•˜ì‹œì˜¤
+						, @RequestParam(value="pw", required = false, defaultValue = "1111") String pw // íŒŒë¼ë¯¸í„° pwë¥¼ String pwì— ì €ì¥í•˜ì‹œì˜¤
 						, Model model) {
 		
 		Member member = new Member(id, pw);
 		
-		// forwardÇÒ µ¥ÀÌÅÍ¸¦ model¿¡ ´ã¾Æ µÎ´Â ¹æ¹ı (Spring¿¡¼­´Â isRedirect(false) ÇÏÁö ¾Ê´Â´Ù. ÀÌ°ÍÀÌ ½ºÇÁ¸µÀÇ ¹æ½Ä)
-		// request¸¦ ÀÌ¿ëÇÏ´Â ¹æ½Ä¿¡ ºñÇØ º¸¾ÈÀÌ Çâ»óµÇ¾ú´Ù.
-		model.addAttribute("member", member); // modelÀº request¸¦ ÀúÀå¼Ò·Î »ç¿ëÇÑ´Ù.
+		// forwardí•  ë°ì´í„°ë¥¼ modelì— ë‹´ì•„ ë‘ëŠ” ë°©ë²• (Springì—ì„œëŠ” isRedirect(false) í•˜ì§€ ì•ŠëŠ”ë‹¤. ì´ê²ƒì´ ìŠ¤í”„ë§ì˜ ë°©ì‹)
+		// requestë¥¼ ì´ìš©í•˜ëŠ” ë°©ì‹ì— ë¹„í•´ ë³´ì•ˆì´ í–¥ìƒë˜ì—ˆë‹¤.
+		model.addAttribute("member", member); // modelì€ requestë¥¼ ì €ì¥ì†Œë¡œ ì‚¬ìš©í•œë‹¤.
 		
 		return "member/detail";
 	}
 	/*
 		@RequestParam
 		
-		@RequestParamÀ» »ç¿ëÇÒ ¶§ ÆÄ¶ó¹ÌÅÍ°¡ ¾øÀ¸¸é ¿À·ù(¹®Á¦)°¡»ı±ä´Ù.
-		ÇÊ¼ö¼Ó¼º. (required = "")
-		default Ã³¸®. (defaultValue="")
+		@RequestParamì„ ì‚¬ìš©í•  ë•Œ íŒŒë¼ë¯¸í„°ê°€ ì—†ìœ¼ë©´ ì˜¤ë¥˜(ë¬¸ì œ)ê°€ìƒê¸´ë‹¤.
+		í•„ìˆ˜ì†ì„±. (required = "")
+		default ì²˜ë¦¬. (defaultValue="")
 		
-		1. value 		: ÆÄ¶ó¹ÌÅÍ ÀÌ¸§
-		2. required 	: ÆÄ¶ó¹ÌÅÍÀÇ ÇÊ¼ö ¿©ºÎ(Default - true)
-		3. defaultValue : ÆÄ¶ó¹ÌÅÍ°¡ ¾øÀ» ¶§ »ç¿ëÇÒ °ª
+		1. value 		: íŒŒë¼ë¯¸í„° ì´ë¦„
+		2. required 	: íŒŒë¼ë¯¸í„°ì˜ í•„ìˆ˜ ì—¬ë¶€(Default - true)
+		3. defaultValue : íŒŒë¼ë¯¸í„°ê°€ ì—†ì„ ë•Œ ì‚¬ìš©í•  ê°’
 	
 	*/
 	
 	/*
 		Model
 		
-		Controller ¿¡¼­ »ı¼ºµÈ µ¥ÀÌÅÍ¸¦ ´ã¾Æ¼­ View·Î Àü´ŞÇÒ ¶§ »ç¿ëÇÏ´Â °´Ã¼
-		ServletÀÇ request.setAttribute()¿Í À¯»çÇÑ ¿ªÇÒÀ» ÇÑ´Ù.
-		Method¿¡ Model Å¸ÀÔÀÌ ÁöÁ¤µÈ °æ¿ì Model Å¸ÀÔÀÇ °´Ã¼¸¦ ¸¸µé¾î¼­ ¸Ş¼­µå¿¡ ÁÖÀÔÇÑ´Ù.
-		addAttribute("Å°", "°ª") ¸Ş¼Òµå¸¦ »ç¿ëÇÏ¿© Àü´ŞÇÒ µ¥ÀÌÅÍ ¼¼ÆÃÀ» ÇÑ´Ù.
-		forwardÇÒ µ¥ÀÌÅÍ¸¦ ´ã¾ÆµÎ´Â °÷.
+		Controller ì—ì„œ ìƒì„±ëœ ë°ì´í„°ë¥¼ ë‹´ì•„ì„œ Viewë¡œ ì „ë‹¬í•  ë•Œ ì‚¬ìš©í•˜ëŠ” ê°ì²´
+		Servletì˜ request.setAttribute()ì™€ ìœ ì‚¬í•œ ì—­í• ì„ í•œë‹¤.
+		Methodì— Model íƒ€ì…ì´ ì§€ì •ëœ ê²½ìš° Model íƒ€ì…ì˜ ê°ì²´ë¥¼ ë§Œë“¤ì–´ì„œ ë©”ì„œë“œì— ì£¼ì…í•œë‹¤.
+		addAttribute("í‚¤", "ê°’") ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•˜ì—¬ ì „ë‹¬í•  ë°ì´í„° ì„¸íŒ…ì„ í•œë‹¤.
+		forwardí•  ë°ì´í„°ë¥¼ ë‹´ì•„ë‘ëŠ” ê³³.
 		
 	*/
 	
 	
 	// location.href='${contextPath}/member/detail3?id=admin&pw=1234';
-	@GetMapping("detail3") 	// @RequestParamÀº »ı·«ÇÒ ¼ö ÀÖ´Ù. ÆÄ¶ó¹ÌÅÍ id °¡ ¾ø´Â °æ¿ì nullÀÌ ÀúÀåµÈ´Ù.
-	public String detail3(String id // @RequestParamÀº »ı·«ÇÒ ¼ö ÀÖ´Ù. ÆÄ¶ó¹ÌÅÍ pw °¡ ¾ø´Â °æ¿ì nullÀÌ ÀúÀåµÈ´Ù.
+	@GetMapping("detail3") 	// @RequestParamì€ ìƒëµí•  ìˆ˜ ìˆë‹¤. íŒŒë¼ë¯¸í„° id ê°€ ì—†ëŠ” ê²½ìš° nullì´ ì €ì¥ëœë‹¤.
+	public String detail3(String id // @RequestParamì€ ìƒëµí•  ìˆ˜ ìˆë‹¤. íŒŒë¼ë¯¸í„° pw ê°€ ì—†ëŠ” ê²½ìš° nullì´ ì €ì¥ëœë‹¤.
 					    , String pw
 					    , Model model) {
 		Member member = new Member(id, pw);
@@ -81,7 +81,7 @@ public class MyController1 {
 	
 	// <form action="${contextPath}/member/detail4" method="get">
 	@GetMapping("detail4")
-	public String getDetail4(Member member // ÆÄ¶ó¹ÌÅÍ id, pw¸¦ setId(), setPw() ¸Ş¼Òµå¸¦ ÀÌ¿ëÇØ¼­ member °´Ã¼¿¡ ÀúÀåÇØ ÁØ´Ù.
+	public String getDetail4(Member member // íŒŒë¼ë¯¸í„° id, pwë¥¼ setId(), setPw() ë©”ì†Œë“œë¥¼ ì´ìš©í•´ì„œ member ê°ì²´ì— ì €ì¥í•´ ì¤€ë‹¤.
 						   , Model model) {
 		model.addAttribute("member", member);
 		
@@ -89,8 +89,8 @@ public class MyController1 {
 	}
 	
 	// <form action="${contextPath}/member/detail4" method="post">
-	@PostMapping("detail4") // ¿äÃ» : URLMapping + ¿äÃ»¸Ş¼Òµå
-	public String postDetail4(@ModelAttribute(value="member") Member member) { // ÆÄ¶ó¹ÌÅÍ id, pw¸¦ ÀÌ¿ëÇØ Member member¸¦ ¸¸µé°í, Model¿¡ member¶ó´Â ÀÌ¸§ÀÇ ¼Ó¼ºÀ¸·Î ÀúÀåÇÏ½Ã¿À.
+	@PostMapping("detail4") // ìš”ì²­ : URLMapping + ìš”ì²­ë©”ì†Œë“œ
+	public String postDetail4(@ModelAttribute(value="member") Member member) { // íŒŒë¼ë¯¸í„° id, pwë¥¼ ì´ìš©í•´ Member memberë¥¼ ë§Œë“¤ê³ , Modelì— memberë¼ëŠ” ì´ë¦„ì˜ ì†ì„±ìœ¼ë¡œ ì €ì¥í•˜ì‹œì˜¤.
 		return "member/detail";
 	}
 	
