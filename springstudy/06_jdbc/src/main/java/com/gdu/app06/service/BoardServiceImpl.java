@@ -2,9 +2,11 @@ package com.gdu.app06.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gdu.app06.domain.BoardDTO;
+import com.gdu.app06.repository.BoardDAO;
 /*
 	@Service
 	안녕. 난 Service에 추가하는 @Component이야.
@@ -12,9 +14,13 @@ import com.gdu.app06.domain.BoardDTO;
 	root-context.xml이나 @Configuration에 @Bean으로 등록하지 않아도 Container에 만들어 져
 */
 
-@Service
+@Service // @Service로 인해 컨테이너에 담겼으므로 @Autowired로 땡기면 땡겨짐
 public class BoardServiceImpl implements BoardService {
 
+	// Service는 DAO를 사용합니다.
+	@Autowired // 컨테이너에 생성된 bean중에서 BoardDAO타입의 bean을 가져오시오.
+	private BoardDAO dao;
+	
 	@Override
 	public List<BoardDTO> findAllBoards() {
 		// TODO Auto-generated method stub

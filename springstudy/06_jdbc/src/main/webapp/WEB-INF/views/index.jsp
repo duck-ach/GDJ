@@ -12,5 +12,9 @@
 	<div>
 		<a href="${contextPath}/board/detail">게시글 쓰기</a>
 	</div>
+<hr>
+	<div>
+		<a href="${contextPath}/brd/list">게시판</a>
+	</div>
 </body>
 </html>

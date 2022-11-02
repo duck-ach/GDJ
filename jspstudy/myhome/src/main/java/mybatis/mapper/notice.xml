@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="mapper의 패키지 경로" -->
+
+<mapper namespace="mybatis.mapper.notice"> <!-- 이 mapper의 이름 -->
+
+<select id="selectAllNoticesCnt" resultType="int">
+	SELECT COUNT(*)
+	  FROM NOTICE
+</select>
+
+<!-- 파라미터가 Map이어도 Map이아니라 Type을 써야한다. (Join이 필요한상황에 사용) -->
+<select id="selectAllNotices" parameterType="map" resultType="Notice"> 
+	SELECT A.NOTICE_NO, A.TITLE, A.CREATE_DATE
+	  FROM (SELECT ROW_NUMBER() OVER(ORDER BY NOTICE_NO DESC)AS RN, NOTICE_NO, TITLE, CREATE_DATE
+	  		  FROM NOTICE) A
+	 WHERE A.RN BETWEEN #{begin} AND #{end}
+</select>
+
+
+</mapper>

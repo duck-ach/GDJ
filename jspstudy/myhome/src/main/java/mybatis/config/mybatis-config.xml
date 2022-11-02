@@ -17,6 +17,7 @@
 	<!-- domain.Board to Board 별칭 -->
 	<typeAliases>
 		<typeAlias type="domain.Member" alias="Member"/>
+		<typeAlias type="domain.Notice" alias="Notice"/>
 	</typeAliases>
 	
 
@@ -34,6 +35,7 @@
 	
 	<mappers>
 		<mapper resource="mybatis/mapper/member.xml"/>
+		<mapper resource="mybatis/mapper/notice.xml"/>
 	</mappers>
 
 </configuration>
