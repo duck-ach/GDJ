@@ -19,8 +19,8 @@ public class MovieServiceImpl implements MovieService {
 			URL url = new URL(apiURL);
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();
 			
-			// ��û �޼ҵ�(GET OR POST)
-			con.setRequestMethod("GET"); // �빮�ڷ� �ۼ��� ��
+			// 요청정보 (GET / POST)
+			con.setRequestMethod("GET");
 			
 			// 
 			BufferedReader reader = null;

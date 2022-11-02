@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/jquery-ui.min.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/images">
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 <script src="${contextPath}/resources/js/jquery-ui.min.js"></script> <!-- 순서! jquery가 먼저 있고, jquery ui를 두어야함. (jquery를 사용하기 때문) -->
 <script>

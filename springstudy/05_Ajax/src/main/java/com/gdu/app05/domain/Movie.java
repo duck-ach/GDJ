@@ -2,11 +2,11 @@ package com.gdu.app05.domain;
 
 public class Movie {
 	
-	private int rank; 		// ¼øÀ§
-	private String movieNm; // ¿µÈ­¸í
-	private String openDt; 	// °³ºÀÀÏ
-	private int audiCnt;   	// °ü°´¼ö
-	private int audiAcc;	// ´©Àû(ÀüÃ¼)°ü°´¼ö
+	private int rank; 		// ìˆœìœ„
+	private String movieNm; // ì˜í™”ì´ë¦„
+	private String openDt; 	// ê°œë´‰ì¼
+	private int audiCnt;   	// ê´€ê°ìˆ˜
+	private int audiAcc;	// ëˆ„ì ê´€ê°ìˆ˜
 
 	public Movie() {
 		// TODO Auto-generated constructor stub
