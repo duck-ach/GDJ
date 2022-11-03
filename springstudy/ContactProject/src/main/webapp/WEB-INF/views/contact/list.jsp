@@ -26,19 +26,26 @@
 					<td colspan="5">없음</td>
 				</tr>
 				<tr>
-					<td colspan="5"><a href="${contextPath}/contact/add">신규 연락처 등록하기</a></td>
+					<td colspan="5"><a href="${contextPath}/card/add">신규 연락처 등록하기</a></td>
 				</tr>
 			</c:if>
 			<c:if test="${not empty contacts}">
 				<c:forEach items="${contacts}" var="contact">
 					<tr>
 						<td>${contact.no}</td>
-						<td>${contact.name}</td>
+						<td><a href="${contextPath}/card/detail?no=${contact.no}">${contact.name}</a></td>
 						<td>${contact.tel}</td>
 						<td>${contact.addr}</td>
 						<td>${contact.email}</td>
 					</tr>
 				</c:forEach>
+				<tfoot>
+					<tr>
+						<td colspan="5">
+							<a href="${contextPath}/card/add">신규 연락처 등록하기</a>
+						</td>
+					</tr>
+				</tfoot>
 			</c:if>
 		</tbody>
 	</table>

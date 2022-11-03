@@ -11,11 +11,21 @@
 <script>
 	$(document).ready(function(){
 		
+		// 목록
 		$('#btn_list').click(function(){
-			location.href='${contextPath}/contact/index';
+			location.href='${contextPath}/contact/list';
 		});
 		
+		// 등록
 		$('#frm_contact').submit(function(event){
+			if ($('#name').val() == '' || 
+					$('#tel').val() == '' || 
+					$('#addr').val() == '' ||
+					$('#email').val() == '') {
+					alert('필수 정보를 모두 입력하세요.');
+					event.preventDefault();
+					return;
+				}
 			alert('연락처가 등록되었습니다.');
 		});
 		
@@ -24,7 +34,7 @@
 </head>
 <body>
 <h1>연락처 등록</h1>
-<form id="frm_contact" method="post">
+<form id="frm_contact" action="${contextPath}/card/register" method="post">
 	<div>
 		<label for="name">이름*</label><br>
 		<input type="text" name="name" id="name" required="required">
@@ -51,7 +61,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="button" value="연락처 저장하기" id="btn_add">
+		<button>연락처 저장하기</button>
 		<input type="button" value="전체연락처" id="btn_list">
 	</div>
 </form>
