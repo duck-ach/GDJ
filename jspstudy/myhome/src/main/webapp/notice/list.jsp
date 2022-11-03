@@ -31,6 +31,33 @@
 		<tfoot>
 			<tr>
 				<td colspan="3">
+					<%-- 이전 블록 : 1, 2, 3 페이지는 이전 블록이 없다. --%>
+					<c:if test="${page>pagePerBlock}"> <!-- 페이지가 3보다 크다면 -->
+						<a href="${contextPath}/notice/list.no?page=${beginPage-1}">&lt;이전블록</a>
+					</c:if>
+					<%-- 이전 페이지 : 1페이지는 이전 페이지가 없다. --%>
+					<c:if test="${page!=1}">
+                  		<a href="${contextPath}/notice/list.no?page=${page-1}">&lt;이전</a>
+               		</c:if>
+					<%--1, 2, 3 --%>
+					<c:forEach begin="${beginPage}" end="${endPage}" step="1" var="p"> <!-- begin : 시작값, end : 종료값, step : 증가값 -->
+						<%-- 현재 페이지는 링크가 걸리지 않는다. --%>
+						<c:if test="${page==p}">
+							${p}
+						</c:if>
+						<%-- 현재 페이지가 아니면 링크를 건다. --%>
+						<c:if test="${page!=p}">
+							<a href="${contextPath}/notice/list.no?page=${p}">${p}</a> <!-- 1page 클릭하면 1, 2page클릭하면 2 -->
+						</c:if>
+					</c:forEach>
+					<%-- 다음 페이지 : 마지막페이지는 다음 페이지가 없다. --%>
+					<c:if test="${page != totalPageCnt}">
+                  		<a href="${contextPath}/notice/list.no?page=${page+1}">다음&gt;</a>
+               		</c:if>
+               		<%-- 다음 블록 : 마지막 페이지는 다음 페이지가 없다. --%>
+               		<c:if test="${endPage != totalPageCnt}">
+               			<a href="${contextPath}/notice/list.no?page=${endPage+1}">다음블록&gt;</a>
+               		</c:if> <%-- endPage가 totalPageCnt와 같은 경우 7 8 이 있다면 7 8 8이므로 8페이지만 되어도 인식 완료 --%>
 				</td>
 			</tr>
 		</tfoot>
