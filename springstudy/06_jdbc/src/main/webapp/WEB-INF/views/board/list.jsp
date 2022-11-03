@@ -17,7 +17,11 @@
 </script>
 </head>
 <body>
-
+	
+	<div>
+		<a href="${contextPath}/brd/write">새글작성</a> <!-- brd/write라는것은 controller로 보내기위함일 뿐 -->
+	</div>
+	
 	<div>
 		<table border="1">
 			<thead>
@@ -32,7 +36,7 @@
 				<c:forEach items="${boards}" var="board"> <!-- items : 서버에서 받아오는 값들의 이름만큼 반복. var : 각각의 이름 -->
 					<tr>
 						<td>${board.board_no}</td>
-						<td>${board.title}</td>
+						<td><a href="${contextPath}/brd/detail?board_no=${board.board_no}">${board.title}</a></td>
 						<td>${board.writer}</td>
 						<td>${board.create_date}</td>
 					</tr>

@@ -20,7 +20,7 @@ public class MyController1 {
 	// <a href="${contextPath}/member/detail1">
 	@GetMapping("detail1") // 위에 RequestMapping을 member를 주었으므로 (/member/detail1)이 된다.
 	public String detail1(HttpServletRequest request) { // 여기 매개변수로 index.jsp의 <a href="${contextPath}/member/detail?id=admin&pw=1234">의 매개변수가 전송된다.
-		
+
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div>
-		<a href="${contextPath}/board/detail">게시글 쓰기</a>
+		<a href="${contextPath}/brd/write">게시글 쓰기</a>
 	</div>
 <hr>
 	<div>
