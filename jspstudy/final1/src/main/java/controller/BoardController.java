@@ -40,7 +40,7 @@ public class BoardController extends HttpServlet {
 		
 		// 요청에 따른 Service 선택
 		switch(urlMapping) {
-		case "/board/list.do":
+		case "/list.do":
 			service = new BoardListService();
 			break;
 		case "/board/detail.do":
