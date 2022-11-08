@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!-- configuration을 DBConfig에 넘긴 정보들은 지우면 된다. -->
+
+<!-- db.properties 파일 경로 설정
+	<properties resource="mybatis/config/db.properties"></properties> -->
+
+	<!-- snake_case(DB) to camelCase(Java) 자바이름으로 자동으로 바꿔주는애 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<!-- domain.Board to Board 별칭 / 별명 안쓰면 이름이 너무 길어져서 이제는 거의 필수처럼 사용된다.-->
+	<typeAliases>
+		<typeAlias type="com.gdu.app09.domain.BoardDTO" alias="Board"/>
+	</typeAliases>
+	
+
+<!-- 	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mybatis/mapper/board.xml"/>
+	</mappers> -->
+
+</configuration>
