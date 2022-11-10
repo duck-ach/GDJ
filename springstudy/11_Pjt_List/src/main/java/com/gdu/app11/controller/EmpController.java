@@ -27,4 +27,9 @@ public class EmpController {
 	      // 폴더이름 앞에 슬래시 붙이든 안붙이든 상관없다.
 	}
 	
+	@GetMapping("/emp/search")
+	public String search(HttpServletRequest request, Model model) {
+		empService.findEmployees(request, model);
+		return "employee/list";
+	}
 }

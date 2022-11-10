@@ -1,0 +1,28 @@
+사원번호
+WHERE EMPLOYEE_ID = 200
+
+성
+WHERE LAST_NAME LIKE '%a%'
+
+입사일
+WHERE HIRE_DATE BETWEEN TO_DATE('2022-10-10', 'YYYY-MM-DD') AND TO_DATE()
+
+연봉
+WHERE SALARY BETWEEN TO_NUMBER('1000') AND '5000'
+
+-- EMPLOYEE_ID, LAST_NAME, HIRE_DATE, SALARY 는 SELECT에서 선택되는 애들
+
+WHERE B.RN BETWEEN #{begin} AND #{end}
+WHERE B.RN BETWEEN '1' AND '10'
+
+WHERE B.RN BETWEEN ${begin} AND ${end}
+WHERE B.RN BETWEEN 1 AND 10
+
+column은 ''로 묶여 있으면 안된다.
+
+-- 잘못된 것
+WHERE #{column} = #{query}
+WHERE 'EMPLOYEE_ID' = '150' -- 오라클에서 숫자를 '' 로 묶는 것은 상관없다.
+-- 잘된 것
+WHERE ${column} = #{query}
+WHERE EMPLOYEE_ID = '150' 

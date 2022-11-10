@@ -8,4 +8,5 @@ import org.springframework.ui.Model;
 /* Request, Response, Session, Model을 최초 선언하는 것은 Controller이다. */
 public interface EmpService {
 	public void findAllEmployees(HttpServletRequest request, Model model);
+	public void findEmployees(HttpServletRequest request, Model model);
 }
