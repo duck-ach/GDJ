@@ -1,4 +1,4 @@
-package com.gdu.app11.util;
+package com.gdu.app12.util;
 
 import org.springframework.stereotype.Component;
 
@@ -19,14 +19,14 @@ public class PageUtil {
 	private int beginPage; 		// 블록의 시작페이지 번호(계산)
 	private int endPage; 		// 블록의 마지막 페이지 번호(계산)
 	
-	public void setPageUtil(int page, int totalRecord) {
+	public void setPageUtil(int page, int recordPerPage, int totalRecord ) {
 		
 		// page, totalRecord 필드 저장
 		this.page = page;
+		this.recordPerPage = recordPerPage;
 		this.totalRecord = totalRecord;
 		
 		// begin, end 계산
-		recordPerPage = 10;
 		begin = (page - 1) * recordPerPage + 1;
 		end = begin + recordPerPage - 1;
 		if(end > totalRecord) { 

@@ -24,7 +24,7 @@
 		background-color: #BECDFF;
 		text-align: center;
 	}
-	.pageNum {
+	.pageNum a {
 		border: none;
 		display:inline-block;
 		
@@ -50,6 +50,10 @@
 		text-align: center;
 		border: none;
 	}
+	.hidden {
+	display: none;
+	}
+	
 </style>
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 <script>
@@ -70,7 +74,32 @@
 				$('#area2').css('display', 'none');
 			}
 		});
-	});
+		
+		// 자동완성
+		$('#param').keyup(function(){
+			$('#auto_complete').empty();
+			if($(this).val() == ''){
+				return;
+			}
+			$.ajax({ // 입력과 동시에 DB에서 데이터를 가져오려면 ajax 를 사용해야한다.
+				/* 요청 */
+				type: 'get',
+				url: '${contextPath}/emp/autoComplete',
+				data: 'target=' + $('#target').val() + '&param=' + $(this).val(), // this = #email 입력된 이메일값을 param으로 보냄
+				/* 응답 */
+				dataType: 'json',
+				success: function(resData){
+					if(resData.status == 200){
+						$.each(resData.list, function(i, emp){
+							$('#auto_complete')
+							.append($('<option>').val(emp[resData.target]));
+						});
+					}
+				}
+			});
+		});
+		
+	}); 
 </script>
 </head>
 <body>
@@ -99,6 +128,16 @@
 				<input type="button" value="전체사원조회" id="btn_all">
 			</span>
 		</form>
+	</div>
+	
+	<div>
+		<select name="target" id="target">
+			<option value="FIRST_NAME">이름</option>
+			<option value="LAST_NAME">성</option>
+			<option value="EMAIL">이메일</option>
+		</select>
+		<input type="text" id="param" name="param" list="auto_complete">
+		<datalist id="auto_complete"></datalist> <!-- 입력상자인데 데이터들을 보여주는 입력상자를 말함 -->
 	</div>
 	
 	<hr>
@@ -137,7 +176,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="10" style="text-align: center;">
+					<td colspan="10" style="text-align: center;" class="pageNum">
 					    ${paging}
 					</td>
 				</tr>
