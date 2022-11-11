@@ -55,7 +55,7 @@
 	
 	<div>
 		<form id="frm_btn" method="post">
-			<input type="hidden" name="board_no" value="${board.boardNo}">
+			<input type="hidden" name="boardNo" value="${board.boardNo}">
 			<input type="button" value="편집" id="btn_edit">
 			<input type="button" value="삭제" id="btn_remove">
 			<input type="button" value="목록" id="btn_list">

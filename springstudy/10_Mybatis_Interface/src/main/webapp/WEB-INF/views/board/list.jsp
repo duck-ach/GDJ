@@ -36,7 +36,7 @@
 				<c:forEach items="${boards}" var="board"> <!-- items : 서버에서 받아오는 값들의 이름만큼 반복. var : 각각의 이름 -->
 					<tr>
 						<td>${board.boardNo}</td>
-						<td><a href="${contextPath}/brd/detail?board_no=${board.boardNo}">${board.title}</a></td>
+						<td><a href="${contextPath}/brd/detail?boardNo=${board.boardNo}">${board.title}</a></td>
 						<td>${board.writer}</td>
 						<td>${board.createDate}</td>
 					</tr>

@@ -31,6 +31,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int modifyBoard(BoardDTO board) {
+		System.out.println(board);
 		return mapper.updateBoard(board);
 	}
 

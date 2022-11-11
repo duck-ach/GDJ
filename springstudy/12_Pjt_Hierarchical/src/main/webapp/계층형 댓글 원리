@@ -1,0 +1,31 @@
+답글	DEPTH		원글 DEPTH + 1
+삽입 GROUP_NO		원글 GROUP_NO
+	GROUP_ORDER 원글 GROUP_ORDER + 1
+	
+답글	1. 같은 그룹에서 원글 GROUP_ORDER보다 큰 GROUP_ORDER를 가진 답글의 GROUP_ORDER를 1씩 증가
+삽입	2. 답글 삽입
+방법 주의) UPDATE와 INSERT가 하나의 서비스에서 진행되기 때문에 트랜잭션 처리가 필요하다.
+
+게시글번호		제목				깊이			그룹번호		동일 그룹 내 표시 순서
+BBS_NO		TITLE			DEPTH		GROUP_NO	GROUP_ORDER
+2			오늘저녁은?		0			2			0
+7			 [RE]2치킨 		2			2			1
+9				[RE]2난좋은데	2			2			2
+8				[RE]1시른데요	2			2			2->3
+6			 [RE]1족발		1			2			1->2->3->4
+1			오늘점심은?		0			1			0
+3			 [RE]1돈까스		1			1			1->2->3
+4			 [RE]2삼계탕		1			1			1->2
+5			 [RE]3칼국수		1			1			1
+													댓글이달리면 달릴수록 표시순서가 바뀜(최신 : 1)
+ORDER BY GROUP_NO DESC, GROUP_ORDER ASC
+
+최근작성한게 위로 올라오는 방법.
+작성순서하고는 전혀 순서없는 정렬을 해야한다.
+
+
+서비스
+  원글DTO
+  update 진행
+  답글DTO(원글DTO사용)
+  insert진행

@@ -18,5 +18,5 @@ public class BbsDTO {
 	private int state;
 	private int depth;
 	private int groupNo;
-	private int proupOrder;
+	private int groupOrder;
 }

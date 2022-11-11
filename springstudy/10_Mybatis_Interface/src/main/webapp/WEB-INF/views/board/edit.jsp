@@ -54,7 +54,7 @@
 	<div>
 		<h1>수정 화면</h1>
 		<form id="frm_board" action="${contextPath}/brd/modify" method="post">
-			<input type="hidden" name="board_no" value="${board.boardNo}">
+			<input type="hidden" name="boardNo" value="${board.boardNo}">
 			<div>
 				<label for="title">제목</label>
 				<input type="text" name="title" id="title" value="${board.title}">
