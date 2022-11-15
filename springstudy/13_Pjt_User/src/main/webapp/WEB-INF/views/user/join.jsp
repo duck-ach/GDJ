@@ -322,18 +322,27 @@
 			
 			if(idPass == false){
 				alert('아이디를 확인하세요.');
+				$('#id').focus();
 				event.preventDefault();
 				return;
-			} else if(pwPass == false || rePwPass == false){
+			} else if(pwPass == false){
+				alert('비밀번호를 입력해주세요.');
+				$('#pw').focus();
+				event.preventDefault();
+				return;
+			} else if(rePwPass == false){
 				alert('비밀번호를 확인하세요.');
+				$('#re_pw').focus();
 				event.preventDefault();
 				return;
 			} else if(namePass == false){
 				alert('이름을 확인하세요.');
+				$('#name').focus();
 				event.preventDefault();
 				return;
 			} else if(mobilePass == false){
 				alert('휴대전화번호를 확인하세요.');
+				$('#mobile').focus();
 				event.preventDefault();
 				return;
 			} else if($('#birthyear').val() == '' || $('#birthmonth').val() == '' || $('#birthdate').val() == ''){
@@ -342,6 +351,7 @@
 				return;
 			} else if(authCodePass == false){
 				alert('이메일 인증을 받으세요.');
+				$('#email').focus();
 				event.preventDefault();
 				return;
 			}
@@ -422,7 +432,7 @@
 			
 			<!-- 주소 -->
 			<div>
-				<input type="text" name="postcode" id="postcode" placeholder="우편번호">
+				<input type="text" name="postcode" id="postcode" onclick="fn_execDaumPostcode()" placeholder="우편번호" readonly>
 				<input type="button" onclick="fn_execDaumPostcode()" value="우편번호 찾기"><br>
 				<input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소" readonly>
 				<input type="text" name="jibunAddress" id="jibunAddress" placeholder="지번주소" readonly><br>

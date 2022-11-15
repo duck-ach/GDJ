@@ -1,9 +1,11 @@
 package com.gdu.app13.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -44,13 +46,17 @@ public class UserController {
 	@ResponseBody // ajax 처리를 위해 @ResponseBody
 	@GetMapping(value="/user/checkReduceId", produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> checkReduceId(String id) {
-		return userService.isReduceId(id);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		return userService.isReduceId(map);
 	}
 
 	@ResponseBody // ajax 처리를 위해 @ResponseBody
 	@GetMapping(value="/user/checkReduceEmail", produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> checkReduceEmail(String email) {
-		return userService.isReduceEmail(email);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		return userService.isReduceEmail(map);
 	}
 	
 	@ResponseBody // ajax 처리를 위해 @ResponseBody
@@ -64,5 +70,28 @@ public class UserController {
 		userService.join(request, response);
 	}
 	
+	@GetMapping("user/retire")
+	public void retire(HttpServletRequest request, HttpServletResponse response) {
+		userService.retire(request, response);
+	}
+	
+	// login페이지 이동
+	@GetMapping("/user/login/form") // <a> 태그를 이용하여 값을 전달하면 GET 방식이다.
+	public String loginForm(HttpServletRequest request, Model model) {
+		// 요청 헤더 referer : 이전 페이지의 주소가 저장
+		model.addAttribute("url", request.getHeader("referer")); // 로그인 후 되돌아 갈 주소 url (header값중에 referer)
+		return "user/login";
+	}
+	
+	@PostMapping("/user/login")
+	public void login(HttpServletRequest request, HttpServletResponse response) {
+		userService.login(request, response);
+	}
+	
+	@GetMapping("/user/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().invalidate();
+		return "redirect:/";
+	}
 	
 }
