@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserDTO {
-	private Long userNo; 			// 유저번호
+	private int userNo; 			// 유저번호
 	private String id;				// 아이디
 	private String pw;				// 비밀번호(암호화된 비번 최대 64바이트)
 	private String name;			// 이름
@@ -26,7 +26,7 @@ public class UserDTO {
 	private String jibunAddress;	// 지번주소
 	private String detailAddress;	// 상세주소
 	private String extraAddress;	// 참고항목
-	private Integer agreeCode;		// 동의여부(0:필수, 1:필수+위치, 2:필수+프로모션, 3:필수+위치+프로모션)
+	private int agreeCode;		// 동의여부(0:필수, 1:필수+위치, 2:필수+프로모션, 3:필수+위치+프로모션)
 	private String snsType;			// 간편가입종류(사이트가입:null, 네아로:naver)
 	private Date joinDate;			// 가입일
 	private Date pwModifyDate;		// 비번 수정일

@@ -10,4 +10,7 @@ public interface UserMapper {
 	public UserDTO selectUserById(String id);
 	public RetireUserDTO selectRetireUserById(String id);
 	public UserDTO selectUserByEmail(String email);
+	public int insertUser(UserDTO user);
+	public int updateAccessLog(String id);
+	public int insertAccessLog(String id);
 }
