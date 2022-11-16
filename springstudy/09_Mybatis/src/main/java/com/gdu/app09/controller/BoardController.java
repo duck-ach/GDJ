@@ -64,7 +64,7 @@ public class BoardController {
 	@PostMapping("brd/modify")
 	public String modify(BoardDTO board) {
 		boardService.modifyBoard(board);  // modifyBoard()로부터 0/1이 반환되지만 처리하지 않았다.
-		return "redirect:/brd/detail?board_no=" + board.getBoardNo();
+		return "redirect:/brd/detail?boardNo=" + board.getBoardNo();
 	}
 	
 	@PostMapping("brd/remove")

@@ -20,13 +20,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDTO findBoardByNo(int board_no) {
-		return dao.selectBoardByNo(board_no);
+	public int saveBoard(BoardDTO board) {
+		return dao.insertBoard(board);
 	}
 
 	@Override
-	public int saveBoard(BoardDTO board) {
-		return dao.insertBoard(board);
+	public BoardDTO findBoardByNo(int boardNo) {
+		return dao.selectBoardByNo(boardNo);
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int removeBoard(int board_no) {
-		return dao.deleteBoard(board_no);
+	public int removeBoard(int boardNo) {
+		return dao.deleteBoard(boardNo);
 	}
 	
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gdu.app09.domain.BoardDTO;
 
-@Repository // serblet-context의 <context:component-scan base-package="com.gdu.app08" /> 가 인식하여 컴포넌트로 인식
+@Repository // servlet-context의 <context:component-scan base-package="com.gdu.app08" /> 가 인식하여 컴포넌트로 인식
 public class BoardDAO {
 	
 	// SqlSessionTemplate
@@ -21,12 +21,12 @@ public class BoardDAO {
 		return sqlSessionTemplate.selectList("mybatis.mapper.board.selectAllBoards"); // mapper주소 + id
 	}
 	
-	public BoardDTO selectBoardByNo(int boardNo) { // 해킹시도 이제 없을거니까 매개변수의 final도 지워준다.
-		return sqlSessionTemplate.selectOne("mybatis.mapper.board.selectBoardByNo", boardNo); // mapper주소 + id, 전달해줄 값
-	}
-
 	public int insertBoard(BoardDTO board) {
 		return sqlSessionTemplate.insert("mybatis.mapper.board.insertBoard", board);
+	}
+
+	public BoardDTO selectBoardByNo(int boardNo) { // 해킹시도 이제 없을거니까 매개변수의 final도 지워준다.
+		return sqlSessionTemplate.selectOne("mybatis.mapper.board.selectBoardByNo", boardNo); // mapper주소 + id, 전달해줄 값
 	}
 	   
 	public int updateBoard(BoardDTO board) {

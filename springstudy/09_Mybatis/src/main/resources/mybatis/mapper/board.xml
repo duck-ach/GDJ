@@ -14,12 +14,6 @@
 		 ORDER BY BOARD_NO DESC
 	</select>
 	  
-	<select id="selectBoardByNo" parameterType="int" resultType="Board">
-		SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE
-		  FROM BOARD
-		 WHERE BOARD_NO = #{boardNo} <!-- 자바네이밍으로 하면된다잉 jsp랑 똑같음, DAO의 매개변수와 이름이 같으면 됨 -->
-	</select>
-	
 	<insert id="insertBoard" parameterType="Board">
 		INSERT INTO BOARD
          	(BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE)
@@ -27,6 +21,12 @@
          	(BOARD_SEQ.NEXTVAL, #{title}, #{content}, #{writer}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), TO_CHAR(SYSDATE, 'YYYY-MM-DD'))
 	</insert>
 	
+	<select id="selectBoardByNo" parameterType="int" resultType="Board">
+		SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE
+		  FROM BOARD
+		 WHERE BOARD_NO = #{boardNo} <!-- 자바네이밍으로 하면된다잉 jsp랑 똑같음, DAO의 매개변수와 이름이 같으면 됨 -->
+	</select>
+
 	<update id="updateBoard" parameterType="Board">
       UPDATE BOARD
          SET TITLE = #{title}, CONTENT = #{content}, MODIFY_DATE = TO_CAHR(SYSDATE, 'YYYY-MM-DD')
