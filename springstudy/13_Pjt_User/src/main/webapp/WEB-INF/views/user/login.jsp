@@ -8,6 +8,46 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(function(){
+		fn_login();
+		fn_displayRememberId();
+	});
+	
+	function fn_login() {
+		$('#frm_login').submit(function(event){ // submit을 취소할 수 있게끔 event 객체를 잡아준다.
+			
+			// 아이디와 패스워드가 입력되지 않았을 경우
+			if($('#id').val() == '' || $('#pw').val() == '') {
+				alert('아이디와 패스워드를 모두 입력하세요');
+				event.preventDefault();
+				return; // 아래 if문을 막는다.
+			}
+		
+			// 아이디 저장
+			if($('#rememberId').is(':checked')) {		// Java에서 쿠키를 처리하려면 Service단에서 Cookie 클래스를 이용하여 request에 저장해주는 방식을 사용했다.
+				$.cookie('rememberId', $('#id').val()); // 쿠키ID, 값 순으로 저장을 하면 편리
+			} else {
+				$.cookie('rememberId', '');
+			}											
+			
+		});
+	}
+	
+	function fn_displayRememberId() {
+		// 아이디저장 쿠키 불러오기
+		let rememberId = $.cookie('rememberId');
+		if(rememberId == '') {
+			$('#id').val('');
+			$('#rememberId').prop('checked', false); // check 해제
+		} else {
+			$('#id').val(rememberId);
+			$('#rememberId').prop('checked', true); // check 해제
+		}
+		
+	}
+</script>
 </head>
 <body>
 
@@ -39,7 +79,7 @@
 					아이디 저장
 				</label>
 				<label for="keepLogin">
-					<input type="checkbox" name="keepLogin" value="keep" id="keepLogin">
+					<input type="checkbox" name="keepLogin" id="keepLogin"> <!-- keep이라는 값을 가지고 DB request로 간다. -->
 					로그인 유지
 				</label>
 			</div>
@@ -47,8 +87,8 @@
 		</form>
 			
 		<div>
-			<a href="${contextPath}/member/findId">아이디 찾기</a> | 
-			<a href="${contextPath}/member/findPw">비밀번호 찾기</a>
+			<a href="${contextPath}/user/findId">아이디 찾기</a> | 
+			<a href="${contextPath}/user/findPw">비밀번호 찾기</a> <!-- 임시 비번 email로 받기 구현 -->
 		</div>
 	
 	</div>

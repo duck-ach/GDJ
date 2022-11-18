@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,6 +22,12 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService; 
+	
+	// 컨트롤러의 모든 요청 이전에 일어나는 intercepter가 일어난다.
+	// intercepter는 가로채기를 하는 애다. 어떤 처리를 하기전에 자기가 개입해서 일처리를 하고 들어옴
+	// 모든 intercepter의 위치는 여기(field와 Mapping 사이)
+	// true와 false를 반환함. (true : intercepter가 개입하고 일을 처리, false : 작업을 취소하고 이건안되겠다 하면서 막아버림)
+	// 만들어만 두면 스스로 개입한다.
 	
 	@GetMapping("/")
 	public String index() {
@@ -89,9 +94,29 @@ public class UserController {
 	}
 	
 	@GetMapping("/user/logout")
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		request.getSession().invalidate();
+	public String logout(HttpServletRequest request, HttpServletResponse response) {// 세션 초기화 (자동로그인을 풀려면 쿠키 한쪽 제거해줘야함)
+		userService.logout(request, response);
 		return "redirect:/";
 	}
 	
+	@GetMapping("/user/check/form")
+	public String requiredLogin_checkForm() {
+		return "user/check";
+	}
+	
+	@ResponseBody
+	@PostMapping(value="/user/check/pw", produces="application/json") // true false 들어갈예정이라 charset은 굳이 해주지 않아도 된다.
+	public Map<String, Object> requiredLogin_checkPw(HttpServletRequest request) { // service에서 Map을 반환하므로 Map, request를 필요로 하므로 request를 인자값으로 넘겨준다.
+		return userService.confirmPassword(request);
+	}
+	
+	@GetMapping("/user/mypage") // location으로 이동하는것이기 때문에 GetMapping
+	public String requiredLogin_mypage() {
+		return "user/mypage";
+	}
+	
+	@PostMapping("/user/modify/pw")
+	public void requiredLogin_modifyPw(HttpServletRequest request, HttpServletResponse response) {
+		userService.modifyPassword(request, response);
+	}
 }

@@ -2,6 +2,9 @@ package com.gdu.app09.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.gdu.app09.domain.BoardDTO;
 
 public interface BoardService {
