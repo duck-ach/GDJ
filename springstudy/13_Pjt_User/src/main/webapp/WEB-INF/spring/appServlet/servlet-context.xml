@@ -26,15 +26,22 @@
 	<!-- interceptor -->
 	<beans:bean id="keepLoginInterceptor" class="com.gdu.app13.interceptor.KeepLoginInterceptor"></beans:bean> <!-- 여기는 bean 만들 때 beans:bean인거 말고는 다 같다. -->
 	<interceptors>
+		<!-- @Component로 컨테이너 등록 -->
 		<interceptor>
 			<mapping path="/**"/> <!-- 주소 : / 컨텍스트패스의 ** 모든경로 (2개붙여주면 ) -->
 			<beans:ref bean="keepLoginInterceptor" /> <!-- bean을 만든다. -->
 		</interceptor>
+		
 		<interceptor>
 			<mapping path="/user/login/form"/>
          	<mapping path="/user/join/write"/>
          	<mapping path="/user/agree"/>
          <beans:bean class="com.gdu.app13.interceptor.PreventLoginInterceptor" />
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/user/login"/>
+         <beans:bean class="com.gdu.app13.interceptor.SleepUserCheckingInterceptor" />
 		</interceptor>
 	</interceptors>
 	

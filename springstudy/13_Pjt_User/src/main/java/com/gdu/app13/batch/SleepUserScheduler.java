@@ -14,8 +14,8 @@ public class SleepUserScheduler {
 	@Autowired
 	private UserService userService;
 	
-	// 매일 새벽 1시 @Scheduled(cron="0 0 1 * * *") // 6개 맞추면됨 (초 분 시 일 요일 달)
-	@Scheduled(cron="0 17 10 * * *") // 10시 17분에 동작
+	// 매일 새벽 1시. 6개 맞추면됨 (초 분 시 일 요일 달)
+	@Scheduled(cron="0 0/1 * * * *")
 	public void execute() {
 		userService.sleepUserHandle();
 	}

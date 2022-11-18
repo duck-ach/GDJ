@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gdu.app13.domain.SleepUserDTO;
 import com.gdu.app13.domain.UserDTO;
 
 public interface UserService {
@@ -21,4 +22,8 @@ public interface UserService {
 	public Map<String, Object> confirmPassword(HttpServletRequest request); // json을 만들기 위해
 	public void modifyPassword(HttpServletRequest request, HttpServletResponse response);
 	public void sleepUserHandle(); // sleepUserScheduler에서 호출
+	public SleepUserDTO getSleepUserById(String id);
+	public void restoreUser(HttpServletRequest request, HttpServletResponse response);
+	public String getNaverLoginApiURL(HttpServletRequest request); // session이 필요하므로 request 넘겨줌
+	public UserDTO getNaverLoginTokenNProfile(HttpServletRequest request);
 }

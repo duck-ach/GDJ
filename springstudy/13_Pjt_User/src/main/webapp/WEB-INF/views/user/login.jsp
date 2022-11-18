@@ -90,6 +90,12 @@
 			<a href="${contextPath}/user/findId">아이디 찾기</a> | 
 			<a href="${contextPath}/user/findPw">비밀번호 찾기</a> <!-- 임시 비번 email로 받기 구현 -->
 		</div>
+		
+		<hr>
+		
+		<div>
+			<a href="${apiURL}"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+		</div>
 	
 	</div>
 	
