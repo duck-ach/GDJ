@@ -9,7 +9,7 @@
 	<!-- 업로드 게시판 목록 -->
 	<select id="selectUploadList" resultType="UploadDTO">			
 		SELECT U.UPLOAD_NO, U.TITLE, U.CONTENT, U.CREATE_DATE, U.MODIFY_DATE, (SELECT COUNT(*) FROM ATTACH A WHERE U.UPLOAD_NO = A.UPLOAD_NO) AS ATTACH_CNT
-  		  FROM UPLOAD U
+		  FROM UPLOAD U
 	</select>
 	
 	<!-- 업로드(삽입) INSERT도 동시에 2개를 이용함(난이도 조또마떼 상) -->

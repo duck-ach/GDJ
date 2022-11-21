@@ -69,15 +69,20 @@ public class UploadServiceImpl implements UploadService {
 		/* ATTACH 테이블에 저장하기 */
 		/* C:\GDJ\installer\sts-bundle\sts-3.9.18.RELEASE\storage\2022\11\21 에서 확인 가능 배포하면 배포된 곳에 따로 저장소가 열릴것임 */
 		
-		// 첨부 결과
-		int attachResult = 0;
 		
 		// 첨부된 파일 목록 가져오기
 		List<MultipartFile> files = multipartRequest.getFiles("files"); // <input type="file" id="files" name="files" multiple="multiple"> 의 name값을 가져온 것
 		
 		
+		// 첨부 결과(첨부 파일이 0개인 경우 게시글은 작성되오나, 오류메세지와 페이지 넘김이 잘 안되는것을 방지)
+		int attachResult = 0;
+		if(files.get(0).getSize() == 0) {  // 첨부가 없는 경우 (files 리스트에 [MultipartFile[field="files", filename=, contentType=application/octet-stream, size=0]] 이렇게 저장되어 있어서 files.size()가 1이다.
+			attachResult = 1;
+		} else {
+			attachResult = 0;
+		}
 		// 첨부된 파일 목록 순회(하나씩 저장
-		for(MultipartFile multipartFile : files) {
+		for(MultipartFile multipartFile : files)  { // files 리스트 안에 MultipartFile[field="files", filename=, contentType=application/octet-stream, size=0] 이렇게 저장되어있어서 files.size()가 0이아니라 1이다.
 			try {
 				// 첨부가 있는지 점검
 				if(multipartFile != null && multipartFile.isEmpty() == false) { // 둘 다 필요함
@@ -142,7 +147,17 @@ public class UploadServiceImpl implements UploadService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		/*
+			files 리스트 = [
+				MultipartFile[field="files", filename=, contentType=application/octet-stream, size=0]
+			]
+			
+			List에서 요소를 가져올 때는
+			files[0] 불가능. 
+			files.get(0).getSize() == 0 으로 가능
+			files.getOriginName
+			
+		*/
 	}
 	
 	
