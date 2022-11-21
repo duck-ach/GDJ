@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gdu.app14.mapper.UploadMapper">
+
+	<!-- 업로드 게시판 목록 -->
+	<select id="selectUploadList" resultType="UploadDTO">			
+		SELECT U.UPLOAD_NO, U.TITLE, U.CONTENT, U.CREATE_DATE, U.MODIFY_DATE, (SELECT COUNT(*) FROM ATTACH A WHERE U.UPLOAD_NO = A.UPLOAD_NO) AS ATTACH_CNT
+  		  FROM UPLOAD U
+	</select>
+	
+	<!-- 업로드(삽입) INSERT도 동시에 2개를 이용함(난이도 조또마떼 상) -->
+	<!-- 
+		UPLOAD_SEQ.NEXTVAL 값을 INSERT 수행 이전에(BEFORE)
+		parameter로 전달되는 UploadDTO의 uploadNo에 넣어주시오
+	-->
+	<insert id="insertUpload" parameterType="UploadDTO"> <!-- selectKey에서 반환한 값은 여기 parameterType="UploadDTO"에 들어간다. -->
+		<selectKey keyProperty="uploadNo" resultType="int" order="BEFORE"> <!-- keyProperty : 이 키에 이름을 붙여준다. order : insert 이전에 해서 반환해라 -->
+			SELECT UPLOAD_SEQ.NEXTVAL
+			  FROM DUAL
+		</selectKey>
+		INSERT INTO UPLOAD
+			(UPLOAD_NO, TITLE, CONTENT, CREATE_DATE, MODIFY_DATE)
+		VALUES
+			(#{uploadNo}, #{title}, #{content}, SYSTIMESTAMP, SYSTIMESTAMP)
+	</insert>
+	
+	<insert id="insertAttach" parameterType="AttachDTO">
+		INSERT INTO ATTACH
+			(ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, UPLOAD_NO)
+		VALUES
+			(ATTACH_SEQ.NEXTVAL, #{path}, #{origin}, #{filesystem}, 0, #{uploadNo})
+	</insert>
+	
+</mapper>
