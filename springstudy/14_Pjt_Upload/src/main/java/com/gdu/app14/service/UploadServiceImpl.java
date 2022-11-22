@@ -2,13 +2,20 @@ package com.gdu.app14.service;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -160,5 +167,79 @@ public class UploadServiceImpl implements UploadService {
 		*/
 	}
 	
+	@Override
+	public void getUploadByNo(int uploadNo, Model model) {
+		model.addAttribute("upload", uploadMapper.selectUploadByNo(uploadNo));
+		model.addAttribute("attachList", uploadMapper.selectAttachList(uploadNo));
+		// 조회수증가 같은거 할거면 여기다가 model에 담아주면 됨
+	}
+	
+	@Override // ResponseEntity는 페이지변화 X, 값 반환 (보통 ajax에서 많이 사용함)
+	public ResponseEntity<Resource> download(String userAgent, int attachNo) {
+		
+		// 다운로드 할 첨부 파일의 정보(경로, 이름)
+		AttachDTO attach = uploadMapper.selectAttachByNo(attachNo);
+		File file = new File(attach.getPath(), attach.getFilesystem()); // (경로, 파일명) 원래이름은 DB에만있음
+		
+		// 반환할 Resource
+		Resource resource = new FileSystemResource(file);
+		
+		// Resource가 없으면 종료 (다운로드 할 파일이 없음)
+		if(resource.exists() == false) {
+			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND); // '못찾겠다~' 만 간단히 반환한것
+		}
+		
+		// 다운로드 횟수 증가
+		uploadMapper.updateDownloadCnt(attachNo);
+		
+		// 다운로드 되는 파일명(브라우저 마다 다르게 세팅)
+		String origin = attach.getOrigin();
+		try {
+			// UserAgent 값을 꺼내면 어떤 브라우저에서 접속했는 지 알 수 있다.
+			// IE (userAgent에 "Trident"가 포함되어 있음)
+			if(userAgent.contains("Trident")) { // replaceAll 뒤의 +는 정규식이기 때문에 인식시키기 위해 \\를 붙여주어야한다.
+				origin = URLEncoder.encode(origin, "UTF-8").replaceAll("\\+", " ");
+			}
+			// Edge (userAgent에 "Edg"가 포함되어 있음)
+			else if (userAgent.contains("Edg")) {
+				origin = URLEncoder.encode(origin, "UTF-8");
+			}
+			// 나머지
+			else {
+				origin = new String(origin.getBytes("UTF-8"), "ISO-8859-1");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// 다운로드 헤더 만들기(spring framework)
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Disposition", "attachment; filename=" + origin); // attach만 하고 끝내도 됨(하지만 다운로드 이름 정해주어야 함)
+		header.add("Content-Length", file.length() + "");
+		
+		return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
+	}
+	
+	@Override
+	public void removeAttachByAttachNo(int attachNo) {
+		
+		// 삭제할 Attach 정보 받아오기
+		AttachDTO attach = uploadMapper.selectAttachByNo(attachNo); // 삭제 전에 정보를 가지고 와야함
+		
+		// DB에서 Attach 정보 삭제
+		int result = uploadMapper.deleteAttachByAttachNo(attachNo);
+		
+		// 첨부파일 삭제
+		if(result > 0) {
+			// 첨부파일을 File 객체로 만듬
+			File file = new File(attach.getPath(), attach.getFilesystem());
+			
+			// 삭제
+			if(file.exists()) {
+				file.delete(); // 파일 삭제
+			}
+		}
+		
+	}
 	
 }
