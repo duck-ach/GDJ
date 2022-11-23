@@ -12,6 +12,7 @@
 <body>
 
 	<div>
+
 		<div>
 			<a href="${contextPath}/upload/write">작성</a>
 		</div>
@@ -40,6 +41,7 @@
 				</tbody>
 			</table>
 		</div>
+		
 	</div>
 	
 </body>

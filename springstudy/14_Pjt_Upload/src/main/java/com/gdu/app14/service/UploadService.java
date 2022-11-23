@@ -2,6 +2,7 @@ package com.gdu.app14.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.io.Resource;
@@ -17,5 +18,8 @@ public interface UploadService {
 	public void getUploadByNo(int uploadNo, Model model); // Model에 uploadDTO, AttachList를 둘다 담아야함
 										// 둘다 받아오려고하면 힘드니까 모델에 담아서 온다.
 	public ResponseEntity<Resource> download(String userAgent, int attachNo);
+	public ResponseEntity<Resource> downloadAll(String userAgent, int uploadNo);
+	public void modifyUpload(MultipartHttpServletRequest multipartRequest, HttpServletResponse response);
 	public void removeAttachByAttachNo(int attachNo); // 삭제하려면 attachNo필요
+	public void removeUpload(HttpServletRequest multipartRequest, HttpServletResponse response);
 }

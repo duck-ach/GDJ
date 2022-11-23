@@ -63,12 +63,31 @@
 		 WHERE ATTACH_NO = #{attachNo}
 	</select>
 	
-	<!-- 첨부파일 삭제 -->
-	<delete id="deleteAttachByAttachNo" parameterType="int">
-			DELETE
-			  FROM ATTACH
-			 WHERE ATTACH_NO = #{attachNo}
+	<update id="updateUpload" parameterType="UploadDTO">
+		UPDATE UPLOAD
+		   SET TITLE = #{title}
+		     , CONTENT = #{content}
+		     , MODIFY_DATE = SYSTIMESTAMP
+		 WHERE UPLOAD_NO = #{uploadNo}
+	</update>
+	
+	<delete id="deleteAttach" parameterType="int">
+		DELETE
+		  FROM ATTACH
+		 WHERE ATTACH_NO = #{attachNo}
 	</delete>
+	
+	<delete id="deleteUpload" parameterType="int">
+		DELETE
+		  FROM UPLOAD
+		 WHERE UPLOAD_NO = #{uploadNo}
+	</delete>
+	
+	<select id="selectAttachListInYesterday" resultType="AttachDTO">
+		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, UPLOAD_NO
+		  FROM ATTACH
+		 WHERE PATH = CONCAT('storage\\', TO_CHAR(SYSDATE - 1, 'yyyy\\mm\\dd'))
+	</select>
 	
 		
 </mapper>
