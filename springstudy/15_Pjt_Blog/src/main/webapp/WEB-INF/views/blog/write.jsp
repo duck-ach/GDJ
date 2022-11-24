@@ -33,7 +33,40 @@
              	['para', ['ul', 'ol', 'paragraph']],
              	['height', ['height']],
              	['insert', ['link', 'picture', 'video']]
-         	]
+         	],
+         	callbacks: { // onImageUpload : 정해진이름. (이벤트) 
+         		onImageUpload : function(files) { // summernote 편집기에 이미지를 로드할 때 이미지는 function의 매개변수 files로 전달
+         			// 이미지를 ajax를 이용해서 서버로 보낼 때 가상 form 데이터 사용
+         			var formData = new FormData();
+         		formData.append('file', files[0]); // (실어줄 파라미터, 실어줄 이미지), summernote편집기에 추가된 이미지가 files[0]임
+         			
+         			// 이미지를 HDD(하드)에 저장하고 경로를 받아오는 ajax
+         			$.ajax({
+         				/* request */
+         				type: 'post',
+         				url : getContextPath() + '/blog/uploadImage',
+         				data: formData,
+         				contentType : false, // ajax 이미지 첨부용
+         				processData : false, // ajax 이미지 첨부용
+         				/* response */
+         				dataType : 'json',   // HDD에 저장된 이미지의 경로를 json으로 받아옴
+         				success : function(resData) {
+         					$('#content').summernote('insertImage', resData.src);
+         					/*
+         						src=${contextPath}/load/image/aaa.jpg 값이 넘어온 경우
+         						summernote는
+         						<img src="${contextPath}/load/image/aaa.jpg"> 태그를 만든다.
+         						
+         						스프링에서 정적 자원 표시하는 방법은 servlet-context.xml
+         						이미지(정적 자원)의 mapping과 location을 servlet-context.xml에 작성해야한다.
+         						
+         						mapping=${contextPath}/load/image/aaa.jpg 인 파일의
+         						location=C:\\upload\\aaa.jpg
+         					*/
+         				}
+         			}); // ajax
+         		} // onImageUpload
+         	} // callbacks 
       	});
       
       	// 목록

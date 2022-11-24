@@ -11,4 +11,5 @@ import com.gdu.app15.domain.BlogDTO;
 public interface BlogMapper {
 	public int selectBlogListCount();
 	public List<BlogDTO> selectBlogListByMap(Map<String, Object> map);
+	public int insertBlog(BlogDTO blog);
 }
