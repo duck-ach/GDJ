@@ -154,4 +154,94 @@ public class BlogServiceImpl implements BlogService {
 		// src=${contextPath}/load/image/aaa.jpg 이다.
 	}
 	
+	@Override
+	public int increseBlogHit(int BlogNo) {
+		return blogMapper.updateHit(BlogNo);
+	}
+	
+	@Override
+	public BlogDTO getBlogByNo(int blogNo) {
+		return blogMapper.selectBlogByNo(blogNo);
+	}
+	
+	@Override
+	public void modifyBlog(HttpServletRequest request, HttpServletResponse response) {
+		
+		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		BlogDTO blogDTO = BlogDTO.builder()
+				.blogNo(blogNo)
+				.title(title)
+				.content(content)
+				.build();
+		
+		// DB 수정
+		int result = blogMapper.updateBlog(blogDTO);
+		
+		// 응답
+		try {
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			if(result > 0) {
+				
+				out.println("<script>");
+				out.println("alert('게시글이 수정되었습니다.');");
+				out.println("location.href='" + request.getContextPath() + "/blog/detail?blogNo="+ blogNo +"';");
+				out.println("</script>");
+				
+			} else {
+				
+				out.println("<script>");
+				out.println("alert('게시글을 수정하지 못했습니다.');");
+				out.println("history.back();");
+				out.println("</script>");
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	@Override
+	public void removeBlog(HttpServletRequest request, HttpServletResponse response) {
+		
+		// 파라미터
+		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
+		
+		// DB에서 삭제
+		int result = blogMapper.deleteBlog(blogNo);
+		
+		// 응답
+		try {
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			if(result > 0) {
+				
+				out.println("<script>");
+				out.println("alert('게시글이 삭제되었습니다.');");
+				out.println("location.href='" + request.getContextPath() + "/blog/list';");
+				out.println("</script>");
+				
+			} else {
+				
+				out.println("<script>");
+				out.println("alert('게시글을 삭제하지 못했습니다.');");
+				out.println("history.back();");
+				out.println("</script>");
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
