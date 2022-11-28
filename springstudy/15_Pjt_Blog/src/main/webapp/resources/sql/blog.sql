@@ -16,12 +16,12 @@ CREATE TABLE BLOG
 -- 댓글(1단 계층형)
 CREATE TABLE COMMENTS
 (
-    COMMENT_NO NUMBER NOT NULL,
+    COMMENT_NO NUMBER NOT NULL, -- SEQ.NEXTVAL
     BLOG_NO NUMBER, -- 외래키 (ON DELETE SET NULL을 위해 NOT NULL 처리하면 안됨) 
     CONTENT VARCHAR2(4000 BYTE) NOT NULL,
     STATE NUMBER NOT NULL,      -- 정상 1, 삭제 -1
     DEPTH NUMBER NOT NULL,      -- 게시글 0, 댓글 1
-    GROUP_NO NUMBER NOT NULL,   -- 게시글과 해당 게시글에 달린 댓글은 같은 그룹
+    GROUP_NO NUMBER NOT NULL,   -- 게시글과 해당 게시글에 달린 댓글은 같은 그룹 (COMMENT_NO와 같은 숫자 가지기로 함 SEQ.CURRVAL)
     CREATE_DATE DATE NOT NULL
 );
 
