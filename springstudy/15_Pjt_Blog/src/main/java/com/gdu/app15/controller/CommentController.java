@@ -37,4 +37,16 @@ public class CommentController {
 	public Map<String, Object> list(HttpServletRequest request) {
 		return commentService.getCommentList(request);
 	}
+	
+	@ResponseBody
+	@PostMapping(value="/comment/remove", produces="application/json")
+	public Map<String, Object> remove(@RequestParam("commentNo") int commentNo) { // CommentNo만 받으면되니까 requestParam으로 바로 받아줌
+		return commentService.removeComment(commentNo);
+	}
+	
+	@ResponseBody
+	@PostMapping(value="/comment/reply/add", produces="application/json")
+	public Map<String, Object> addReply(CommentDTO reply) {
+		return commentService.addReply(reply);
+	}
 }
