@@ -4,16 +4,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- namespace="mapper의 패키지 경로" -->
+<mapper namespace="com.gdu.app01.mapper.BoardMapper">
 
-<mapper namespace="com.gdu.app10.mapper.BoardMapper"> <!-- 이 mapper의 이름 -->
-	
-	<select id="selectAllBoards" resultType="Board">
-		SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE
+	<select id="selectAllBoards" resultType="Board"> <!-- VARCHAR2 데이터타입의 날짜는 계산을 할 수 없으므로 TO_DATE를 이용하여 변환 -->
+		SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE, FLOOR(SYSDATE - TO_DATE(CREATE_DATE)) AS PASS_DAY
 		  FROM BOARD
 		 ORDER BY BOARD_NO DESC
 	</select>
-	  
+	
 	<select id="selectBoardByNo" parameterType="int" resultType="Board">
 		SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE
 		  FROM BOARD
@@ -22,20 +20,31 @@
 	
 	<insert id="insertBoard" parameterType="Board">
 		INSERT INTO BOARD
-         	(BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE)
-      	VALUES
-         	(BOARD_SEQ.NEXTVAL, #{title}, #{content}, #{writer}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), TO_CHAR(SYSDATE, 'YYYY-MM-DD'))
+			(BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE)
+		VALUES
+			(BOARD_SEQ.NEXTVAL, #{title}, #{content}, #{writer}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), TO_CHAR(SYSDATE, 'YYYY-MM-DD'))
 	</insert>
 	
 	<update id="updateBoard" parameterType="Board">
-      UPDATE BOARD
-         SET TITLE = #{title}, CONTENT = #{content}, MODIFY_DATE = TO_CHAR(SYSDATE, 'YYYY-MM-DD')
-       WHERE BOARD_NO = #{boardNo}
-   </update>
+		UPDATE BOARD
+		   SET TITLE = #{title}, CONTENT = #{content}, MODIFY_DATE = TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+		 WHERE BOARD_NO = #{boardNo}
+	</update>
 	
 	<delete id="deleteBoard" parameterType="int">
-      DELETE
-        FROM BOARD
-       WHERE BOARD_NO = #{boardNo}
-   </delete>
+		DELETE
+		  FROM BOARD
+		 WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<delete id="deleteBoardList" parameterType="List">
+		DELETE
+		  FROM BOARD
+		<where> <!-- 한번에 2개이상을 지우기위함 (1, 2, 3) 이런식으로 식이 들어감 -->
+		 	<foreach collection="list" item="boardNo" open="BOARD_NO IN(" separator="," close=")">
+				#{boardNo}
+			</foreach>
+		</where>
+	</delete>
+
 </mapper>
