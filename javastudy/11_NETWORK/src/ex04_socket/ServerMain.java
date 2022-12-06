@@ -2,7 +2,6 @@ package ex04_socket;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -69,17 +68,7 @@ public class ServerMain {
 		
 		} catch (IOException e) {
 			e.printStackTrace();
-		} //finally {
-//			try {
-//				if(serverSocket.isClosed() == false) {
-//					System.out.println("[서버] 서버가 종료되었습니다.");
-//					serverSocket.close();
-//				}
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-
+		}
 	}
 
 }
