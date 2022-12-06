@@ -53,6 +53,10 @@ public class DeleteWrongFiles {
 		
 		// 어제 업로드 된 파일 목록 중 DB에 기록된 파일이 아닌 목록 (여긴 직접 쳐보면서 연습 추천)
 		File dir = new File(path);
+		
+	/* Lambda
+		File[] wrongFiles = dir.listFiles((file -> pathList.contains(file.toPath()) == false));
+	*/
 		File[] wrongFiles = dir.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
