@@ -6,14 +6,12 @@
 
 <mapper namespace="com.gdu.app02.mapper.CommentMapper">
 
-	<!-- 댓글 개수 -->
 	<select id="selectCommentCount" parameterType="int" resultType="int">
 		SELECT COUNT(*)
 		  FROM COMMENTS
-		 WHERE BLOG_NO = #{blogNo} AND STATE = '1'
+		 WHERE BLOG_NO = #{blogNo}
 	</select>
 	
-	<!-- 댓글 삽입 -->
 	<insert id="insertComment" parameterType="CommentDTO">
 		INSERT INTO COMMENTS
 			(COMMENT_NO, BLOG_NO, CONTENT, STATE, DEPTH, GROUP_NO, CREATE_DATE)
@@ -21,8 +19,7 @@
 			(COMMENTS_SEQ.NEXTVAL, #{blogNo}, #{content}, 1, 0, COMMENTS_SEQ.CURRVAL, SYSDATE)
 	</insert>
 	
-	<!-- 댓글 리스트 -->
-	<select id="selectCommentList" parameterType="Map" resultType="CommentDTO"> <!-- DEPTH 기준 오름차순(댓글/대댓글), GROUP_NO의 내림차순(최신 댓글이 위로 오도록) 만약 대댓글끼리도 하고싶으면 CREATE_DATE 이용하면 됨 -->
+	<select id="selectCommentList" parameterType="Map" resultType="CommentDTO">
 		SELECT A.ROW_NUM, A.COMMENT_NO, A.BLOG_NO, A.CONTENT, A.STATE, A.DEPTH, A.GROUP_NO, A.CREATE_DATE
 		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY GROUP_NO DESC, DEPTH ASC, CREATE_DATE DESC) AS ROW_NUM, COMMENT_NO, BLOG_NO, CONTENT, STATE, DEPTH, GROUP_NO, CREATE_DATE
 		          FROM COMMENTS
@@ -30,14 +27,12 @@
 		 WHERE A.ROW_NUM BETWEEN #{begin} AND #{end}
 	</select>
 	
-	<!-- 댓글 삭제(update를 통한) -->
-	<delete id="deleteComment" parameterType="int">
+	<update id="deleteComment" parameterType="int">
 		UPDATE COMMENTS
 		   SET STATE = -1
 		 WHERE COMMENT_NO = #{commentNo}
-	</delete>
+	</update>
 	
-	<!-- 답글 삽입 (DEPTH와 GROUP_NO가 달라짐) -->
 	<insert id="insertReply" parameterType="CommentDTO">
 		INSERT INTO COMMENTS
 			(COMMENT_NO, BLOG_NO, CONTENT, STATE, DEPTH, GROUP_NO, CREATE_DATE)

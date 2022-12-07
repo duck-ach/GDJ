@@ -40,13 +40,14 @@ public class CommentController {
 	
 	@ResponseBody
 	@PostMapping(value="/comment/remove", produces="application/json")
-	public Map<String, Object> remove(@RequestParam("commentNo") int commentNo) { // CommentNo만 받으면되니까 requestParam으로 바로 받아줌
+	public Map<String, Object> remove(@RequestParam("commentNo") int commentNo){
 		return commentService.removeComment(commentNo);
 	}
 	
 	@ResponseBody
 	@PostMapping(value="/comment/reply/add", produces="application/json")
-	public Map<String, Object> addReply(CommentDTO reply) {
+	public Map<String, Object> replyAdd(CommentDTO reply){
 		return commentService.addReply(reply);
 	}
+	
 }

@@ -24,28 +24,25 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public Map<String, Object> getCommentCount(int blogNo) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("commentCount", commentMapper.selectCommentCount(blogNo)); // ajax로 넘겨줄 resData
+		result.put("commentCount", commentMapper.selectCommentCount(blogNo));
 		return result;
 	}
 	
 	@Override
 	public Map<String, Object> addComment(CommentDTO comment) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("isAdd", commentMapper.insertComment(comment) == 1); // ajax로 넘겨줄 resData
+		result.put("isAdd", commentMapper.insertComment(comment) == 1);
 		return result;
 	}
 	
 	@Override
 	public Map<String, Object> getCommentList(HttpServletRequest request) {
 		
-		// 파라미터
 		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
 		int page = Integer.parseInt(request.getParameter("page"));
 		
-		// comment 개수
 		int commentCount = commentMapper.selectCommentCount(blogNo);
-		
-		pageUtil.setPageUtil(page, commentCount); // 페이지에대한 계산(페이지수, 댓글개수)
+		pageUtil.setPageUtil(page, commentCount);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("blogNo", blogNo);
@@ -57,6 +54,7 @@ public class CommentServiceImpl implements CommentService {
 		result.put("pageUtil", pageUtil);
 		
 		return result;
+		
 	}
 	
 	@Override

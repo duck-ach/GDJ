@@ -9,9 +9,9 @@ import com.gdu.app02.domain.CommentDTO;
 
 @Mapper
 public interface CommentMapper {
-	public int selectCommentCount(int BlogNo);
+	public int selectCommentCount(int blogNo);
 	public int insertComment(CommentDTO comment);
-	public List<CommentDTO> selectCommentList(Map<String, Object> map); // blogNo, begin, end 세개를 전달해야 하므로
+	public List<CommentDTO> selectCommentList(Map<String, Object> map);
 	public int deleteComment(int commentNo);
 	public int insertReply(CommentDTO reply);
 }

@@ -7,7 +7,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Configuration
 public class FileConfig {
 
-	@Bean // MultipartRequest 사용할 때는 얘를 가지고 다녀야 함
+	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 		multipartResolver.setDefaultEncoding("UTF-8");

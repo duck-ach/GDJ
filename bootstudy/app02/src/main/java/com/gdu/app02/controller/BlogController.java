@@ -29,44 +29,41 @@ public class BlogController {
 	
 	@GetMapping("/blog/list")
 	public String list(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request); // model에 request저장
-		blogService.getBlogList(model); // model만 넘기지만 이미 model에는 request가 존재 
-		return "blog/list";				// 장점 : 서비스 하나당 메소드 하나 있을 시절 많이 사용했었음 
-										// (매개변수의 통일이 필요한 시점) 
-										// 모든 시스템에 매개변수를 model로 통합할 수 있음
-										// 하지만 지금은 굳이 필요는 없지만 사용해보는 중
+		model.addAttribute("request", request);  // model에 request를 저장하기
+		blogService.getBlogList(model);          // model만 넘기지만 이미 model에는 request가 들어 있음
+		return "blog/list";
 	}
 	
 	@GetMapping("/blog/write")
 	public String write() {
 		return "blog/write";
 	}
-
-	@PostMapping("/blog/add")
-	public void add(HttpServletRequest request, HttpServletResponse response) {
-		blogService.saveBlog(request, response);
-	}
 	
-	@ResponseBody // ajax
+	@ResponseBody
 	@PostMapping(value="/blog/uploadImage", produces="application/json")
 	public Map<String, Object> uploadImage(MultipartHttpServletRequest multipartRequest) {
 		return blogService.saveSummernoteImage(multipartRequest);
 	}
 	
+	@PostMapping("/blog/add")
+	public void add(HttpServletRequest request, HttpServletResponse response) {
+		blogService.saveBlog(request, response);
+	}
+	
 	@GetMapping("/blog/increse/hit")
-	public String increseHit(@RequestParam(value="blogNo", required=false, defaultValue="0") int blogNo) { // 꼭 필요하지만 혹시 안 올수 있으니까
+	public String increseHit(@RequestParam(value="blogNo", required=false, defaultValue="0") int blogNo) {
 		int result = blogService.increseBlogHit(blogNo);
-		if(result > 0) { // 조회수 증가 성공하면 상세보기로 이동
+		if(result > 0) {  // 조회수 증가에 성공하면 상세보기로 이동
 			return "redirect:/blog/detail?blogNo=" + blogNo;
-		} else {		 // 조회수 증가 실패하면 목록으로 이동
+		} else {          // 조회수 증가에 실패하면 목록보기로 이동
 			return "redirect:/blog/list";
 		}
 	}
 	
-	@GetMapping("/blog/detail") // model에다 실어놓으면 수정하기 할때 재활용이 X
-	public String detail (@RequestParam(value="blogNo", required=false, defaultValue="0") int blogNo, Model model) {
+	@GetMapping("/blog/detail")
+	public String detail(@RequestParam(value="blogNo", required=false, defaultValue="0") int blogNo, Model model) {
 		model.addAttribute("blog", blogService.getBlogByNo(blogNo));
-		return "/blog/detail";
+		return "blog/detail";
 	}
 	
 	@PostMapping("/blog/edit")
@@ -77,12 +74,12 @@ public class BlogController {
 	
 	@PostMapping("/blog/modify")
 	public void modify(HttpServletRequest request, HttpServletResponse response) {
-		blogService.modifyBlog(request, response); // 수정 후 상세보기로
+		blogService.modifyBlog(request, response);
 	}
 	
 	@PostMapping("/blog/remove")
 	public void remove(HttpServletRequest request, HttpServletResponse response) {
-		blogService.removeBlog(request, response); // 수정 후 목록보기로
+		blogService.removeBlog(request, response);
 	}
 	
 }
