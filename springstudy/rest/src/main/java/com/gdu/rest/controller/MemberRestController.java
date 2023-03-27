@@ -44,6 +44,7 @@ public class MemberRestController {
 		return memberService.register(member, response);
 	}
 	
+	// 목록
 	@GetMapping(value="/members/page/{page}", produces="application/json") // 경로에 들어가있는 변수는 #안쓰고 중괄호{}만써서 표시해준다.
 	public Map<String, Object> getMemberList(@PathVariable(value="page", required=false) Optional<String> opt) {
 		int page = Integer.parseInt(opt.orElse("1")); // @DefaultValue가 없어서 Optional을 사용해주었다.
